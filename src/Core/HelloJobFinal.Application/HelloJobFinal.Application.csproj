@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelloJobFinal.Domain\HelloJobFinal.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Abstractions\" />
+    <None Remove="MappingProfiles\" />
+    <None Remove="ServiceRegistrations\" />
+    <None Remove="Validators\" />
+    <None Remove="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="MappingProfiles\" />
+    <Folder Include="ServiceRegistrations\" />
+    <Folder Include="Validators\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+</Project>

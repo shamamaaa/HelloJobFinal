@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Exceptions\" />
+    <None Remove="Implementations\" />
+    <None Remove="ServiceRegistrations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Implementations\" />
+    <Folder Include="ServiceRegistrations\" />
+  </ItemGroup>
+</Project>
