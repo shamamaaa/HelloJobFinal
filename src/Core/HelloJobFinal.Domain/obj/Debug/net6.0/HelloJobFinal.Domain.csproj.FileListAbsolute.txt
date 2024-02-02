@@ -1,0 +1,12 @@
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/bin/Debug/net6.0/HelloJobFinal.Domain.deps.json
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/bin/Debug/net6.0/HelloJobFinal.Domain.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/bin/Debug/net6.0/HelloJobFinal.Domain.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.csproj.AssemblyReference.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.AssemblyInfoInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.AssemblyInfo.cs
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.csproj.CoreCompileInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/refint/HelloJobFinal.Domain.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/HelloJobFinal.Domain.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Domain/obj/Debug/net6.0/ref/HelloJobFinal.Domain.dll

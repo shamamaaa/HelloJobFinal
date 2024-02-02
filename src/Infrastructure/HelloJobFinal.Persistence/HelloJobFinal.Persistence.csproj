@@ -22,11 +22,13 @@
     <None Remove="DAL\" />
     <None Remove="Implementations\" />
     <None Remove="ServiceRegistrations\" />
+    <None Remove="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
     <Folder Include="DAL\" />
     <Folder Include="Implementations\" />
     <Folder Include="ServiceRegistrations\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 </Project>
