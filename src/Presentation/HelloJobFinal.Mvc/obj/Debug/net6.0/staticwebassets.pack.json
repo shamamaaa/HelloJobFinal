@@ -1,0 +1,705 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/style.css",
+      "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/style.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/login.css",
+      "PackagePath": "staticwebassets/assets/css/login.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/main.css",
+      "PackagePath": "staticwebassets/assets/css/main.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/main.css.map",
+      "PackagePath": "staticwebassets/assets/css/main.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/owl.carousel.min.css",
+      "PackagePath": "staticwebassets/assets/css/owl.carousel.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/owl.theme.default.min.css",
+      "PackagePath": "staticwebassets/assets/css/owl.theme.default.min.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/slick.css",
+      "PackagePath": "staticwebassets/assets/css/slick.css"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/css/slick.css.map",
+      "PackagePath": "staticwebassets/assets/css/slick.css.map"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/122facebook.svg",
+      "PackagePath": "staticwebassets/assets/images/122facebook.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/141user-clock.svg",
+      "PackagePath": "staticwebassets/assets/images/141user-clock.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/167logo.svg",
+      "PackagePath": "staticwebassets/assets/images/167logo.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/183instagram.svg",
+      "PackagePath": "staticwebassets/assets/images/183instagram.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/262eye.svg",
+      "PackagePath": "staticwebassets/assets/images/262eye.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/278experience.svg",
+      "PackagePath": "staticwebassets/assets/images/278experience.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/278telegram.svg",
+      "PackagePath": "staticwebassets/assets/images/278telegram.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/365folder.svg",
+      "PackagePath": "staticwebassets/assets/images/365folder.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/379birthday-cake.svg",
+      "PackagePath": "staticwebassets/assets/images/379birthday-cake.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/403calendar.svg",
+      "PackagePath": "staticwebassets/assets/images/403calendar.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/409linkedin.svg",
+      "PackagePath": "staticwebassets/assets/images/409linkedin.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/464night_mode_logo.svg",
+      "PackagePath": "staticwebassets/assets/images/464night_mode_logo.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/470mail.svg",
+      "PackagePath": "staticwebassets/assets/images/470mail.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/635file2.svg",
+      "PackagePath": "staticwebassets/assets/images/635file2.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/653phone.svg",
+      "PackagePath": "staticwebassets/assets/images/653phone.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/852loc.svg",
+      "PackagePath": "staticwebassets/assets/images/852loc.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/864graduation.svg",
+      "PackagePath": "staticwebassets/assets/images/864graduation.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/977money.svg",
+      "PackagePath": "staticwebassets/assets/images/977money.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/19satis-cat.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/19satis-cat.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/203marketinq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/203marketinq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/622texnologiya.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/622texnologiya.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/646tehsil-ve-elm.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/646tehsil-ve-elm.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/673xidmet.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/673xidmet.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/730muxtelif.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/730muxtelif.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/742inzibati.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/742inzibati.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/789dizayn.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/789dizayn.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/798huquqsunasliq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/798huquqsunasliq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/810texnologiya.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/810texnologiya.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/966tibb-ve-eczaciliq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/966tibb-ve-eczaciliq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/98maliyye.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/98maliyye.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/dizayn.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/dizayn.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/freelance.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/freelance.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/huquqsunasliq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/huquqsunasliq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/inzibati.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/inzibati.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/maliyye.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/maliyye.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/marketinq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/marketinq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/muxtelif.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/muxtelif.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/part_time.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/part_time.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/satis-cat.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/satis-cat.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/tecrube.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/tecrube.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/tehsil-ve-elm-cat-6414348e561bd6414348e561cb-lY0Gl-kw9Pyk_kP.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/tehsil-ve-elm-cat-6414348e561bd6414348e561cb-lY0Gl-kw9Pyk_kP.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/tehsil-ve-elm.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/tehsil-ve-elm.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/texnologiya.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/texnologiya.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/tibb-ve-eczaciliq.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/tibb-ve-eczaciliq.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/xidmet.png.svg",
+      "PackagePath": "staticwebassets/assets/images/BusinessTitle/xidmet.png.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/114kb-og-image.png",
+      "PackagePath": "staticwebassets/assets/images/Company/114kb-og-image.png"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/243unnamed (1).png",
+      "PackagePath": "staticwebassets/assets/images/Company/243unnamed (1).png"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/3095uMIxAMv_400x400.jpg",
+      "PackagePath": "staticwebassets/assets/images/Company/3095uMIxAMv_400x400.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/3725uMIxAMv_400x400.jpg",
+      "PackagePath": "staticwebassets/assets/images/Company/3725uMIxAMv_400x400.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/575unnamed (1).png",
+      "PackagePath": "staticwebassets/assets/images/Company/575unnamed (1).png"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/119photo_2023-04-28_17-30-34.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/119photo_2023-04-28_17-30-34.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/13photo_2023-05-14_12-11-01.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/13photo_2023-05-14_12-11-01.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/270photo_2023-05-14_12-11-01.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/270photo_2023-05-14_12-11-01.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/39photo_2023-04-28_17-30-34.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/39photo_2023-04-28_17-30-34.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/427827unnamed.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/427827unnamed.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/497photo_2023-05-14_12-45-48.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/497photo_2023-05-14_12-45-48.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/572photo_2023-05-14_12-45-48.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/572photo_2023-05-14_12-45-48.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/575photo_2023-04-28_17-30-27.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/575photo_2023-04-28_17-30-27.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/606photo_2023-04-28_17-30-34.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/606photo_2023-04-28_17-30-34.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/627photo_2023-04-28_17-30-27.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/627photo_2023-04-28_17-30-27.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/641827unnamed.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/641827unnamed.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/725photo_2023-04-28_17-30-27.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/725photo_2023-04-28_17-30-27.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/813369890.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/813369890.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/857photo_2023-05-14_12-11-01.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/857photo_2023-05-14_12-11-01.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/941photo_2023-04-28_17-30-27.jpg",
+      "PackagePath": "staticwebassets/assets/images/User/941photo_2023-04-28_17-30-27.jpg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/105Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/105Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/162Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/162Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/244Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/244Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/40Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/40Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/495Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/495Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/557Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/557Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/558Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/558Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/600Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/600Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/657Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/657Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/699Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/699Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/6Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/6Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/779Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/779Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/835Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/835Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/97Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/97Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/982Cv.pdf",
+      "PackagePath": "staticwebassets/assets/images/User/CVs/982Cv.pdf"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/logo.svg",
+      "PackagePath": "staticwebassets/assets/images/logo.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/moon.svg",
+      "PackagePath": "staticwebassets/assets/images/moon.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/night_mode_logo.svg",
+      "PackagePath": "staticwebassets/assets/images/night_mode_logo.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/account.js",
+      "PackagePath": "staticwebassets/assets/js/account.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/createcompany.js",
+      "PackagePath": "staticwebassets/assets/js/createcompany.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/cvpage.js",
+      "PackagePath": "staticwebassets/assets/js/cvpage.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/darkmode.js",
+      "PackagePath": "staticwebassets/assets/js/darkmode.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/details.js",
+      "PackagePath": "staticwebassets/assets/js/details.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/owl.carousel.min.js",
+      "PackagePath": "staticwebassets/assets/js/owl.carousel.min.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/pageCv.js",
+      "PackagePath": "staticwebassets/assets/js/pageCv.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/postvacans.js",
+      "PackagePath": "staticwebassets/assets/js/postvacans.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/script.js",
+      "PackagePath": "staticwebassets/assets/js/script.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/slick.min.js",
+      "PackagePath": "staticwebassets/assets/js/slick.min.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/wishlist.js",
+      "PackagePath": "staticwebassets/assets/js/wishlist.js"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/main.scss",
+      "PackagePath": "staticwebassets/assets/scss/main.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_WishListpage.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_WishListpage.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_account.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_account.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_company.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_company.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_companydetail.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_companydetail.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_cvdetail.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_cvdetail.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_cvpage.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_cvpage.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_footer.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_footer.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_header.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_header.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_index.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_index.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_liked.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_liked.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_mycompany.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_mycompany.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_myorder.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_myorder.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_mysticker.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_mysticker.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_postCV.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_postCV.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_postvacans.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_postvacans.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_rules.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_rules.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_security.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_security.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/scss/others/_vacansdetail.scss",
+      "PackagePath": "staticwebassets/assets/scss/others/_vacansdetail.scss"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/AcceptedMail.html",
+      "PackagePath": "staticwebassets/assets/template/AcceptedMail.html"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/RejectedMail.html",
+      "PackagePath": "staticwebassets/assets/template/RejectedMail.html"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/ResetPassword.html",
+      "PackagePath": "staticwebassets/assets/template/ResetPassword.html"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/StickyacceptedMail.html",
+      "PackagePath": "staticwebassets/assets/template/StickyacceptedMail.html"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/StickyrejectedMail.html",
+      "PackagePath": "staticwebassets/assets/template/StickyrejectedMail.html"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/template/verifyemail.html",
+      "PackagePath": "staticwebassets/assets/template/verifyemail.html"
+    },
+    {
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.HelloJobFinal.Mvc.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.build.HelloJobFinal.Mvc.props",
+      "PackagePath": "build\\HelloJobFinal.Mvc.props"
+    },
+    {
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.HelloJobFinal.Mvc.props",
+      "PackagePath": "buildMultiTargeting\\HelloJobFinal.Mvc.props"
+    },
+    {
+      "Id": "obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.HelloJobFinal.Mvc.props",
+      "PackagePath": "buildTransitive\\HelloJobFinal.Mvc.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

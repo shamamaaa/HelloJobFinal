@@ -46,9 +46,11 @@ namespace HelloJobFinal.Domain.Entities
         public Status Status { get; set; }
 
 
-        public List<WishListItem>? WishListItems { get; set; }
+        public List<WishListCv>? WishListCvs { get; set; }
+        public List<WishListVacancy>? WishListVacancies { get; set; }
 
-        //request ne edecem bilmirem
+
+        public List<CvRequest>? CvRequests { get; set; }
     }
 }
 

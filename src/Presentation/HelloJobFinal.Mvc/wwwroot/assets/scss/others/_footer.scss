@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.footer {
+    background-color: #212944;
+    padding: 64px 0 24px;
+    font-family: "Inter";
+    overflow: hidden;
+    .container{
+       .brd{
+        padding-bottom: 50px;
+        border-bottom: 0.5px solid #2196F3;
+        margin-bottom: 38px;
+        a{
+            text-decoration: none;
+            .footer__logo {
+                width: 230px;
+                img{
+                    width: 100%;
+                    margin-bottom: 13px;
+                }
+            }
+            p{
+             font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              color: white;
+             }
+           }
+                .footer__menu{
+                    .footer__head {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 20px;
+                        color: #70B9F2;
+                        margin-bottom: 16px;
+                        display: block;
+                    }
+                    ul{
+                        list-style: none;
+                        padding: 0;
+                        li{
+                            margin-bottom: 12px;
+                            a{
+                                font-weight: 400;
+                                font-size: 16px;
+                              line-height: 24px;
+                               color: white;
+                               border-bottom: 1px solid transparent;
+                              transition: 0.2s ease-in-out;
+
+                              &:hover{
+                                border-bottom: 1px solid #2196f3;
+                                transition: 0.2s ease-in-out;
+                              }
+                            }
+                        }
+                    } 
+                }
+       }
+      
+
+
+                .footer__bottom {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #E4E7EC;
+                    
+                .footer__social {
+                    display: flex;
+                    list-style: none;
+                    li{
+                        margin-left: 20px;
+                    }
+                    }
+                }
+    }
+}

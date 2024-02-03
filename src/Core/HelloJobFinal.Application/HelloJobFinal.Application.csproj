@@ -15,6 +15,11 @@
     <None Remove="ServiceRegistrations\" />
     <None Remove="Validators\" />
     <None Remove="ViewModels\" />
+    <None Remove="Abstractions\Repositories\" />
+    <None Remove="Abstractions\Services\" />
+    <None Remove="Abstractions\Repositories\Generic\" />
+    <None Remove="ViewModels\Account\" />
+    <None Remove="ViewModels\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -22,5 +27,13 @@
     <Folder Include="ServiceRegistrations\" />
     <Folder Include="Validators\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Abstractions\Repositories\" />
+    <Folder Include="Abstractions\Services\" />
+    <Folder Include="Abstractions\Repositories\Generic\" />
+    <Folder Include="ViewModels\Account\" />
+    <Folder Include="ViewModels\Category\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
   </ItemGroup>
 </Project>

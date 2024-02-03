@@ -13,6 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.26" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj" />

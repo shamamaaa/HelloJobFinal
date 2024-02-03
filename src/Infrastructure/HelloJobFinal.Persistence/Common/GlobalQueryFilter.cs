@@ -19,15 +19,17 @@ namespace HelloJobFinal.Persistence.Common
             ApplyQuery<City>(builder);
             ApplyQuery<Company>(builder);
             ApplyQuery<Cv>(builder);
+            ApplyQuery<CvRequest>(builder);
             ApplyQuery<Education>(builder);
             ApplyQuery<Experience>(builder);
             ApplyQuery<Requirement>(builder);
             ApplyQuery<Setting>(builder);
             ApplyQuery<Vacancy>(builder);
-            ApplyQuery<WishListItem>(builder);
+            ApplyQuery<VacancyRequest>(builder);
+            ApplyQuery<WishListCv>(builder);
+            ApplyQuery<WishListVacancy>(builder);
             ApplyQuery<WorkInfo>(builder);
             ApplyQuery<WorkingHour>(builder);
-
         }
 
     }

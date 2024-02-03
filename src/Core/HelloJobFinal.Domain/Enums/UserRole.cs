@@ -3,7 +3,7 @@ namespace HelloJobFinal.Domain.Enums
 {
 	public enum UserRole
 	{
-		Company,
+        Company,
 		Employee
 	}
 }

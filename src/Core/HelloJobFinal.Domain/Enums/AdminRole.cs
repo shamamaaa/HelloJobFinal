@@ -3,8 +3,8 @@ namespace HelloJobFinal.Domain.Enums
 {
 	public enum AdminRole
 	{
-		Admin,
-		Moderator
-	}
+        Admin,
+        Moderator
+    }
 }
 

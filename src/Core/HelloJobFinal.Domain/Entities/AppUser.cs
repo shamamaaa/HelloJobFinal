@@ -7,9 +7,16 @@ namespace HelloJobFinal.Domain.Entities
 	{
 		public string Name { get; set; }
         public string Surname { get; set; }
-		public List<Company>? Companies { get; set; }  //Company daxilinden vakansiyalara el catir
+        public bool IsActivate { get; set; }
+
+        public List<Company>? Companies { get; set; }  //Company daxilinden vakansiyalara el catir
         public List<Cv>? Cvs { get; set; }  //Employee elan kimi bir nece cv yerelesdire bilermis.
-		public List<WishListItem> WishListItems { get; set; }
-	}
+		public List<WishListCv>? WishListCvs { get; set; }
+        public List<WishListVacancy>? WishListVacancies { get; set; }
+        public List<CvRequest>? CvRequests { get; set; }
+        public List<VacancyRequest>? VacancyRequests { get; set; }
+
+
+    }
 }
 

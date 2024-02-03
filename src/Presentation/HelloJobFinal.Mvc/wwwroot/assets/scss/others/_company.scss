@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main {
+    #companies {
+        .two_side_bridge {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+                z-index: 5;
+            }
+
+            ul {
+                display: flex;
+                justify-content: flex-end;
+
+                li {
+                    &::after {
+                        position: relative;
+                        float: right;
+                        content: '/';
+                        margin-left: 15px;
+                        color: #fff;
+                        font-size: 16px;
+                    }
+
+                    a {
+                        font-weight: 200;
+                        font-size: 16px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+
+        .company_card {
+            transition: .3s ease;
+            margin-bottom: 20px;
+
+            .company_box {
+                transition: .3s ease;
+
+                .full {
+                    padding: 30px 10px;
+                    border-radius: 6px;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid #EDEDED;
+                    align-items: center;
+                    transition: .3s ease;
+                    text-decoration: none;
+
+                    .company_images {
+                        padding:0px !important; 
+                        position:static !important;
+
+                        .image{
+                            height: 70px;
+                            display: flex;
+                            justify-content: center;
+                            img {
+                                width: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                  
+                    }
+
+                    p {
+                        font-size: 16px;
+                        color: #212944;
+                        font-weight: 500;
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+
+                    span {
+                        font-size: 14px;
+                        color: #212944;
+                    }
+
+                    &:hover {
+                        transform: translateZ(15px);
+                        transition: 0.3s;
+                    }
+                }
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+        }
+    }
+}
+
+.dark {
+    background: #061e40 !important;
+    .company_card {
+        .company_box {
+            a {
+                p {
+                    color: white !important;
+                }
+                span {
+                    color: white !important;
+                }
+            }
+        }
+
+
+    }
+}

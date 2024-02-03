@@ -36,34 +36,43 @@ namespace HelloJobFinal.Persistence.DAL
 
 		public DbSet<WorkingHour> WorkingHours { get; set; }
 
-        public DbSet<WishListItem> WishListItems { get; set; }
+        public DbSet<WishListCv> WishListCvs { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyQueryFilters();
+        public DbSet<WishListVacancy> WishListVacancies { get; set; }
 
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            base.OnModelCreating(modelBuilder);
-        }
+        public DbSet<CvRequest> CvRequests { get; set; }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            var entities = ChangeTracker.Entries<BaseEntity>();
-            foreach (var data in entities)
-            {
-                switch (data.State)
-                {
-                    case EntityState.Modified:
-                        data.Entity.ModifiedAt = DateTime.Now;
-                        break;
-                    case EntityState.Added:
-                        data.Entity.CreatedAt = DateTime.Now;
-                        break;
-                }
-            }
+        public DbSet<VacancyRequest> VacancyRequests { get; set; }
 
-            return base.SaveChangesAsync(cancellationToken);
-        }
+
+
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.ApplyQueryFilters();
+
+        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    var entities = ChangeTracker.Entries<BaseEntity>();
+        //    foreach (var data in entities)
+        //    {
+        //        switch (data.State)
+        //        {
+        //            case EntityState.Modified:
+        //                data.Entity.ModifiedAt = DateTime.Now;
+        //                break;
+        //            case EntityState.Added:
+        //                data.Entity.CreatedAt = DateTime.Now;
+        //                break;
+        //        }
+        //    }
+
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
     }
 }
 

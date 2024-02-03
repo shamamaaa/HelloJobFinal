@@ -1,0 +1,412 @@
+.user_block {
+    border: 1px solid #e2e9f2;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 32px;
+    color: #061e40;
+    margin-top: 20px;
+    position: relative;
+
+    a {
+        text-decoration: none;
+        color: #000;
+
+        .header_user {
+            margin-bottom: 24px;
+            position: unset;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+
+            .user_img {
+                border: 5px solid #e2e9f2;
+                width: 120px;
+                height: 95px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 30px;
+
+                img {
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .user_desc {
+                margin-right: 30px;
+
+                .profession {
+                    font-weight: 500;
+                    font-size: 20px;
+                    margin-bottom: 4px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .fullname {
+                    font-weight: 400;
+                    margin-bottom: 15px;
+                    color: #000;
+                }
+            }
+
+        }
+
+        .user_options {
+            display: flex;
+            justify-content: space-between;
+
+            .item {
+                margin-bottom: 0;
+                display: flex;
+                align-items: flex-start;
+                padding: 10px;
+
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    background: #ebedf3;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 16px;
+                }
+
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    h4 {
+                        padding: 0;
+                        font-size: 18px;
+                        color: #565252;
+                        margin: 0;
+                    }
+
+                    p {
+                        color: gray;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    .user_buttons {
+        position: absolute;
+        top: 10px;
+        right: 80px;
+        display: flex;
+        cursor: pointer;
+
+        .btn {
+            border-radius: 10px;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            background-color: #F4F6F9;
+            color: black;
+            font-weight: 500;
+        }
+
+        .deleted {
+            background-color: white;
+            border-color: #F4F6F9;
+            color: #A3A6AC;
+            margin-left: 24px;
+        }
+
+    }
+
+    @media screen and (max-width: 821px) {
+        & {
+            a {
+                .header_user {
+                    margin-bottom: 24px;
+
+                    .user_desc {
+                        margin-right: 10px;
+
+                        .profession {
+                            font-size: 10px;
+                        }
+
+                        .name {
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+
+                .user_options {
+
+                    .item {
+                        padding: 10px;
+
+                        .icon {
+                            width: 20px;
+                        }
+
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+                            height: 100%;
+
+                            h4 {
+                                font-size: 10px;
+                            }
+
+                            p {
+                                font-size: 8px;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .user_buttons {
+                top: 100px;
+                right: 8px;
+
+                .btn {
+                    padding: 4px 6px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.vacancies {
+    margin-bottom: 15px;
+
+    .vacancies_href {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #212944;
+        padding: 18px;
+        border: 1px solid #E4E7EC;
+        border-radius: 6px;
+        position: relative;
+
+        a {
+            text-decoration: none;
+            color: black;
+
+            .item_left {
+
+                max-width: 390px;
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    width: 56px;
+                    height: 56px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+
+                .title {
+                    margin-left: 15px;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+
+                    h3 {
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin-bottom: 10px;
+                        position: absolute;
+                        top: 35px;
+                    }
+                }
+
+                @media screen and (max-width: 821px) {
+                    & {
+                        .icon {
+                            width: 36px;
+                            height: 36px;
+
+                            img {
+                                width: 100%;
+                                object-fit: contain;
+                            }
+                        }
+
+                        .title {
+                            margin-left: 15px;
+                            font-weight: 400;
+                            font-size: 8px;
+                            line-height: 11px;
+
+                            h3 {
+                                font-weight: 500;
+                                font-size: 8px;
+                                line-height: 16px;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .item_right {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .salary {
+                color: #2196F3;
+                display: flex;
+                align-items: center;
+
+                &::after {
+                    display: block;
+                    content: "";
+                    width: 1px;
+                    height: 16px;
+                    background-color: #E4E7EC;
+                    margin: 0 12px;
+                }
+            }
+
+
+
+        }
+
+        .vacans_buttons {
+            display: flex;
+            cursor: pointer;
+
+            a {
+                .btn {
+                    border-radius: 10px;
+                    padding: 8px 14px;
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid transparent;
+                    background-color: #F4F6F9;
+                    color: black;
+                    font-weight: 500;
+                }
+
+                .deleted {
+                    background-color: white;
+                    border-color: #F4F6F9;
+                    color: #A3A6AC;
+                    margin-left: 24px;
+                }
+            }
+
+        }
+
+        @media screen and (max-width: 821px) {
+            & {
+                .title{
+                    h3{
+                        top: 35px;
+                    }
+                }
+                .salary {
+                    display: none !important;
+                }
+
+                .date {
+                    font-size: 8px;
+                }
+
+                .vacans_buttons {
+                    display: flex;
+                    cursor: pointer;
+
+                    a {
+                        img{
+                            width: 15px;
+                        }
+                        span{
+                            display: none;
+                        }
+                        .btn {
+                            border-radius: 10px;
+                            padding: 4px 6px;
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid transparent;
+                            background-color: #F4F6F9;
+                        }
+
+                        .deleted {
+                            background-color: white;
+                            border-color: #F4F6F9;
+                            color: #A3A6AC;
+                            margin-left: 24px;
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+
+        @media screen and (max-width: 391px) {
+            & {
+                .salary {
+                    display: none !important;
+
+                }
+                .date {
+                    font-size: 6px;
+                }
+
+                .vacans_buttons {
+                    display: flex;
+                    cursor: pointer;
+
+                    a {
+                        img{
+                            width: 15px;
+                        }
+                        span{
+                            display: none;
+                        }
+                        .btn {
+                            border-radius: 10px;
+                            padding: 4px 6px;
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid transparent;
+                            background-color: #F4F6F9;
+                        }
+
+                        .deleted {
+                            background-color: white;
+                            border-color: #F4F6F9;
+                            color: #A3A6AC;
+                            margin-left: 24px;
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+    }
+}

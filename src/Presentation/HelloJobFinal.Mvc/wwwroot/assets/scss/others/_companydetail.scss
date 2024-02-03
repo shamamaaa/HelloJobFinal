@@ -1,0 +1,439 @@
+#company_detail{
+    position: relative;
+    .breadcrumbs-block {
+        margin: 24px 0;
+        font-family: "Inter";
+
+        .breadcrumbs {
+            display: flex;
+            align-items: baseline;
+
+            li {
+                display: flex;
+
+                a {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #A3A6AC;
+                    text-decoration: none;
+
+                }
+            }
+        }
+    }
+    .infos {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        text-transform: uppercase;
+        color: #2196F3;
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+
+        &:before {
+            content: "";
+            width: 3px;
+            height: 24px;
+            background-color: #2196F3;
+            display: block;
+            margin-right: 16px;
+            border-radius: 10px;
+        }
+    }
+    .company_vacans{
+        .vacancies {
+            margin-bottom: 15px;
+            .company_vacans__href {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: #212944;
+                padding: 18px;
+                border: 1px solid #E4E7EC;
+                border-radius: 6px;
+                position: relative;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+
+                    .item_left {
+
+                        max-width: 390px;
+                        display: flex;
+                        align-items: center;
+
+                        .icon {
+                            width: 56px;
+                            height: 56px;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            overflow: hidden;
+                        }
+
+                        .title {
+                            margin-left: 15px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 0px;
+
+                            h3 {
+                                font-weight: 500;
+                                font-size: 16px;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        @media screen and (max-width: 821px) {
+                            & {
+                                .icon {
+                                    width: 36px;
+                                    height: 36px;
+
+                                    img {
+                                        width: 100%;
+                                        object-fit: contain;
+                                    }
+                                }
+
+                                .title {
+                                    margin-left: 15px;
+                                    font-weight: 400;
+                                    font-size: 8px;
+                                    line-height: 11px;
+
+                                    h3 {
+                                        font-weight: 500;
+                                        font-size: 8px;
+                                        line-height: 16px;
+                                        margin-bottom: 10px;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                .item_right {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 17px;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .salary {
+                        color: #2196F3;
+                        display: flex;
+                        align-items: center;
+
+                        &::after {
+                            display: block;
+                            content: "";
+                            width: 1px;
+                            height: 16px;
+                            background-color: #E4E7EC;
+                            margin: 0 12px;
+                        }
+                    }
+
+                    .like {
+                        position: relative;
+                        width: 32px;
+                        height: 32px;
+                        background: #F4F6F9;
+                        border-radius: 6px;
+                        margin-left: 28px;
+
+                        .unliked {
+                            font-size: 18px;
+                            text-align: center;
+                            position: absolute;
+                            top: 6px;
+                            right: 7px;
+                            transition: 0.3s ease;
+
+                            &:hover {
+                                color: #2196f3;
+                                transition: 0.3s ease;
+                            }
+                        }
+
+                        .liked {
+                            font-size: 18px;
+                            text-align: center;
+                            position: absolute;
+                            top: 6px;
+                            right: 7px;
+                            color: #2196f3;
+                            display: none;
+                        }
+
+                        .hidden {
+                            display: block;
+                        }
+
+                    }
+
+                }
+
+                @media screen and (max-width: 821px) {
+                    & {
+                        .salary {
+                            font-size: 9px;
+
+                        }
+
+                        .date {
+                            font-size: 8px;
+                        }
+
+                        .like {
+                            width: 22px;
+                            height: 22px;
+
+                            .unliked {
+                                font-size: 8px;
+                            }
+
+                            .liked {
+                                font-size: 8px;
+                            }
+
+                        }
+
+                    }
+                }
+
+                @media screen and (max-width: 391px) {
+                    .vacancies_href {
+                        .item_left {
+                            .icon {
+                                width: 28px;
+                                height: 28px;
+                            }
+                
+                            .title {
+                                margin-left: 10px;
+                                font-size: 12px;
+                                line-height: 16px;
+                
+                                h3 {
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                
+                        .item_right {
+                            .salary {
+                                font-size: 10px;
+                            }
+                
+                            .like {
+                                width: 16px;
+                                height: 16px;
+                
+                                .unliked,
+                                .liked {
+                                    font-size: 6px;
+                                    top: 4px;
+                                    right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .contact_body {
+            position: sticky;
+            top: 0;
+            border: 1px solid #e2e9f2;
+            border-radius: 8px 8px 0 0;
+            padding: 8px;
+            .stick {
+                margin: 10px;
+                .title {
+                    h4 {
+                        font-size: 17px;
+                        font-weight: 700;
+                    }
+                }
+                .info {
+                    .item {
+                        padding: 6px;
+
+                        .image {
+                            width: 40px;
+                            height: 40px;
+                            background: #ebedf3;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 16px;
+                        }
+
+                        img {
+                            object-fit: contain;
+                        }
+                    }
+
+                    .text {
+                        margin-left: 10px;
+                        line-height: 1px;
+
+                        h4 {
+                            font-size: 16px;
+                        }
+
+                        p {
+                            font-size: 13px;
+                        }
+
+                    }
+
+                    .opened {
+                        .secrets_title {
+                            transition: 0.3s ease;
+                            display: none !important;
+                        }
+
+                        .secrets {
+                            transition: 0.3s ease;
+                            display: block !important;
+                        }
+                    }
+
+                    .lock {
+                        .locking {
+                            width: 22px;
+                            margin: 6px;
+
+                            .image {
+                                margin: -11px;
+                                cursor: pointer;
+                                img {
+                                    position: absolute;
+                                    width: 100%;
+                                    object-fit: contain;
+                                }
+
+                                .close {
+                                    position: absolute;
+                                    opacity: 1;
+                                    transition: 0.3s ease;
+                                }
+
+                                .open {
+                                    position: absolute;
+                                    opacity: 0;
+                                    transition: 0.3s ease;
+
+                                }
+                            }
+
+                            .open-image {
+                                .close {
+                                    opacity: 0;
+                                }
+
+                                .open {
+                                    opacity: 1;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.dark {
+    background: #061e40 !important;
+    #company_detail{
+        .company_vacans{
+            .vacancies {
+                margin-bottom: 15px;
+                .company_vacans__href {
+                    color: white;
+    
+                    a {
+                        color: white;
+    
+                        .item_left {
+                            .title {
+               
+    
+                                h3 {
+                                    color: white;
+                                }
+                            }
+    
+                            @media screen and (max-width: 821px) {
+                                & {
+                                    .title {
+    
+                                        h3 {
+                                        color: white;
+                                        }
+                                    }
+    
+                                }
+                            }
+                        }
+                    }
+    
+                    .item_right {
+                        .like {
+                            background: #436ca8 !important;
+                            .unliked {
+                                color: black;
+        
+                                &:hover {
+                                    color: blue;
+                                    transition: 0.3s ease;
+                                }
+                            }
+                        }
+                        .date{
+                            color: gray;
+                        }
+        
+                    }
+                }
+            }
+            .contact_body {
+                .stick {
+                    .title {
+                        h4 {
+                            color: white;
+                        }
+                    }
+
+                    .info {
+                        .text {
+                            h4 {
+                               color: white;
+                            }
+
+                            p {
+                               color: white;
+                            }
+
+                        }
+                    }
+                }
+    
+            }
+        }
+    }
+    
+}
