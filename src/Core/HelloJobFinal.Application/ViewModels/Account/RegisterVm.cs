@@ -5,6 +5,6 @@ using System.Xml.Linq;
 
 namespace HelloJobFinal.Application.ViewModels.Account
 {
-    public record RegisterVM(string Name, string Surname, string UserName, string Email, string Password, string ConfirmPassword, UserRole role);
+    public record RegisterVM(string Name, string Surname, string UserName, string Email, string Password, string ConfirmPassword, UserRole role, bool AllowTerms);
 }
 

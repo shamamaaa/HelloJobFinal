@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+
 namespace HelloJobFinal.Application.ViewModels.Category
 {
-	public class CreateBaseCategoryVm
-	{
-		public CreateBaseCategoryVm()
-		{
-		}
-	}
+    public record CreateBaseCategoryVm(string Name, IFormFile Photo);
 }
 

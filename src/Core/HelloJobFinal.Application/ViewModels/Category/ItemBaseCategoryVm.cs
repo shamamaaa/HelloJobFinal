@@ -3,7 +3,5 @@ using Microsoft.AspNetCore.Http;
 
 namespace HelloJobFinal.Application.ViewModels.Category
 {
-    public record UpdateBaseCategoryVm(string Name, IFormFile? Photo);
-
+    public record ItemBaseCategoryVm(int Id, string Name, string ImageUrl);
 }
-
