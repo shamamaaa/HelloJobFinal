@@ -47,7 +47,7 @@ namespace HelloJobFinal.Persistence.DAL
             };
 
             await _userManager.CreateAsync(admin, _configuration["AdminSettings:Password"]);
-            await _userManager.AddToRoleAsync(admin, UserRole.Admin.ToString());
+            await _userManager.AddToRoleAsync(admin, AdminRole.Admin.ToString());
         }
     }
 }

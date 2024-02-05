@@ -21,6 +21,13 @@
     <None Remove="ViewModels\Account\" />
     <None Remove="ViewModels\Category\" />
     <None Remove="ViewModels\City\" />
+    <None Remove="ViewModels\Company\" />
+    <None Remove="ViewModels\Cv\" />
+    <None Remove="ViewModels\Vacancy\" />
+    <None Remove="ViewModels\Education\" />
+    <None Remove="ViewModels\Experience\" />
+    <None Remove="ViewModels\WorkingHour\" />
+    <None Remove="ViewModels\Setting\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -34,6 +41,13 @@
     <Folder Include="ViewModels\Account\" />
     <Folder Include="ViewModels\Category\" />
     <Folder Include="ViewModels\City\" />
+    <Folder Include="ViewModels\Company\" />
+    <Folder Include="ViewModels\Cv\" />
+    <Folder Include="ViewModels\Vacancy\" />
+    <Folder Include="ViewModels\Education\" />
+    <Folder Include="ViewModels\Experience\" />
+    <Folder Include="ViewModels\WorkingHour\" />
+    <Folder Include="ViewModels\Setting\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />

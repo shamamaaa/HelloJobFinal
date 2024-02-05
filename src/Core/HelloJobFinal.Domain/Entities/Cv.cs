@@ -43,12 +43,10 @@ namespace HelloJobFinal.Domain.Entities
         public AppUser AppUser { get; set; }
 
 
-        public Status Status { get; set; }
+        public string Status { get; set; }
 
 
         public List<WishListCv>? WishListCvs { get; set; }
-        public List<WishListVacancy>? WishListVacancies { get; set; }
-
 
         public List<CvRequest>? CvRequests { get; set; }
     }

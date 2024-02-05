@@ -77,3 +77,4 @@
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/obj/Debug/net6.0/ref/HelloJobFinal.Mvc.dll
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/Humanizer.dll
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/obj/Debug/net6.0/HelloJobFinal.Mvc.MvcApplicationPartsAssemblyInfo.cs

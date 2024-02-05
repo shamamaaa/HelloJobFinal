@@ -9,12 +9,12 @@ namespace HelloJobFinal.Domain.Entities
         public string Email { get; set; }
 
         //Relations
-        public List<Vacancy> Vacancies { get; set; }
+        public List<Vacancy>? Vacancies { get; set; }
 
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
-        public Status Status { get; set; }
+        public string Status { get; set; }
     }
 }
 

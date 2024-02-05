@@ -37,11 +37,13 @@ namespace HelloJobFinal.Domain.Entities
         public int CategoryId { get; set; }
         public CategoryItem CategoryItem { get; set; }
 
-        public Status Status { get; set; }
+        public string Status { get; set; }
 
         public List<Requirement>? Requirements { get; set; } //namized telebi
         public List<WorkInfo>? WorkInfos { get; set; } //ish melumati
         public List<VacancyRequest>? VacancyRequests { get; set; }
+        public List<WishListVacancy>? WishListVacancies { get; set; }
+
 
 
     }

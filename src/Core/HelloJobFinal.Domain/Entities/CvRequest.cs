@@ -11,7 +11,7 @@ namespace HelloJobFinal.Domain.Entities
         public int CvId { get; set; }
         public Cv Cv { get; set; }
 
-        public Status Status { get; set; }
-	}
+        public string Status { get; set; }
+    }
 }
 
