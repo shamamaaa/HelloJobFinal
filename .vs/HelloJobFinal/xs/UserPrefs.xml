@@ -1,41 +1,21 @@
 ﻿<Properties StartupConfiguration="{08EB6B18-50AE-4732-BE2D-49AA16695857}|Default">
-  <MonoDevelop.Ide.ItemProperties.src.Infrastructure.HelloJobFinal.Persistence FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.src.Core.HelloJobFinal.Application FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.src.Infrastructure.HelloJobFinal.Infrastructure FirstBuild="True" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Core/HelloJobFinal.Domain/Enums/Status.cs">
-    <Files>
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/DAL/AppDbContext.cs" Line="43" Column="33" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Enums/UserRole.cs" Line="9" Column="2" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Enums/AdminRole.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Enums/Status.cs" Line="13" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HelloJobFinal">
             <Node name="src">
-              <Node name="Core" expanded="True">
-                <Node name="HelloJobFinal.Domain">
-                  <Node name="Entities" expanded="True" />
-                  <Node name="Enums" expanded="True">
-                    <Node name="Status.cs" selected="True" />
+              <Node name="Infrastructure" expanded="True">
+                <Node name="HelloJobFinal.Persistence" expanded="True">
+                  <Node name="Implementations" expanded="True">
+                    <Node name="Services" expanded="True" />
                   </Node>
                 </Node>
-              </Node>
-              <Node name="Infrastructure">
-                <Node name="HelloJobFinal.Infrastructure" expanded="True" />
-                <Node name="HelloJobFinal.Persistence">
-                  <Node name="Common" expanded="True" />
-                  <Node name="DAL" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Presentation" expanded="True">
-                <Node name="HelloJobFinal.Mvc" expanded="True" />
               </Node>
             </Node>
           </Node>
