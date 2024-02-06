@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj" />
+    <ProjectReference Include="..\HelloJobFinal.Infrastructure\HelloJobFinal.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Configurations\" />
@@ -24,6 +25,9 @@
     <None Remove="Implementations\" />
     <None Remove="ServiceRegistrations\" />
     <None Remove="Common\" />
+    <None Remove="Implementations\Repositories\" />
+    <None Remove="Implementations\Services\" />
+    <None Remove="Implementations\Repositories\Generic\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
@@ -31,5 +35,8 @@
     <Folder Include="Implementations\" />
     <Folder Include="ServiceRegistrations\" />
     <Folder Include="Common\" />
+    <Folder Include="Implementations\Repositories\" />
+    <Folder Include="Implementations\Services\" />
+    <Folder Include="Implementations\Repositories\Generic\" />
   </ItemGroup>
 </Project>

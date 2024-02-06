@@ -42,6 +42,22 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -207,6 +223,9 @@
             "projectReferences": {
               "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj": {
                 "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj"
+              },
+              "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj": {
+                "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj"
               }
             }
           }

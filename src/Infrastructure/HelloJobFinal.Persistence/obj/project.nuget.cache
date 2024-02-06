@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "VLR0cmevjx/U1Eb2XxzNZd+Gk8gAtBnYO7kFltW9Y6IuKUh5IjeHfZ1tQ8sJm1QMt0M74HUZkRn0dR+Jt2tyTw==",
+  "dgSpecHash": "+jurpG0GlhC8/zOrVUy0r47tYvs1UQ2zlb4fLHTQm9f4KPSTMRIQCZAZi5y3OAv6FwqihP1+TDM7aXp65fgX6Q==",
   "success": true,
   "projectFilePath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/HelloJobFinal.Persistence.csproj",
   "expectedPackageFiles": [
+    "/Users/shamamaguliyeva/.nuget/packages/automapper/13.0.0/automapper.13.0.0.nupkg.sha512",
+    "/Users/shamamaguliyeva/.nuget/packages/fluentvalidation/11.9.0/fluentvalidation.11.9.0.nupkg.sha512",
+    "/Users/shamamaguliyeva/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "/Users/shamamaguliyeva/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.9.0/fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.26/microsoft.aspnetcore.cryptography.internal.6.0.26.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/6.0.26/microsoft.aspnetcore.cryptography.keyderivation.6.0.26.nupkg.sha512",
@@ -12,7 +16,7 @@
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.26/microsoft.aspnetcore.identity.entityframeworkcore.6.0.26.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.aspnetcore.mvc.abstractions/2.2.0/microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.aspnetcore.routing.abstractions/2.2.0/microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
-    "/Users/shamamaguliyeva/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/shamamaguliyeva/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.entityframeworkcore/6.0.26/microsoft.entityframeworkcore.6.0.26.nupkg.sha512",

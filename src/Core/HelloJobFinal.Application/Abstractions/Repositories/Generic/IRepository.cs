@@ -18,6 +18,7 @@ namespace HelloJobFinal.Application.Abstractions.Repositories.Generic
         IQueryable<T> GetAllWhereByOrder(Expression<Func<T, bool>>? expression = null,
             Expression<Func<T, object>>? orderException = null,
             bool IsDescending = false,
+            bool IsDeleted = false,
             int skip = 0,
             int take = 0,
             bool IsTracking = true,
@@ -26,7 +27,6 @@ namespace HelloJobFinal.Application.Abstractions.Repositories.Generic
         Task<T> GetByIdAsync(int id,
             bool IsTracking = true,
             params string[] includes);
-
 
         Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression,
             bool IsTracking = true,
@@ -39,7 +39,7 @@ namespace HelloJobFinal.Application.Abstractions.Repositories.Generic
         void Delete(T entity);
         void SoftDelete(T entity);
         void ReverseSoftDelete(T entity);
-        Task SaveChangeAsync();
+        Task SaveChanceAsync();
         Task<bool> CheckUniqueAsync(Expression<Func<T, bool>> expression);
     }
 

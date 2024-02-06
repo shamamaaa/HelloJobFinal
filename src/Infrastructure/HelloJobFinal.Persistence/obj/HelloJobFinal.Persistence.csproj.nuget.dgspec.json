@@ -42,6 +42,22 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -126,6 +142,63 @@
         }
       }
     },
+    "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj",
+        "projectName": "HelloJobFinal.Infrastructure",
+        "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj",
+        "packagesPath": "/Users/shamamaguliyeva/.nuget/packages/",
+        "outputPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/shamamaguliyeva/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj": {
+                "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/HelloJobFinal.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -150,6 +223,9 @@
             "projectReferences": {
               "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj": {
                 "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/HelloJobFinal.Application.csproj"
+              },
+              "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj": {
+                "projectPath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/HelloJobFinal.Infrastructure.csproj"
               }
             }
           }
