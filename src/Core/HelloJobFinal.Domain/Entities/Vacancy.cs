@@ -21,6 +21,8 @@ namespace HelloJobFinal.Domain.Entities
         public int CompanyId { get; set; }
         public Company Company { get; set; }
 
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
 
         public int CityId { get; set; }
         public City City { get; set; }

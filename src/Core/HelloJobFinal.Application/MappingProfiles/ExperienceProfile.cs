@@ -12,7 +12,12 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<CreateExperienceVm, Experience>().ReverseMap();
             CreateMap<UpdateExperienceVm, Experience>().ReverseMap();
             CreateMap<IncludeExperienceVm, Experience>().ReverseMap();
+            CreateMap<ItemExperienceVm, Experience>().ReverseMap()
+                .ForMember(x => x.IncludeCvVms, opt => opt.MapFrom(src => src.Cvs.ToList()));
+            CreateMap<GetExperienceVm, Experience>().ReverseMap()
+                .ForMember(x => x.IncludeCvVms, opt => opt.MapFrom(src => src.Cvs.ToList()));
+
         }
-	}
+    }
 }
 

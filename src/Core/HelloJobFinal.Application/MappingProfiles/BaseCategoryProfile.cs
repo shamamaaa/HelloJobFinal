@@ -12,7 +12,13 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<CreateBaseCategoryVm, BaseCategory>().ReverseMap();
             CreateMap<UpdateBaseCategoryVm, BaseCategory>().ReverseMap();
             CreateMap<IncludeBaseCategoryVm, BaseCategory>().ReverseMap();
+            CreateMap<ItemBaseCategoryVm, BaseCategory>().ReverseMap()
+                .ForMember(x => x.CategoryItems, opt => opt.MapFrom(src => src.CategoryItems.ToList()));
+            CreateMap<GetBaseCategoryVm, BaseCategory>().ReverseMap()
+                .ForMember(x => x.CategoryItems, opt => opt.MapFrom(src => src.CategoryItems.ToList()));
+
+
         }
-	}
+    }
 }
 

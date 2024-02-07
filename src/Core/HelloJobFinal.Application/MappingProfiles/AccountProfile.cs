@@ -11,6 +11,8 @@ namespace HelloJobFinal.Application.MappingProfiles
         {
             CreateMap<AppUser, LoginVM>().ReverseMap();
             CreateMap<AppUser, RegisterVM>().ReverseMap();
+            CreateMap<IncludeAppUserVm, AppUser>().ReverseMap();
+
         }
     }
 }

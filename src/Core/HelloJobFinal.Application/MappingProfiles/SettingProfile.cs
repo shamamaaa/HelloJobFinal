@@ -10,6 +10,8 @@ namespace HelloJobFinal.Application.MappingProfiles
         public SettingProfile()
 		{
             CreateMap<ItemSettingVm, Setting>().ReverseMap();
+            CreateMap<UpdateSettingVm, Setting>().ReverseMap();
+
         }
     }
 }

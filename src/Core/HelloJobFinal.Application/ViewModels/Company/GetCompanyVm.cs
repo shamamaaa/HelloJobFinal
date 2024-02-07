@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace HelloJobFinal.Application.ViewModels.Company
 {
-    public record GetCompanyVm(int Id, string ImageUrl, string Email, string AppUserId, string Status, ICollection<IncludeVacancyVm> IncludeVacancies);
+    public record GetCompanyVm(int Id, string ImageUrl, string Email, string AppUserId, string Status)
+    {
+        public ICollection<IncludeVacancyVm> Vacancies { get; init; }
+    }
 }
 

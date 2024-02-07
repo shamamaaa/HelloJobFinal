@@ -11,8 +11,14 @@ namespace HelloJobFinal.Application.MappingProfiles
 		{
             CreateMap<CreateCompanyVm, Company>().ReverseMap();
             CreateMap<UpdateCompanyVm, Company>().ReverseMap();
-            CreateMap<IncludeCompanyVm, Company>().ReverseMap();
+            CreateMap<IncludeCompanyVm, Company>().ReverseMap()
+                .ForMember(x => x.Vacancies, opt => opt.MapFrom(src => src.Vacancies.ToList()));
+            CreateMap<ItemCompanyVm, Company>().ReverseMap()
+                .ForMember(x => x.Vacancies, opt => opt.MapFrom(src => src.Vacancies.ToList()));
+            CreateMap<GetCompanyVm, Company>().ReverseMap()
+                .ForMember(x => x.Vacancies, opt => opt.MapFrom(src => src.Vacancies.ToList()));
+
         }
-	}
+    }
 }
 

@@ -12,7 +12,12 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<CreateEducationVm, Education>().ReverseMap();
             CreateMap<UpdateEducationVm, Education>().ReverseMap();
             CreateMap<IncludeEducationVm, Education>().ReverseMap();
+            CreateMap<GetEducationVm, Education>().ReverseMap()
+                .ForMember(x => x.IncludeCvVms, opt => opt.MapFrom(src => src.Cvs.ToList()));
+            CreateMap<ItemEducationVm, Education>().ReverseMap()
+                .ForMember(x => x.IncludeCvVms, opt => opt.MapFrom(src => src.Cvs.ToList()));
+
         }
-	}
+    }
 }
 
