@@ -9,7 +9,7 @@ namespace HelloJobFinal.Infrastructure.Implementations
             if (file.ContentType.Contains(type)) return true;
             return false;
         }
-        public static bool ValidataSize(this IFormFile file, int limitMb = 10)
+        public static bool ValidataSize(this IFormFile file, int limitMb = 5)
         {
             if (file.Length <= limitMb * 1024 * 1024) return true;
             return false;
