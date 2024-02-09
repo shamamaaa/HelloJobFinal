@@ -1,61 +1,37 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Category;
+using HelloJobFinal.Application.ViewModels.City;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
-using HelloJobFinal.Infrastructure.Implementations;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
 {
-	public class BaseCategoryService : IBaseCategoryService
-	{
+    public class CityService : ICityService
+    {
         private readonly IMapper _mapper;
-        private readonly IBaseCategoryRepository _repository;
-        private readonly IHttpContextAccessor _http;
-        private readonly IWebHostEnvironment _env;
-        private readonly UserManager<AppUser> _userManager;
+        private readonly ICityRepository _repository;
 
-        public BaseCategoryService(IMapper mapper, IBaseCategoryRepository repository,
-            IHttpContextAccessor http, UserManager<AppUser> userManager, IWebHostEnvironment env)
+        public CityService(IMapper mapper, ICityRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
-            _http = http;
-            _userManager = userManager;
-            _env = env;
         }
 
-        public async Task<bool> CreateAsync(CreateBaseCategoryVm create, ModelStateDictionary model)
+        public async Task<bool> CreateAsync(CreateCityVm create, ModelStateDictionary model)
         {
             if (!model.IsValid) return false;
             if (await _repository.CheckUniqueAsync(x => x.Name == create.Name))
             {
-                model.AddModelError("Name", "Base category already exists.");
-                return false;
-            }
-            if (!create.Photo.ValidateType())
-            {
-                model.AddModelError("Photo", "File type is not valid, please choose image file.");
-                return false;
-            }
-            if (!create.Photo.ValidataSize())
-            {
-                model.AddModelError("Photo", "File size is not valid, please choose less than 5Mb.");
+                model.AddModelError("Name", "City already exists.");
                 return false;
             }
 
-            BaseCategory item = _mapper.Map<BaseCategory>(create);
-
-            item.ImageUrl = await create.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "BusinessTitle");
+            City item = _mapper.Map<City>(create);
 
             await _repository.AddAsync(item);
             await _repository.SaveChanceAsync();
@@ -66,62 +42,60 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task DeleteAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
-            BaseCategory item = await _repository.GetByIdAsync(id, includes: includes);
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
+            City item = await _repository.GetByIdAsync(id, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
-
-            item.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "BusinessTitle");
 
             _repository.Delete(item);
             await _repository.SaveChanceAsync();
         }
 
-        public async Task<ICollection<ItemBaseCategoryVm>> GetAllWhereAsync(int take, int page = 1)
+        public async Task<ICollection<ItemCityVm>> GetAllWhereAsync(int take, int page = 1)
         {
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
-            ICollection<BaseCategory> items = await _repository
+            ICollection<City> items = await _repository
                     .GetAllWhere(skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
 
-            ICollection<ItemBaseCategoryVm> vMs = _mapper.Map<ICollection<ItemBaseCategoryVm>>(items);
+            ICollection<ItemCityVm> vMs = _mapper.Map<ICollection<ItemCityVm>>(items);
 
             return vMs;
         }
 
-        public async Task<ICollection<ItemBaseCategoryVm>> GetAllWhereByOrderAsync(int take, Expression<Func<BaseCategory, object>>? orderExpression, int page = 1)
+        public async Task<ICollection<ItemCityVm>> GetAllWhereByOrderAsync(int take, Expression<Func<City, object>>? orderExpression, int page = 1)
         {
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
-            ICollection<BaseCategory> items = await _repository
+            ICollection<City> items = await _repository
                     .GetAllWhereByOrder(orderException: orderExpression, skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
 
-            ICollection<ItemBaseCategoryVm> vMs = _mapper.Map<ICollection<ItemBaseCategoryVm>>(items);
+            ICollection<ItemCityVm> vMs = _mapper.Map<ICollection<ItemCityVm>>(items);
 
             return vMs;
         }
 
-        public async Task<GetBaseCategoryVm> GetByIdAsync(int id)
+        public async Task<GetCityVm> GetByIdAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
-            BaseCategory item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
+            City item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
-            GetBaseCategoryVm get = _mapper.Map<GetBaseCategoryVm>(item);
+            GetCityVm get = _mapper.Map<GetCityVm>(item);
 
             return get;
         }
 
-        public async Task<PaginationVm<ItemBaseCategoryVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<ItemCityVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
         {
             if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
 
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
             double count = await _repository.CountAsync();
 
-            ICollection<BaseCategory> items = new List<BaseCategory>();
+            ICollection<City> items = new List<City>();
 
             switch (order)
             {
@@ -147,9 +121,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
             }
 
-            ICollection<ItemBaseCategoryVm> vMs = _mapper.Map<ICollection<ItemBaseCategoryVm>>(items);
+            ICollection<ItemCityVm> vMs = _mapper.Map<ICollection<ItemCityVm>>(items);
 
-            PaginationVm<ItemBaseCategoryVm> pagination = new PaginationVm<ItemBaseCategoryVm>
+            PaginationVm<ItemCityVm> pagination = new PaginationVm<ItemCityVm>
             {
                 Take = take,
                 Search = search,
@@ -162,15 +136,15 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             return pagination;
         }
 
-        public async Task<PaginationVm<ItemBaseCategoryVm>> GetFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<ItemCityVm>> GetFilteredAsync(string? search, int take, int page, int order)
         {
             if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
 
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
             double count = await _repository.CountAsync();
 
-            ICollection<BaseCategory> items = new List<BaseCategory>();
+            ICollection<City> items = new List<City>();
 
             switch (order)
             {
@@ -196,9 +170,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
             }
 
-            ICollection<ItemBaseCategoryVm> vMs = _mapper.Map<ICollection<ItemBaseCategoryVm>>(items);
+            ICollection<ItemCityVm> vMs = _mapper.Map<ICollection<ItemCityVm>>(items);
 
-            PaginationVm<ItemBaseCategoryVm> pagination = new PaginationVm<ItemBaseCategoryVm>
+            PaginationVm<ItemCityVm> pagination = new PaginationVm<ItemCityVm>
             {
                 Take = take,
                 Search = search,
@@ -214,7 +188,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task ReverseSoftDeleteAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            BaseCategory item = await _repository.GetByIdAsync(id);
+            City item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException("Your request was not found");
 
             item.IsDeleted = false;
@@ -224,58 +198,41 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task SoftDeleteAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            BaseCategory item = await _repository.GetByIdAsync(id);
+            City item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException("Your request was not found");
 
             item.IsDeleted = true;
             await _repository.SaveChanceAsync();
         }
 
-        public async Task<UpdateBaseCategoryVm> UpdateAsync(int id)
+        public async Task<UpdateCityVm> UpdateAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            BaseCategory item = await _repository.GetByIdAsync(id);
+            City item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException("Your request was not found");
 
-            UpdateBaseCategoryVm update = _mapper.Map<UpdateBaseCategoryVm>(item);
+            UpdateCityVm update = _mapper.Map<UpdateCityVm>(item);
 
             return update;
         }
 
-        public async Task<bool> UpdatePostAsync(int id, UpdateBaseCategoryVm update, ModelStateDictionary model)
+        public async Task<bool> UpdatePostAsync(int id, UpdateCityVm update, ModelStateDictionary model)
         {
             if (!model.IsValid) return false;
             if (await _repository.CheckUniqueAsync(x => x.Name.ToLower().Trim() == update.Name.ToLower().Trim() && x.Id != id))
             {
-                model.AddModelError("Name", "Base category already exists.");
+                model.AddModelError("Name", "City already exists.");
                 return false;
             }
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
-            BaseCategory item = await _repository.GetByIdAsync(id, includes: includes);
+            City item = await _repository.GetByIdAsync(id, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
-            if (update.Photo != null)
-            {
-                if (!update.Photo.ValidateType())
-                {
-                    model.AddModelError("Photo", "File type is not valid, please choose image file.");
-                    return false;
-                }
-                if (!update.Photo.ValidataSize())
-                {
-                    model.AddModelError("Photo", "File size is not valid, please choose less than 5Mb.");
-                    return false;
-                }
-
-                item.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "BusinessTitle");
-                item.ImageUrl = await update.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "BusinessTitle");
-            }
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UpdateBaseCategoryVm, BaseCategory>()
-                    .ForMember(dest => dest.ImageUrl, opt => opt.Ignore());
+                cfg.CreateMap<UpdateCityVm, City>();
             });
             var mapper = config.CreateMapper();
 
@@ -285,5 +242,6 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             return true;
         }
     }
+
 }
 
