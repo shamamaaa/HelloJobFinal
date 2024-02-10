@@ -1,9 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace HelloJobFinal.Infrastructure.Implementations
 {
     public static class FlieValidator
     {
+        public static bool ValidateTypeCVFile(this IFormFile file, params string[] type)
+        {
+            for (int i = 0; i < type.Length; i++)
+            {
+                if (file.ContentType.Contains(type[i])) return true;
+            }
+
+            return false;
+        }
         public static bool ValidateType(this IFormFile file, string type = "image/")
         {
             if (file.ContentType.Contains(type)) return true;

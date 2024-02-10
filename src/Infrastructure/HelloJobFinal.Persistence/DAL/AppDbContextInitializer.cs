@@ -36,6 +36,15 @@ namespace HelloJobFinal.Persistence.DAL
             }
         }
 
+        public async Task CreateAdminRolesAsync()
+        {
+            foreach (var role in Enum.GetValues(typeof(AdminRole)))
+            {
+                if (!await _roleManager.RoleExistsAsync(role.ToString()))
+                    await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+            }
+        }
+
         public async Task InitializeAdminAsync()
         {
             AppUser admin = new AppUser

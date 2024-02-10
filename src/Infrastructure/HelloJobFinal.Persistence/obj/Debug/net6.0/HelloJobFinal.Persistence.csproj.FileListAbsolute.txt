@@ -17,3 +17,5 @@
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/obj/Debug/net6.0/HelloJobFinal.Persistence.pdb
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/obj/Debug/net6.0/HelloJobFinal.Persistence.genruntimeconfig.cache
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/obj/Debug/net6.0/ref/HelloJobFinal.Persistence.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/bin/Debug/net6.0/HelloJobFinal.Infrastructure.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/bin/Debug/net6.0/HelloJobFinal.Infrastructure.pdb
