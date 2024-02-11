@@ -6,7 +6,6 @@ using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Application.ViewModels.Category;
 using HelloJobFinal.Application.ViewModels.City;
-using HelloJobFinal.Application.ViewModels.Company;
 using HelloJobFinal.Application.ViewModels.Cv;
 using HelloJobFinal.Application.ViewModels.Education;
 using HelloJobFinal.Application.ViewModels.Experience;
@@ -60,43 +59,43 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (!await _cityRepository.CheckUniqueAsync(x => x.Id == create.CityId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CorporateId", "Corporate not found");
+                model.AddModelError("CityId", "City not found");
                 return false;
             }
             if (!await _educationRepository.CheckUniqueAsync(x => x.Id == create.EducationId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CorporateId", "Corporate not found");
+                model.AddModelError("EducationId", "Education not found");
                 return false;
             }
             if (!await _experienceRepository.CheckUniqueAsync(x => x.Id == create.ExperienceId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CorporateId", "Corporate not found");
+                model.AddModelError("ExperienceId", "Experience not found");
                 return false;
             }
             if (!await _workingHourRepository.CheckUniqueAsync(x => x.Id == create.WorkingHourId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CorporateId", "Corporate not found");
+                model.AddModelError("WorkingHourId", "Working-hour not found");
                 return false;
             }
             if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == create.CategoryId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CorporateId", "Corporate not found");
+                model.AddModelError("CategoryId", "Category not found");
                 return false;
             }
-            if (!create.CvFile.ValidateTypeCVFile("image/", ".docx", ".pdf"))
+            if (!create.CvFile.ValidateTypeCVFile(".docx", ".pdf"))
             {
                 await CreatePopulateDropdowns(create);
                 model.AddModelError("CvFile", "File type is not valid.");
                 return false;
             }
-            if (!create.CvFile.ValidataSize())
+            if (!create.CvFile.ValidataSize(10))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CvFile", "Max file 5Mb.");
+                model.AddModelError("CvFile", "Maximum size of Cv file must be 10 Mb.");
                 return false;
             }
             if (!create.Photo.ValidateType())
@@ -108,14 +107,14 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (!create.Photo.ValidataSize())
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("Photo", "Max file 5Mb.");
+                model.AddModelError("Photo", "Maximum size of photo must be 5 Mb.");
                 return false;
             }
-            Cv item = _mapper.Map<Cv>(create);
-            item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "Cvs");
-            item.ImageUrl = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
 
-            //item.CreatedBy = _http.HttpContext.User.Identity.Name;
+            Cv item = _mapper.Map<Cv>(create);
+
+            item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "CVs");
+            item.ImageUrl = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
 
             await _repository.AddAsync(item);
             await _repository.SaveChanceAsync();
@@ -126,36 +125,229 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             Cv item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException("Your request was not found");
+
+            item.CvFile.DeleteFile(_env.WebRootPath, "assets", "User", "CVs");
+            item.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "User");
+
             _repository.Delete(item);
             await _repository.SaveChanceAsync();
         }
 
         public async Task<ICollection<ItemCvVm>> GetAllWhereAsync(int take, int page = 1)
         {
-            throw new NotImplementedException();
+            string[] includes ={
+                $"{nameof(Cv.Experience)}",
+                $"{nameof(Cv.Education)}",
+                $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WorkingHour)}",
+                $"{nameof(Cv.CategoryItem)}" };
+            ICollection<Cv> items = await _repository
+                    .GetAllWhere(skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
+
+            ICollection<ItemCvVm> vMs = _mapper.Map<ICollection<ItemCvVm>>(items);
+
+            return vMs;
         }
 
         public async Task<ICollection<ItemCvVm>> GetAllWhereByOrderAsync(int take, Expression<Func<Cv, object>>? orderExpression, int page = 1)
         {
-            throw new NotImplementedException();
+            string[] includes ={
+                $"{nameof(Cv.Experience)}",
+                $"{nameof(Cv.Education)}",
+                $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WorkingHour)}",
+                $"{nameof(Cv.CategoryItem)}" };
+            ICollection<Cv> items = await _repository
+                    .GetAllWhereByOrder(orderException: orderExpression, skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
+
+            ICollection<ItemCvVm> vMs = _mapper.Map<ICollection<ItemCvVm>>(items);
+
+            return vMs;
         }
 
         public async Task<GetCvVm> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            string[] includes ={
+                $"{nameof(Cv.Experience)}",
+                $"{nameof(Cv.Education)}",
+                $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WorkingHour)}",
+                $"{nameof(Cv.CategoryItem)}" };
+
+            Cv item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
+            if (item == null) throw new NotFoundException("Your request was not found");
+
+            GetCvVm get = _mapper.Map<GetCvVm>(item);
+
+            return get;
         }
 
-        public async Task<PaginationVm<ItemCvVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
+            int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId)
         {
-            throw new NotImplementedException();
+            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+
+            string[] includes ={
+                $"{nameof(Cv.Experience)}",
+                $"{nameof(Cv.Education)}",
+                $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WorkingHour)}",
+                $"{nameof(Cv.CategoryItem)}" };
+            double count = await _repository.CountAsync();
+
+            ICollection<Cv> items = new List<Cv>();
+            switch (order)
+            {
+                case 1:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Name, false, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 2:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, false, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 3:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Name, true, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 4:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, true, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+            }
+
+            CvFilterVM filtered = new CvFilterVM
+            {
+                Cvs = _mapper.Map<List<ItemCvVm>>(items),
+                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync()),
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+            };
+            PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
+            {
+                Take = take,
+                Search = search,
+                Order = order,
+                CategoryId = categoryId,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling(count / take),
+                Item = filtered
+            };
+
+            return pagination;
         }
 
-        public async Task<PaginationVm<ItemCvVm>> GetFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
+            int? categoryId, int? cityId, int? educationId,int? experienceId, int? workingHourId)
         {
-            throw new NotImplementedException();
+            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+
+            string[] includes ={
+                $"{nameof(Cv.Experience)}",
+                $"{nameof(Cv.Education)}",
+                $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WorkingHour)}",
+                $"{nameof(Cv.CategoryItem)}" };
+            double count = await _repository.CountAsync();
+
+            ICollection<Cv> items = new List<Cv>();
+            switch (order)
+            {
+                case 1:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Name, false, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 2:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, false, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 3:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Name, true, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 4:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, true, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+            }
+
+            CvFilterVM filtered = new CvFilterVM
+            {
+                Cvs = _mapper.Map<List<ItemCvVm>>(items),
+                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync()),
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+            };
+            PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
+            {
+                Take = take,
+                Search = search,
+                Order = order,
+                CategoryId = categoryId,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling(count / take),
+                Item = filtered
+            };
+
+            return pagination;
         }
 
         public async Task ReverseSoftDeleteAsync(int id)
