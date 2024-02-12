@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HelloJobFinal.Application.ViewModels.Education
+namespace HelloJobFinal.Application.ViewModels
 {
     public record UpdateEducationVm(string Name);
 

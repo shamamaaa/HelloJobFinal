@@ -1,15 +1,8 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Category;
-using HelloJobFinal.Application.ViewModels.City;
-using HelloJobFinal.Application.ViewModels.Cv;
-using HelloJobFinal.Application.ViewModels.Education;
-using HelloJobFinal.Application.ViewModels.Experience;
-using HelloJobFinal.Application.ViewModels.WorkingHour;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
 using HelloJobFinal.Infrastructure.Implementations;
@@ -21,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
 {
-	public class CvService : ICvService
+    public class CvService : ICvService
 	{
         private readonly IMapper _mapper;
         private readonly ICvRepository _repository;

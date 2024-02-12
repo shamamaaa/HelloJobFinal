@@ -1,4 +1,4 @@
-﻿using HelloJobFinal.Application.ViewModels.Account;
+﻿using HelloJobFinal.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace HelloJobFinal.Application.Abstractions.Services

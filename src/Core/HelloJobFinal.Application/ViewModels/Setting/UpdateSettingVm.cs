@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HelloJobFinal.Application.ViewModels.Setting
+namespace HelloJobFinal.Application.ViewModels
 {
     public record UpdateSettingVm
     {

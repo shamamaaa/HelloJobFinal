@@ -1,13 +1,11 @@
-﻿using System;
+﻿using System.Linq.Expressions;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq.Expressions;
-using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Cv;
 
 namespace HelloJobFinal.Application.Abstractions.Services
-{ 
-	public interface ICvService
+{
+    public interface ICvService
 	{
         Task<ICollection<ItemCvVm>> GetAllWhereAsync(int take, int page = 1);
         Task<ICollection<ItemCvVm>> GetAllWhereByOrderAsync(int take, Expression<Func<Cv, object>>? orderExpression, int page = 1);

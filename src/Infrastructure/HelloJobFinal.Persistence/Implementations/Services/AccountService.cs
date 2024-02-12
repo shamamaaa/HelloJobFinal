@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Services;
-using HelloJobFinal.Application.ViewModels.Account;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Domain.Enums;
 using HelloJobFinal.Infrastructure.Exceptions;

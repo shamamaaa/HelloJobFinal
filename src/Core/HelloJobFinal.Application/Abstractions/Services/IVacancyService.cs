@@ -1,18 +1,16 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Vacancy;
+﻿using System.Linq.Expressions;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq.Expressions;
-using HelloJobFinal.Application.ViewModels;
 
 namespace HelloJobFinal.Application.Abstractions.Services
 {
-	public interface IVacancyService
+    public interface IVacancyService
     {
         Task<ICollection<ItemVacancyVm>> GetAllWhereAsync(int take, int page = 1);
         Task<ICollection<ItemVacancyVm>> GetAllWhereByOrderAsync(int take, Expression<Func<Vacancy, object>>? orderExpression, int page = 1);
-        Task<PaginationVm<ItemVacancyVm>> GetFilteredAsync(string? search, int take, int page, int order);
-        Task<PaginationVm<ItemVacancyVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order);
+        Task<PaginationVm<VacancyFilterVM>> GetFilteredAsync(string? search, int take, int page, int order, int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId);
+        Task<PaginationVm<VacancyFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order, int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId);
         Task<GetVacancyVm> GetByIdAsync(int id);
         Task<bool> CreateAsync(CreateVacancyVm create, ModelStateDictionary model);
         Task<UpdateVacancyVm> UpdateAsync(int id);

@@ -1,7 +1,4 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Cv;
-
-namespace HelloJobFinal.Application.ViewModels.Experience
+﻿namespace HelloJobFinal.Application.ViewModels
 {
     public record GetExperienceVm(int Id, string Name)
     {

@@ -1,13 +1,11 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.WorkingHour;
+﻿using System.Linq.Expressions;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq.Expressions;
-using HelloJobFinal.Application.ViewModels;
 
 namespace HelloJobFinal.Application.Abstractions.Services
 {
-	public interface IWorkingHourService
+    public interface IWorkingHourService
     {
         Task<ICollection<ItemWorkingHourVm>> GetAllWhereAsync(int take, int page = 1);
         Task<ICollection<ItemWorkingHourVm>> GetAllWhereByOrderAsync(int take, Expression<Func<WorkingHour, object>>? orderExpression, int page = 1);

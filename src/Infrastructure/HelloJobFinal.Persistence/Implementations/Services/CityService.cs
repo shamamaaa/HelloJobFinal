@@ -3,7 +3,6 @@ using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.City;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

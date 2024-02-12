@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+jurpG0GlhC8/zOrVUy0r47tYvs1UQ2zlb4fLHTQm9f4KPSTMRIQCZAZi5y3OAv6FwqihP1+TDM7aXp65fgX6Q==",
+  "dgSpecHash": "9jb63XoerhnSjaQietWUzCbynWSqJN9xDELf61N73pngHJ/ybCTwvzw6A5dh189QDAhM2aMXFfg/baCCqJ116Q==",
   "success": true,
   "projectFilePath": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/HelloJobFinal.Persistence.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/shamamaguliyeva/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/shamamaguliyeva/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",

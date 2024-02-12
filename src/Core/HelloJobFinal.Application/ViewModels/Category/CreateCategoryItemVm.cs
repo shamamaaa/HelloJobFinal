@@ -1,5 +1,6 @@
 ﻿using System;
-namespace HelloJobFinal.Application.ViewModels.Category
+
+namespace HelloJobFinal.Application.ViewModels
 {
     public record CreateCategoryItemVm(string Name, int BaseCategoryId)
     {

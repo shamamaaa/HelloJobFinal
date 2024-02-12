@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Education;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 

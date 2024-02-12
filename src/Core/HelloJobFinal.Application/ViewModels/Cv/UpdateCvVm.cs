@@ -1,12 +1,7 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Category;
-using HelloJobFinal.Application.ViewModels.City;
-using HelloJobFinal.Application.ViewModels.Education;
-using HelloJobFinal.Application.ViewModels.Experience;
-using HelloJobFinal.Application.ViewModels.WorkingHour;
+﻿
 using Microsoft.AspNetCore.Http;
 
-namespace HelloJobFinal.Application.ViewModels.Cv
+namespace HelloJobFinal.Application.ViewModels
 {
     public record UpdateCvVm(string Name, string Surname, string Email, DateTime Birthday, int Phone,
         string ImageUrl, IFormFile? Photo, string Position, int MinSalary, bool HasDriverLicense, DateTime FinishTime,

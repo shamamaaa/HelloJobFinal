@@ -109,6 +109,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -142,6 +146,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -169,6 +177,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -199,6 +211,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -255,6 +271,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CvFile")
                         .IsRequired()
@@ -349,6 +369,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CvId")
                         .HasColumnType("int");
 
@@ -382,6 +406,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -408,6 +436,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -433,6 +465,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeRequirement")
                         .HasColumnType("nvarchar(max)");
@@ -464,6 +500,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -491,6 +531,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -505,6 +549,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EducationId")
                         .HasColumnType("int");
@@ -546,6 +594,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId");
+
                     b.HasIndex("CategoryItemId");
 
                     b.HasIndex("CityId");
@@ -575,6 +625,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -613,6 +667,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CvId")
                         .HasColumnType("int");
 
@@ -646,8 +704,9 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CvId")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -661,8 +720,6 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
-
-                    b.HasIndex("CvId");
 
                     b.HasIndex("VacancyId");
 
@@ -679,6 +736,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Info")
                         .HasColumnType("nvarchar(max)");
@@ -709,6 +770,10 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -963,6 +1028,12 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
 
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.Vacancy", b =>
                 {
+                    b.HasOne("HelloJobFinal.Domain.Entities.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HelloJobFinal.Domain.Entities.CategoryItem", "CategoryItem")
                         .WithMany("Vacancies")
                         .HasForeignKey("CategoryItemId")
@@ -970,7 +1041,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("HelloJobFinal.Domain.Entities.City", "City")
-                        .WithMany()
+                        .WithMany("Vacancies")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -982,13 +1053,13 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("HelloJobFinal.Domain.Entities.Education", "Education")
-                        .WithMany()
+                        .WithMany("Vacancies")
                         .HasForeignKey("EducationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HelloJobFinal.Domain.Entities.Experience", "Experience")
-                        .WithMany()
+                        .WithMany("Vacancies")
                         .HasForeignKey("ExperienceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -998,6 +1069,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .HasForeignKey("WorkingHourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("CategoryItem");
 
@@ -1058,12 +1131,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HelloJobFinal.Domain.Entities.Cv", null)
-                        .WithMany("WishListVacancies")
-                        .HasForeignKey("CvId");
-
                     b.HasOne("HelloJobFinal.Domain.Entities.Vacancy", "Vacancy")
-                        .WithMany()
+                        .WithMany("WishListVacancies")
                         .HasForeignKey("VacancyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1165,6 +1234,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.City", b =>
                 {
                     b.Navigation("Cvs");
+
+                    b.Navigation("Vacancies");
                 });
 
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.Company", b =>
@@ -1177,18 +1248,20 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Navigation("CvRequests");
 
                     b.Navigation("WishListCvs");
-
-                    b.Navigation("WishListVacancies");
                 });
 
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.Education", b =>
                 {
                     b.Navigation("Cvs");
+
+                    b.Navigation("Vacancies");
                 });
 
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.Experience", b =>
                 {
                     b.Navigation("Cvs");
+
+                    b.Navigation("Vacancies");
                 });
 
             modelBuilder.Entity("HelloJobFinal.Domain.Entities.Vacancy", b =>
@@ -1196,6 +1269,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     b.Navigation("Requirements");
 
                     b.Navigation("VacancyRequests");
+
+                    b.Navigation("WishListVacancies");
 
                     b.Navigation("WorkInfos");
                 });

@@ -3,7 +3,7 @@ using HelloJobFinal.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace HelloJobFinal.Application.ViewModels.Account
+namespace HelloJobFinal.Application.ViewModels
 {
     public record RegisterVM(string Name, string Surname, string UserName,
         string Email, string Password, string ConfirmPassword, string role, bool AllowTerms);

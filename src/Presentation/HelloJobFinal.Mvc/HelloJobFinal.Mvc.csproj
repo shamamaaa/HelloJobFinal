@@ -11,6 +11,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\BaseCategory\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj">
@@ -28,5 +35,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Areas\" />
+    <None Remove="Areas\Admin\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Views\BaseCategory\" />
+    <None Remove="Areas\Admin\Views\Home\" />
   </ItemGroup>
 </Project>

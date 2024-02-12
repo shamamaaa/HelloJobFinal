@@ -1,13 +1,9 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Setting;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 

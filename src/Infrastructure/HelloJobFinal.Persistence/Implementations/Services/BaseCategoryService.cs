@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Category;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
 using HelloJobFinal.Infrastructure.Implementations;
@@ -16,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
 {
-	public class BaseCategoryService : IBaseCategoryService
+    public class BaseCategoryService : IBaseCategoryService
 	{
         private readonly IMapper _mapper;
         private readonly IBaseCategoryRepository _repository;

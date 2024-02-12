@@ -30,6 +30,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsActivate = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -58,6 +59,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -74,6 +76,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -90,6 +93,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -106,6 +110,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -124,6 +129,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Key = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -139,6 +145,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -263,8 +270,9 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -288,6 +296,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BaseCategoryId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -328,8 +337,9 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CategoryItemId = table.Column<int>(type: "int", nullable: false),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -388,20 +398,28 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     IsTimeOver = table.Column<bool>(type: "bit", nullable: false),
                     ViewCount = table.Column<int>(type: "int", nullable: false),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CityId = table.Column<int>(type: "int", nullable: false),
                     EducationId = table.Column<int>(type: "int", nullable: false),
                     ExperienceId = table.Column<int>(type: "int", nullable: false),
                     WorkingHourId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CategoryItemId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vacancies", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Vacancies_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Vacancies_CategoryItems_CategoryItemId",
                         column: x => x.CategoryItemId,
@@ -419,7 +437,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         column: x => x.CompanyId,
                         principalTable: "Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Vacancies_Educations_EducationId",
                         column: x => x.EducationId,
@@ -448,8 +466,9 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CvId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -479,6 +498,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CvId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -508,6 +528,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     EmployeeRequirement = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VacancyId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -530,8 +551,9 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     VacancyId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -560,8 +582,8 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     VacancyId = table.Column<int>(type: "int", nullable: false),
-                    CvId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -574,11 +596,6 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_WishListVacancies_Cvs_CvId",
-                        column: x => x.CvId,
-                        principalTable: "Cvs",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_WishListVacancies_Vacancies_VacancyId",
                         column: x => x.VacancyId,
@@ -596,6 +613,7 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                     Info = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VacancyId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -705,6 +723,11 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                 column: "VacancyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Vacancies_AppUserId",
+                table: "Vacancies",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Vacancies_CategoryItemId",
                 table: "Vacancies",
                 column: "CategoryItemId");
@@ -758,11 +781,6 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                 name: "IX_WishListVacancies_AppUserId",
                 table: "WishListVacancies",
                 column: "AppUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WishListVacancies_CvId",
-                table: "WishListVacancies",
-                column: "CvId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_WishListVacancies_VacancyId",

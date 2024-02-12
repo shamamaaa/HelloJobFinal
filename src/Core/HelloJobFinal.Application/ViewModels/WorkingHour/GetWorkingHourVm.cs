@@ -1,7 +1,4 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Cv;
-
-namespace HelloJobFinal.Application.ViewModels.WorkingHour
+﻿namespace HelloJobFinal.Application.ViewModels
 {
     public record GetWorkingHourVm(int Id, string Name)
     {

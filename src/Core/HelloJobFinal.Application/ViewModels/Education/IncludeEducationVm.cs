@@ -1,4 +1,4 @@
-﻿namespace HelloJobFinal.Application.ViewModels.Education
+﻿namespace HelloJobFinal.Application.ViewModels
 {
     public record IncludeEducationVm(string Name);
 

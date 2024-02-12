@@ -1,9 +1,4 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Vacancy;
-using HelloJobFinal.Domain.Enums;
-using Microsoft.AspNetCore.Http;
-
-namespace HelloJobFinal.Application.ViewModels.Company
+﻿namespace HelloJobFinal.Application.ViewModels
 {
     public record GetCompanyVm(int Id, string ImageUrl, string Email, string AppUserId, string Status, string Name)
     {

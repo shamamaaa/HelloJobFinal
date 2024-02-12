@@ -1,12 +1,11 @@
-﻿using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Experience;
+﻿using System.Linq.Expressions;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq.Expressions;
 
 namespace HelloJobFinal.Application.Abstractions.Services
 {
-	public interface IExperienceService
+    public interface IExperienceService
 	{
         Task<ICollection<ItemExperienceVm>> GetAllWhereAsync(int take, int page = 1);
         Task<ICollection<ItemExperienceVm>> GetAllWhereByOrderAsync(int take, Expression<Func<Experience, object>>? orderExpression, int page = 1);

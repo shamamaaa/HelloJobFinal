@@ -1,14 +1,6 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Account;
-using HelloJobFinal.Application.ViewModels.Category;
-using HelloJobFinal.Application.ViewModels.City;
-using HelloJobFinal.Application.ViewModels.Education;
-using HelloJobFinal.Application.ViewModels.Experience;
-using HelloJobFinal.Application.ViewModels.WorkingHour;
-
-namespace HelloJobFinal.Application.ViewModels.Vacancy
+﻿namespace HelloJobFinal.Application.ViewModels
 {
-	public record IncludeVacancyVm(int Id, string Name, string Surname, string Email, DateTime Birthday,
+    public record IncludeVacancyVm(int Id, string Name, string Surname, string Email, DateTime Birthday,
         int Phone, string ImageUrl, string Position, int MinSalary, bool HasDriverLicense,
         DateTime FinishTime, string CvUrl, bool IsTimeOver, int ViewCount, IncludeCityVm IncludeCity,
         int CityId, IncludeEducationVm IncludeEducation, int EducationId, IncludeExperienceVm IncludeExperience,

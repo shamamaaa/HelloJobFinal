@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using HelloJobFinal.Application.ViewModels.Company;
+using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 
 namespace HelloJobFinal.Application.MappingProfiles

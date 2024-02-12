@@ -1,9 +1,7 @@
-﻿using System;
-using AutoMapper;
-using HelloJobFinal.Application.ViewModels.Account;
-using HelloJobFinal.Application.ViewModels.Cv;
-using HelloJobFinal.Application.ViewModels.Education;
+﻿using AutoMapper;
 using HelloJobFinal.Domain.Entities;
+using HelloJobFinal.Application.ViewModels;
+
 
 namespace HelloJobFinal.Application.MappingProfiles
 {

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Company;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Domain.Enums;
 using HelloJobFinal.Infrastructure.Exceptions;

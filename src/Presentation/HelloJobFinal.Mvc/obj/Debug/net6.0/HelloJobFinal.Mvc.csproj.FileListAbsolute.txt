@@ -82,3 +82,4 @@
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/FluentValidation.dll
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/FluentValidation.AspNetCore.dll
 /Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/bin/Debug/net6.0/Newtonsoft.Json.dll

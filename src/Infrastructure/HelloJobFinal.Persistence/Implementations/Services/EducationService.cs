@@ -1,13 +1,11 @@
-﻿using System;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Education;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelloJobFinal.Persistence.Implementations.Services

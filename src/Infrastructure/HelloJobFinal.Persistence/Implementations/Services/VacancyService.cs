@@ -1,22 +1,12 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
-using HelloJobFinal.Application.ViewModels.Category;
-using HelloJobFinal.Application.ViewModels.City;
-using HelloJobFinal.Application.ViewModels.Cv;
-using HelloJobFinal.Application.ViewModels.Education;
-using HelloJobFinal.Application.ViewModels.Experience;
-using HelloJobFinal.Application.ViewModels.Vacancy;
-using HelloJobFinal.Application.ViewModels.WorkingHour;
 using HelloJobFinal.Domain.Entities;
 using HelloJobFinal.Infrastructure.Exceptions;
-using HelloJobFinal.Infrastructure.Implementations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using static System.Net.WebRequestMethods;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
 {
@@ -166,34 +156,255 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             return get;
         }
 
-        public Task<PaginationVm<ItemVacancyVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<VacancyFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
+              int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId)
         {
-            throw new NotImplementedException();
+            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+
+            string[] includes ={
+                $"{nameof(Vacancy.Experience)}",
+                $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.City)}",
+                $"{nameof(Vacancy.WorkingHour)}",
+                $"{nameof(Vacancy.CategoryItem)}" };
+            double count = await _repository.CountAsync();
+
+            ICollection<Vacancy> items = new List<Vacancy>();
+            switch (order)
+            {
+                case 1:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Position, false, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 2:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, false, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 3:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Position, true, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 4:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, true, true, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+            }
+
+            VacancyFilterVM filtered = new VacancyFilterVM
+            {
+                Vacancys = _mapper.Map<List<ItemVacancyVm>>(items),
+                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync()),
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+            };
+            PaginationVm<VacancyFilterVM> pagination = new PaginationVm<VacancyFilterVM>
+            {
+                Take = take,
+                Search = search,
+                Order = order,
+                CategoryId = categoryId,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling(count / take),
+                Item = filtered
+            };
+
+            return pagination;
         }
 
-        public Task<PaginationVm<ItemVacancyVm>> GetFilteredAsync(string? search, int take, int page, int order)
+        public async Task<PaginationVm<VacancyFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
+              int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId)
         {
-            throw new NotImplementedException();
+            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+
+            string[] includes ={
+                $"{nameof(Vacancy.Experience)}",
+                $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.City)}",
+                $"{nameof(Vacancy.WorkingHour)}",
+                $"{nameof(Vacancy.CategoryItem)}" };
+            double count = await _repository.CountAsync();
+
+            ICollection<Vacancy> items = new List<Vacancy>();
+            switch (order)
+            {
+                case 1:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                        x => x.CategoryItem.Name, false, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 2:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, false, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 3:
+                    items = await _repository
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                        x => x.Position, true, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+                case 4:
+                    items = await _repository
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                                && (cityId != null ? x.CityId == cityId : true)
+                                && (educationId != null ? x.EducationId == educationId : true)
+                                && (experienceId != null ? x.ExperienceId == experienceId : true)
+                                && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                      x => x.CreatedAt, true, false, (page - 1) * take, take, false, includes).ToListAsync();
+                    break;
+            }
+            VacancyFilterVM filtered = new VacancyFilterVM
+            {
+                Vacancys = _mapper.Map<List<ItemVacancyVm>>(items),
+                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync()),
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+            };
+            PaginationVm<VacancyFilterVM> pagination = new PaginationVm<VacancyFilterVM>
+            {
+                Take = take,
+                Search = search,
+                Order = order,
+                CategoryId = categoryId,
+                CurrentPage = page,
+                TotalPage = Math.Ceiling(count / take),
+                Item = filtered
+            };
+
+            return pagination;
         }
 
-        public Task ReverseSoftDeleteAsync(int id)
+        public async Task ReverseSoftDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            Vacancy item = await _repository.GetByIdAsync(id);
+            if (item == null) throw new NotFoundException("Your request was not found");
+            item.IsDeleted = false;
+            _repository.Update(item);
+            await _repository.SaveChanceAsync();
         }
 
-        public Task SoftDeleteAsync(int id)
+        public async Task SoftDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            Vacancy item = await _repository.GetByIdAsync(id);
+            if (item == null) throw new NotFoundException("Your request was not found");
+            item.IsDeleted = true;
+            _repository.Update(item);
+            await _repository.SaveChanceAsync();
         }
 
-        public Task<UpdateVacancyVm> UpdateAsync(int id)
+        public async Task<UpdateVacancyVm> UpdateAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            Vacancy item = await _repository.GetByIdAsync(id);
+            if (item == null) throw new NotFoundException("Your request was not found");
+
+            UpdateVacancyVm update = _mapper.Map<UpdateVacancyVm>(item);
+
+            UpdatePopulateDropdowns(update);
+            return update;
         }
 
-        public Task<bool> UpdatePostAsync(int id, UpdateVacancyVm update, ModelStateDictionary model)
+        public async Task<bool> UpdatePostAsync(int id, UpdateVacancyVm update, ModelStateDictionary model)
         {
-            throw new NotImplementedException();
+            if (!model.IsValid)
+            {
+                await UpdatePopulateDropdowns(update);
+                return false;
+            }
+            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            Vacancy item = await _repository.GetByIdAsync(id);
+            if (item == null) throw new NotFoundException("Your request was not found");
+            if (!await _cityRepository.CheckUniqueAsync(x => x.Id == update.CityId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CorporateId", "Corporate not found");
+                return false;
+            }
+            if (!await _educationRepository.CheckUniqueAsync(x => x.Id == update.EducationId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CorporateId", "Corporate not found");
+                return false;
+            }
+            if (!await _experienceRepository.CheckUniqueAsync(x => x.Id == update.ExperienceId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CorporateId", "Corporate not found");
+                return false;
+            }
+            if (!await _workingHourRepository.CheckUniqueAsync(x => x.Id == update.WorkingHourId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CorporateId", "Corporate not found");
+                return false;
+            }
+            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == update.CategoryId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CorporateId", "Corporate not found");
+                return false;
+            }
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<UpdateVacancyVm, Vacancy>();
+            });
+            var mapper = config.CreateMapper();
+
+            mapper.Map(update, item);
+            //item.CreatedBy = _http.HttpContext.User.Identity.Name;
+
+            _repository.Update(item);
+            await _repository.SaveChanceAsync();
+
+            return true;
         }
     }
 }

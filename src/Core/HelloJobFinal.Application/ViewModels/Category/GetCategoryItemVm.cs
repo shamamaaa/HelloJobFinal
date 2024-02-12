@@ -1,6 +1,6 @@
 ﻿using a=HelloJobFinal.Domain.Entities;
 
-namespace HelloJobFinal.Application.ViewModels.Category
+namespace HelloJobFinal.Application.ViewModels
 {
     public record GetCategoryItemVm(int Id, string Name, int BaseCategoryId, IncludeBaseCategoryVm BaseCategory)
     {

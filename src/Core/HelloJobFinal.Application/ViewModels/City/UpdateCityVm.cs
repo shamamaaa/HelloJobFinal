@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HelloJobFinal.Application.ViewModels.City
+namespace HelloJobFinal.Application.ViewModels
 {
     public record UpdateCityVm(string Name);
 }

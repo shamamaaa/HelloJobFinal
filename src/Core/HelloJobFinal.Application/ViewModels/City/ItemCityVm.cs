@@ -1,7 +1,6 @@
 ﻿using System;
-using HelloJobFinal.Application.ViewModels.Cv;
 
-namespace HelloJobFinal.Application.ViewModels.City
+namespace HelloJobFinal.Application.ViewModels
 {
     public record ItemCityVm(int Id, string Name)
     {

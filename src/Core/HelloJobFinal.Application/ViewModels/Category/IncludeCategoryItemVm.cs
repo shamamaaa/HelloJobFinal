@@ -1,5 +1,5 @@
 ﻿using a=HelloJobFinal.Domain.Entities;
-namespace HelloJobFinal.Application.ViewModels.Category
+namespace HelloJobFinal.Application.ViewModels
 {
     public record IncludeCategoryItemVm(string Name, int BaseCategoryId, IncludeBaseCategoryVm IncludeBaseCategory)
     {

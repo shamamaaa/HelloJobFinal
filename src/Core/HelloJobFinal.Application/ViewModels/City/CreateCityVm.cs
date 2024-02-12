@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 
-namespace HelloJobFinal.Application.ViewModels.City
+namespace HelloJobFinal.Application.ViewModels
 {
     public record CreateCityVm(string Name);
 

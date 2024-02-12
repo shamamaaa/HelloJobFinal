@@ -1,7 +1,4 @@
-﻿using System;
-using HelloJobFinal.Application.ViewModels.Cv;
-
-namespace HelloJobFinal.Application.ViewModels.Education
+﻿namespace HelloJobFinal.Application.ViewModels
 {
     public record ItemEducationVm(int Id,string Name)
     {
