@@ -18,6 +18,15 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\BaseCategory\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\CategoryItem\" />
+    <Folder Include="Areas\Admin\Views\City\" />
+    <Folder Include="Areas\Admin\Views\Company\" />
+    <Folder Include="Areas\Admin\Views\Cv\" />
+    <Folder Include="Areas\Admin\Views\Education\" />
+    <Folder Include="Areas\Admin\Views\Experience\" />
+    <Folder Include="Areas\Admin\Views\Setting\" />
+    <Folder Include="Areas\Admin\Views\Vacancy\" />
+    <Folder Include="Areas\Admin\Views\WorkingHour\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj">
@@ -44,5 +53,14 @@
     <None Remove="Areas\Admin\Views\Shared\" />
     <None Remove="Areas\Admin\Views\BaseCategory\" />
     <None Remove="Areas\Admin\Views\Home\" />
+    <None Remove="Areas\Admin\Views\CategoryItem\" />
+    <None Remove="Areas\Admin\Views\City\" />
+    <None Remove="Areas\Admin\Views\Company\" />
+    <None Remove="Areas\Admin\Views\Cv\" />
+    <None Remove="Areas\Admin\Views\Education\" />
+    <None Remove="Areas\Admin\Views\Experience\" />
+    <None Remove="Areas\Admin\Views\Setting\" />
+    <None Remove="Areas\Admin\Views\Vacancy\" />
+    <None Remove="Areas\Admin\Views\WorkingHour\" />
   </ItemGroup>
 </Project>

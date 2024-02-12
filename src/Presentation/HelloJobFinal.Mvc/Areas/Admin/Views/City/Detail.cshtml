@@ -1,0 +1,8 @@
+﻿@model GetCityVm
+
+<div class="container">
+    <h3 class="fw-bold m-3">@Model.Name</h3>
+    <h5 class="fw-bold m-3">Cv count: @Model.Cvs.Count</h5>
+    <h5 class="fw-bold m-3">Vacancy count: @Model.Vacancies.Count</h5>
+</div>
+<a class="btn btn-light fw-bold fs-4" asp-action="Index" asp-controller="City">Back</a>

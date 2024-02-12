@@ -5,6 +5,8 @@ namespace HelloJobFinal.Application.ViewModels
     public record GetCityVm(int Id, string Name)
     {
         public List<IncludeCvVm> Cvs { get; init; }
+        public List<IncludeVacancyVm> Vacancies { get; init; }
+
 
     }
 }

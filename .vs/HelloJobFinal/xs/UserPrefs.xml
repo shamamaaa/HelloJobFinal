@@ -6,68 +6,27 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Core/HelloJobFinal.Application/MappingProfiles/WorkingHourProfile.cs">
-    <Files>
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Cv/ItemCvVm.cs" Line="16" Column="9" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/CvProfile.cs" Line="36" Column="95" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/CreateVacancyVm.cs" Line="11" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Cv/IncludeCvVm.cs" Line="11" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/City/IncludeCityVm.cs" Line="4" Column="32" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/City/ItemCityVm.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/City/GetCityVm.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/WorkingHour/IncludeWorkingHourVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Experience/IncludeExperienceVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Category/IncludeCategoryItemVm.cs" Line="4" Column="40" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Account/IncludeAppUserVm.cs" Line="6" Column="35" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Cv/UpdateCvVm.cs" Line="20" Column="71" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/CompanyProfile.cs" Line="15" Column="97" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Education/IncludeEducationVm.cs" Line="3" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Cv/GetCvVm.cs" Line="13" Column="89" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/EducationProfile.cs" Line="15" Column="32" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Education/CreateEducationVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Education/UpdateEducationVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Education/ItemEducationVm.cs" Line="8" Column="68" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Education/GetEducationVm.cs" Line="8" Column="68" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/ExperienceProfile.cs" Line="16" Column="94" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Experience/UpdateExperienceVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Experience/GetExperienceVm.cs" Line="6" Column="54" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Experience/ItemExperienceVm.cs" Line="6" Column="54" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/SettingProfile.cs" Line="13" Column="33" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Setting/ItemSettingVm.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Setting/UpdateSettingVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/VacancyProfile.cs" Line="13" Column="29" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/IncludeVacancyVm.cs" Line="11" Column="16" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Cv/CreateCvVm.cs" Line="16" Column="6" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/UpdateVacancyVm.cs" Line="10" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/WorkingHour/CreateWorkingHourVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/WorkingHour/GetWorkingHourVm.cs" Line="6" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/WorkingHour/UpdateWorkingHourVm.cs" Line="4" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/WorkingHour/ItemWorkingHourVm.cs" Line="6" Column="19" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/GetVacancyVm.cs" Line="14" Column="178" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Vacancy.cs" Line="6" Column="15" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/ItemVacancyVm.cs" Line="13" Column="89" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/WorkingHourProfile.cs" Line="14" Column="40" />
-      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/CategoryItemProfile.cs" Line="16" Column="85" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="HelloJobFinal" expanded="True">
-            <Node name="src" expanded="True">
-              <Node name="Core" expanded="True">
+          <Node name="HelloJobFinal">
+            <Node name="src">
+              <Node name="Core">
                 <Node name="HelloJobFinal.Application">
-                  <Node name="MappingProfiles" expanded="True">
-                    <Node name="WorkingHourProfile.cs" selected="True" />
+                  <Node name="Abstractions" expanded="True">
+                    <Node name="Services" expanded="True" />
                   </Node>
-                  <Node name="ViewModels" expanded="True">
+                  <Node name="ViewModels">
                     <Node name="Cv" expanded="True" />
-                    <Node name="Setting" expanded="True" />
-                    <Node name="Vacancy" expanded="True" />
-                    <Node name="WorkingHour" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="HelloJobFinal.Domain" expanded="True">
-                  <Node name="Entities" expanded="True" />
+              </Node>
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Presentation">
+                <Node name="HelloJobFinal.Mvc">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True" selected="True" />
                 </Node>
               </Node>
             </Node>

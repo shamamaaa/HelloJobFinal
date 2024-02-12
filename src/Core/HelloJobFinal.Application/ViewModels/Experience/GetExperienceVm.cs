@@ -3,6 +3,7 @@
     public record GetExperienceVm(int Id, string Name)
     {
         public ICollection<IncludeCvVm> IncludeCvVms { get; init; }
+        public ICollection<IncludeVacancyVm> IncludeVacancyVms { get; init; }
 
     }
 
