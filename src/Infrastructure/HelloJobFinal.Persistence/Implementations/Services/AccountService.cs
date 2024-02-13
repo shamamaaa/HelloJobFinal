@@ -118,6 +118,57 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
             return true;
         }
+        public async Task<bool> ForgotPassword(FindAccountVm account, ModelStateDictionary model, IUrlHelper url)
+        {
+            if (string.IsNullOrWhiteSpace(account.UserNameOrEmail))
+            {
+                model.AddModelError("Error", "Username, Email or Password is wrong");
+                return false;
+
+            }
+            AppUser user = await _userManager.FindByNameAsync(account.UserNameOrEmail);
+            if (user == null)
+            {
+                user = await _userManager.FindByEmailAsync(account.UserNameOrEmail);
+                if (user == null)
+                {
+                    model.AddModelError("Error", "Username, Email or Password is wrong");
+                    return false;
+                }
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var confirmationLink = url.Action("ChangePassword", "Account", new { Id = user.Id, Token = token }, _http.HttpContext.Request.Scheme);
+            await _emailService.SendMailAsync(user.Email, "Password Reset", confirmationLink);
+
+            return true;
+        }
+
+        public async Task<bool> ChangePassword(string id, string token, ForgotPasswordVm fogotPassword, ModelStateDictionary model)
+        {
+            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(token)) throw new NotFoundException("Your request was not found");
+            AppUser user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                if (user == null) throw new NotFoundException("Your request was not found");
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, fogotPassword.Password, fogotPassword.NewPassword);
+            if (!result.Succeeded)
+            {
+                string errors = "";
+                foreach (var error in result.Errors)
+                {
+                    errors += error.Description;
+                }
+                model.AddModelError("Error", "Username, Email or Password is wrong");
+                return false;
+            }
+            _http.HttpContext.Response.Cookies.Delete("FavoriteEstate");
+
+            await _signInManager.SignOutAsync();
+            await _signInManager.SignInAsync(user, false);
+            return true;
+        }
     }
 }
 

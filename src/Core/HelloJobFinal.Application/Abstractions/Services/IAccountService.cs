@@ -8,6 +8,9 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task<bool> RegisterAsync(RegisterVM register, ModelStateDictionary model, IUrlHelper url);
         Task<bool> LogInAsync(LoginVM login, ModelStateDictionary model);
         Task LogOutAsync();
+        Task<bool> ConfirmEmail(string token, string email);
+        Task<bool> ForgotPassword(FindAccountVm account, ModelStateDictionary model, IUrlHelper url);
+        Task<bool> ChangePassword(string userNameOrEmail, string token, ForgotPasswordVm fogotPassword, ModelStateDictionary model);
     }
 }
 

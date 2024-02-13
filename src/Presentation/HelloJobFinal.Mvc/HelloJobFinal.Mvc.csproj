@@ -29,9 +29,6 @@
     <Folder Include="Areas\Admin\Views\WorkingHour\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\HelloJobFinal.Application\HelloJobFinal.Application.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\HelloJobFinal.Infrastructure\HelloJobFinal.Infrastructure.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

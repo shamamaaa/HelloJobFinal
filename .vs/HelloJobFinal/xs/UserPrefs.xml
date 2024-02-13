@@ -6,27 +6,34 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Presentation/HelloJobFinal.Mvc/Controllers/AccountController.cs">
+    <Files>
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/BaseCategoryController.cs" Line="1" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/BaseCategory/Create.cshtml" Line="1" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/CompanyController.cs" Line="30" Column="10" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/CvController.cs" Line="30" Column="10" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/EducationController.cs" Line="1" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/VacancyController.cs" Line="30" Column="10" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/AccountController.cs" Line="17" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="HelloJobFinal">
-            <Node name="src">
-              <Node name="Core">
-                <Node name="HelloJobFinal.Application">
-                  <Node name="Abstractions" expanded="True">
-                    <Node name="Services" expanded="True" />
-                  </Node>
-                  <Node name="ViewModels">
-                    <Node name="Cv" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+          <Node name="HelloJobFinal" expanded="True">
+            <Node name="src" expanded="True">
               <Node name="Infrastructure" expanded="True" />
               <Node name="Presentation">
                 <Node name="HelloJobFinal.Mvc">
-                  <Node name="Controllers" expanded="True" />
-                  <Node name="Views" expanded="True" selected="True" />
+                  <Node name="Areas" expanded="True">
+                    <Node name="Admin" expanded="True">
+                      <Node name="Controllers" expanded="True" />
+                      <Node name="Views" expanded="True" />
+                    </Node>
+                  </Node>
+                  <Node name="Controllers" expanded="True">
+                    <Node name="AccountController.cs" selected="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>

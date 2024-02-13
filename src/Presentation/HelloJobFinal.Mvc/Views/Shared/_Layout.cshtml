@@ -16,6 +16,9 @@
     <title>Hello Job</title>
 </head>
 <body>
+    @await Html.RenderPartial("_LoginPartialView", new LoginVm())
+    @await Html.RenderPartial("_RegisterPartialView", new RegisterVm())
+
     <header class="header">
         <div class="container">
             <div class="row">
