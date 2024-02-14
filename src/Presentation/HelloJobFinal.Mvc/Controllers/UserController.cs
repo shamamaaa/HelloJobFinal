@@ -43,6 +43,7 @@ namespace HelloJobFinal.Mvc.Controllers
         //    }
         //    return RedirectToAction(nameof(Index));
         //}
+
         public async Task<IActionResult> FogotPassword(string id)
         {
             await _service.ForgotPassword(id, Url);
@@ -66,11 +67,9 @@ namespace HelloJobFinal.Mvc.Controllers
 
         //Cv pages
         [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> CvIndex()
+        public async Task<IActionResult> CvIndex(string id)
         {
-            var currentUser = User.Identity.Name;
-            var cvs = await _cvService.GetAllWhereByOrderAsync(3, cv => cv.AppUser.UserName == currentUser);
-            return View(cvs);
+            return View(await _service.GetByIdAsync(id));
         }
 
         [Authorize(Roles = "Employee")]
@@ -126,11 +125,9 @@ namespace HelloJobFinal.Mvc.Controllers
         }
 
         [Authorize(Roles = "Company")]
-        public async Task<IActionResult> VacancyIndex()
+        public async Task<IActionResult> VacancyIndex(string id)
         {
-            var currentUser = User.Identity.Name;
-            var vacancyVms = await _vacancyService.GetAllWhereByOrderAsync(3, x => x.AppUser.UserName == currentUser);
-            return View(vacancyVms);
+            return View(await _service.GetByIdAsync(id));
         }
 
         [HttpPost]
@@ -177,11 +174,9 @@ namespace HelloJobFinal.Mvc.Controllers
         }
 
         [Authorize(Roles = "Company")]
-        public async Task<IActionResult> CompanyIndex()
+        public async Task<IActionResult> CompanyIndex(string id)
         {
-            var currentUser = User.Identity.Name;
-            var companyvms = await _companyService.GetAllWhereByOrderAsync(3, x => x.AppUser.UserName == currentUser);
-            return View(companyvms);
+            return View(await _service.GetByIdAsync(id));
         }
 
         [HttpPost]

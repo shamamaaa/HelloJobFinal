@@ -1,6 +1,6 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record IncludeVacancyVm(int Id, string Name, string Surname, string Email, DateTime Birthday,
+    public record IncludeVacancyVm(int Id,string Surname, string Email, DateTime createdat,
         int Phone, string ImageUrl, string Position, int MinSalary, bool HasDriverLicense,
         DateTime FinishTime, string CvUrl, bool IsTimeOver, int ViewCount, IncludeCityVm IncludeCity,
         int CityId, IncludeEducationVm IncludeEducation, int EducationId, IncludeExperienceVm IncludeExperience,

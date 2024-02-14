@@ -1,0 +1,380 @@
+﻿
+@*@model GetAppUserVM
+<div class="account">
+    <div class="account_bar">
+        <a href="#" class="logo" aria-label="hellojob">
+            <img src="./assets/images/night_mode_logo.svg" alt="" />
+        </a>
+        <ul class="myprofile">
+            <li>
+                <a class="active" href="./account.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
+                             alt="" />
+                    </span>
+                    Profilim
+                </a>
+            </li>
+            <li>
+                <a href="./postCv.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                             alt="" />
+                    </span>
+                    Cv yerləşdir
+                </a>
+            </li>
+            <li>
+                <a href="./myOrder.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Gözləmədə olan elanlar
+                </a>
+            </li>
+            <li>
+                <a href="./mysticker.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Elanlarım
+                </a>
+            </li>
+            <li>
+                <a href="./WishListpage.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
+                             alt="" />
+                    </span>
+                    Bəyəndiklərim
+                </a>
+            </li>
+            <li>
+                <a href="./security.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Təhlükəsizlik
+                </a>
+            </li>
+            <li>
+                <a href="./CreateCompany.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Şirkət yarat
+                </a>
+            </li>
+            <li>
+                <a href="./myCompany.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Şirkətlərim
+                </a>
+            </li>
+            <li>
+                <a href="./PostVacans.html">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Vakansiya Yerləşdir
+                </a>
+            </li>
+        </ul>
+        <div class="backsite">
+            <a href="./index.html"
+               class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
+        </div>
+    </div>
+    <div class="account_content">
+        <div class="account_head">
+            <div class="account_head_tools">
+                <a href="./index.html"
+                   class="btn btn-site btn-transparent d-none d-md-block">Sayta keçid et</a>
+                <div class="account_head_user">
+                    <a href="./account.html" class="profile__header__user__name">
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                             alt="" />
+                        <span>Rashid Baghirov</span>
+                    </a>
+                    <ul class="account_head_user_drop">
+                        <li><a href="./mysticker.html">Mənim elanlarım</a></li>
+                        <li>
+                            <a href="./security.html">Şəxsi məlumatlar</a>
+                        </li>
+                        <li><a href="/logout">Çıxış</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="create_cv">
+            <div class="title">
+                <h1>Elanlarim</h1>
+                <ul class="profile__add-cv__parts">
+                    <li class="active">
+                        <a href="#tab1" class="tab1 step_btn">Cv-lər(1)</a>
+                    </li>
+                    <li class="active d-none">
+                        <a href="#tab1" class="tab1 step_btn">Vakansiyalar(1)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="inner_tab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            @foreach (var item in Model.IncludeCompanyVm.Vacancies)
+                            {
+                                    <div class="vacancies">
+                                        <div class="vacancies_href">
+                                            <a href="./vacansdetail.html">
+                                                <div class="item_left">
+                                                    <div class="icon">
+                                                        <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/muxtelif-cat-6414343d74be26414343d74bed-Q30Ca59zmtb--84.svg"
+                                                             alt="Bağban" />
+                                                    </div>
+                                                    <div class="title">
+                                                        <h3>Bağban</h3>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="item_right">
+                                                <span class="salary">500 - 500 AZN</span>
+                                                <span class="date">Dünən 11:29</span>
+                                            </div>
+                                            <div class="vacans_buttons">
+                                                <a href="" class="edited btn">
+                                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
+                                                         alt="" />
+                                                    <span>Redaktə et</span>
+                                                </a>
+                                                <a class="deleted btn" href="">
+                                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
+                                                         alt="" />
+                                                    <span>Sil</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile_account d-md-none d-lg-none">
+    <div class="head">
+        <div class="hamburgers icons">
+            <i class="bi bi-list"></i>
+        </div>
+        <div class="logo">
+            <div class="image">
+                <img src="./assets/images/night_mode_logo.svg" alt="" />
+            </div>
+        </div>
+        <div class="person icons">
+            <i class="bi bi-person-fill person_icon"></i>
+        </div>
+    </div>
+    <div class="body">
+        <div class="persons_menu">
+            <div class="account_head_user">
+                <ul>
+                    <li><a href="./account.html">Rəşid Bağırov</a></li>
+                    <li><a href="./mysticker.html">Mənim elanlarım</a></li>
+                    <li>
+                        <a href="./security.html">Şəxsi məlumatlar</a>
+                    </li>
+                    <li><a href="/logout">Çıxış</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hamburgers_menu">
+            <ul class="myprofile">
+                <li>
+                    <a href="./account.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
+                                 alt="" />
+                        </span>
+                        Profilim
+                    </a>
+                </li>
+                <li>
+                    <a href="./postCv.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Cv yerləşdir
+                    </a>
+                </li>
+                <li>
+                    <a href="./postCv.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Vakansiya yerləşdir
+                    </a>
+                </li>
+                <li>
+                    <a href="./postCv.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Şirkət yarat
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="./myCompany.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Şirkətlərim
+                    </a>
+                </li>
+                <li>
+                    <a href="./myOrder.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                                 alt="" />
+                        </span>
+                        Gözləmədə olan elanlar
+                    </a>
+                </li>
+                <li>
+                    <a href="./mysticker.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                                 alt="" />
+                        </span>
+                        Elanlarım
+                    </a>
+                </li>
+                <li>
+                    <a href="./WishListpage.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
+                                 alt="" />
+                        </span>
+                        Bəyəndiklərim
+                    </a>
+                </li>
+                <li>
+                    <a href="./security.html">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                                 alt="" />
+                        </span>
+                        Təhlükəsizlik
+                    </a>
+                </li>
+            </ul>
+            <div class="backsite">
+                <a href="./index.html"
+                   class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
+            </div>
+        </div>
+        <div class="account_content">
+            <div class="create_cv">
+                <div class="title">
+                    <h1>Elanlarim</h1>
+                    <ul class="profile__add-cv__parts">
+                        <li class="active">
+                            <a href="#tab1" class="tab1 step_btn">Cv-lər(1)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="inner_tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                @foreach (var item in Model.Cvs)
+                                {
+                                    <div class="user_block">
+                                        <a href="./userdetail.html" target="_blank">
+                                            <div class="header_user">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="user_img">
+                                                        <img src="~/assets/images/User/@item.ImageUrl"
+                                                             alt="" />
+                                                    </div>
+                                                    <div class="d-flex justify-content-between w-100">
+                                                        <div class="user_desc">
+                                                            <h3 class="profession">
+                                                                @item.Position
+                                                            </h3>
+
+                                                            <p class="fullname">@item.Name @item.Surname</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="user_options">
+                                                <div class="item">
+                                                    <div class="icon">
+                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/user-clock.svg"
+                                                             alt="" />
+                                                    </div>
+                                                    <div class="text">
+                                                        <h4>@item.IncludeWorkingHour.Name</h4>
+                                                        <p>İş rejimi</p>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="icon">
+                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/money.svg"
+                                                             alt="" />
+                                                    </div>
+                                                    <div class="text">
+                                                        <h4>@item.MinSalary</h4>
+                                                        <p>Minimum əmək haqqı AZN</p>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="icon">
+                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                                             alt="" />
+                                                    </div>
+                                                    <div class="text">
+                                                        <h4>@item.IncludeExperience.Name</h4>
+                                                        <p>İş staji</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="user_buttons">
+                                            <a asp-action="updatecv" asp-controller="user" class="edited btn">
+                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
+                                                     alt="" />
+                                                <span>Redaktə et</span>
+                                            </a>
+                                            <a class="deleted btn" asp-action="SoftDeleteCv" asp-controller="user">
+                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
+                                                     alt="" />
+                                                <span>Sil</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

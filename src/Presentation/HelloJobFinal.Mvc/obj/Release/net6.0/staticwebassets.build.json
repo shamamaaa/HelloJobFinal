@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TQkAdeMH7A34nd2v5eTfKlsTGT7+NouPlmV1LoA+/Ic=",
+  "Hash": "b04PiakseLJu6rBnaw0Z8EveoMn1iJipxBPjLXlkEJQ=",
   "Source": "HelloJobFinal.Mvc",
   "BasePath": "_content/HelloJobFinal.Mvc",
   "Mode": "Default",
@@ -2905,23 +2905,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/images/BusinessTitle/810texnologiya.png.svg"
-    },
-    {
-      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/8156f308-c25d-4694-b57a-cfd5aab2f1e9.png",
-      "SourceId": "HelloJobFinal.Mvc",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
-      "BasePath": "_content/HelloJobFinal.Mvc",
-      "RelativePath": "assets/images/BusinessTitle/8156f308-c25d-4694-b57a-cfd5aab2f1e9.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/images/BusinessTitle/8156f308-c25d-4694-b57a-cfd5aab2f1e9.png"
     },
     {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/BusinessTitle/966tibb-ve-eczaciliq.png.svg",

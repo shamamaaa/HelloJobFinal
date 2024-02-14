@@ -9,11 +9,11 @@ namespace Estate.MVC.Areas.Admin.Controllers
     [Area("Admin")]
     [Authorize(Roles = "Admin, Moderator")]
     [AutoValidateAntiforgeryToken]
-    public class SettingsController : Controller
+    public class SettingController : Controller
     {
         private readonly ISettingService _service;
 
-        public SettingsController(ISettingService service)
+        public SettingController(ISettingService service)
         {
             _service = service;
         }

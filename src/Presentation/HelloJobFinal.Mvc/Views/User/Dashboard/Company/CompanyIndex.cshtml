@@ -1,0 +1,323 @@
+﻿@model GetAppUserVM
+
+<div class="account">
+    <div class="account_bar">
+        <a href="#" class="logo" aria-label="hellojob">
+            <img src="/assets/images/night_mode_logo.svg" alt="" />
+        </a>
+        <ul class="myprofile">
+
+            <li>
+                <a href="/myaccount">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
+                             alt="" />
+                    </span>
+                    Profilim
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/myrequest">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Müraciətlər
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/myorder">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Gözləmədə olan elanlar
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/mysticker">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Elanlarım
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/wishlistpage">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
+                             alt="" />
+                    </span>
+                    Bəyəndiklərim
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/security">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Təhlükəsizlik
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/createvacans">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Vakansiya Yerləşdir
+                </a>
+            </li>
+            <li>
+                <a href="/myaccount/creatingcompany">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Şirkət Yarat
+                </a>
+            </li>
+            <li>
+                <a class="active" href="/myaccount/mycompany">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                             alt="" />
+                    </span>
+                    Şirkətlərim
+                </a>
+            </li>
+
+        </ul>
+        <div class="backsite">
+            <a class="btn btn-site btn-transparent d-md-none" href="/">Sayta keçid et</a>
+        </div>
+    </div>
+    <div class="account_content">
+        <div class="account_head">
+            <div class="account_head_tools">
+                <a class="btn btn-site btn-transparent d-none d-md-block" href="/">Sayta keçid et</a>
+                <div class="account_head_user">
+                    <a href="./account.html" class="profile__header__user__name">
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                             alt="" />
+                        <span>Rashid Baghirov</span>
+                    </a>
+                    <ul class="account_head_user_drop">
+                        <li><a href="/myaccount/mysticker">Mənim elanlarım</a></li>
+                        <li>
+                            <a href="/myaccount/security">Şəxsi məlumatlar</a>
+                        </li>
+                        <li><a href="/account/logout">Çıxış</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="create_cv">
+            <div class="title">
+                <h1>Şirkətlərim</h1>
+                <ul class="profile__add-cv__parts">
+                    <li class="active">
+                        <a href="#tab1" class="tab1 step_btn"> Şirkətlər(1)</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="inner_tab">
+                <div class="row mt-5">
+                    <div class="company_card col-md-4 col-lg-3">
+                        <div class="company_box">
+                            <a href="./companydetail.html" class="full">
+                                <div>
+                                    <div class="company_images" style="padding:0px !important; position:static !important;">
+                                        <div class="image" style="
+    height: 70px;
+    display: flex;
+    justify-content: center;
+">
+                                            <img src="/assets/images/Company/3095uMIxAMv_400x400.jpg" alt="Kapital Bank" />
+                                        </div>
+                                    </div>
+                                    <p>Kapital Bank</p>
+                                    <p>Vakansiya sayı <span>1</span> </p>
+                                </div>
+                            </a>
+                            <div class="crudbtn mt-2">
+                                <a class="btn btn-success" style="text-decoration:none" href="/myaccount/editcompany?id=7">
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger" style="text-decoration:none" href="/myaccount/deletecompany?id=7">
+                                    Delete
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile_account d-md-none d-lg-none">
+    <div class="head">
+        <div class="hamburgers icons">
+            <i class="bi bi-list"></i>
+        </div>
+        <div class="logo">
+            <div class="image">
+                <img src="/assets/images/night_mode_logo.svg" alt="" />
+            </div>
+        </div>
+        <div class="person icons">
+            <i class="bi bi-person-fill person_icon"></i>
+        </div>
+    </div>
+    <div class="body">
+        <div class="persons_menu">
+            <div class="account_head_user">
+                <ul>
+                    <li><a href="/myaccount">Rashid Baghirov</a></li>
+                    <li><a href="/myaccount/mysticker">Mənim elanlarım</a></li>
+                    <li>
+                        <a href="/myaccount/security">Şəxsi məlumatlar</a>
+                    </li>
+                    <li><a href="/account/logout">Çıxış</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hamburgers_menu">
+            <ul class="myprofile">
+                <li>
+                    <a href="/myaccount">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
+                                 alt="" />
+                        </span>
+                        Profilim
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/myrequest">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                                 alt="" />
+                        </span>
+                        Müraciətlər
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/createvacans">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Vakansiya yerləşdir
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/creatingcompany">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Şirkət Yarat
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="/myaccount/mycompany">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                                 alt="" />
+                        </span>
+                        Şirkətlərim
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/myorder">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                                 alt="" />
+                        </span>
+                        Gözləmədə olan elanlar
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/mysticker">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                                 alt="" />
+                        </span>
+                        Elanlarım
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/wishlistpage">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
+                                 alt="" />
+                        </span>
+                        Bəyəndiklərim
+                    </a>
+                </li>
+                <li>
+                    <a href="/myaccount/security">
+                        <span>
+                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                                 alt="" />
+                        </span>
+                        Təhlükəsizlik
+                    </a>
+                </li>
+            </ul>
+            <div class="backsite">
+                <a class="btn btn-site btn-transparent d-md-none" href="/">Sayta keçid et</a>
+            </div>
+        </div>
+        <div class="account_content">
+            <div class="create_cv">
+                <div class="title">
+                    <h1>Şirkətlərim</h1>
+                    <ul class="profile__add-cv__parts">
+                        <li class="active">
+                            <a href="#tab1" class="tab1 step_btn"> Şirkətlər</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="inner_tab">
+                    <div class="row mt-5">
+
+                        @foreach (var item in Model.Companies)
+                        {
+                            <div class="company_card col-md-4 col-lg-3">
+                                <div class="company_box">
+                                    <a class="full" href="/company/detail?id=7">
+                                        <div>
+                                            <div class="company_images">
+                                                <div class="image">
+                                                    <img src="/assets/images/Company/@item.ImageUrl" alt="Kapital Bank" />
+                                                </div>
+                                            </div>
+                                            <p>@item.Name</p>
+                                            <p>Vakansiya sayı <span>@item.Vacancies.Count</span> </p>
+                                        </div>
+                                    </a>
+                                    <div class="crudbtn mt-2">
+                                        <a class="btn btn-success" style="text-decoration:none" asp-action="updatecompany" asp-controller="user">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger" style="text-decoration:none" asp-action="SoftDeleteCompany" asp-controller="user">
+                                            Delete
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
