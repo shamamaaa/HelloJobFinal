@@ -28,20 +28,21 @@ namespace HelloJobFinal.Mvc.Controllers
         {
             return View(await _service.GetByUserNameAsync(User.Identity.Name));
         }
-        public async Task<IActionResult> EditUser(string id)
-        {
-            return View(await _service.EditUser(id));
-        }
-        [HttpPost]
-        public async Task<IActionResult> EditUser(string id, EditAppUserVm editUser)
-        {
-            bool result = await _service.EditUserAsync(id, editUser, ModelState);
-            if (!result)
-            {
-                return View(editUser);
-            }
-            return RedirectToAction(nameof(Index));
-        }
+
+        //public async Task<IActionResult> EditUser(string id)
+        //{
+        //    return View(await _service.EditUser(id));
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> EditUser(string id, EditAppUserVm editUser)
+        //{
+        //    bool result = await _service.EditUserAsync(id, editUser, ModelState);
+        //    if (!result)
+        //    {
+        //        return View(editUser);
+        //    }
+        //    return RedirectToAction(nameof(Index));
+        //}
         public async Task<IActionResult> FogotPassword(string id)
         {
             await _service.ForgotPassword(id, Url);
@@ -64,6 +65,13 @@ namespace HelloJobFinal.Mvc.Controllers
         }
 
         //Cv pages
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> CvIndex()
+        {
+            var currentUser = User.Identity.Name;
+            var cvs = await _cvService.GetAllWhereByOrderAsync(3, cv => cv.AppUser.UserName == currentUser);
+            return View(cvs);
+        }
 
         [Authorize(Roles = "Employee")]
         public IActionResult CreateCv()
@@ -117,6 +125,14 @@ namespace HelloJobFinal.Mvc.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> VacancyIndex()
+        {
+            var currentUser = User.Identity.Name;
+            var vacancyVms = await _vacancyService.GetAllWhereByOrderAsync(3, x => x.AppUser.UserName == currentUser);
+            return View(vacancyVms);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateVacancy(CreateVacancyVm vacancyVm)
         {
@@ -160,6 +176,14 @@ namespace HelloJobFinal.Mvc.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> CompanyIndex()
+        {
+            var currentUser = User.Identity.Name;
+            var companyvms = await _companyService.GetAllWhereByOrderAsync(3, x => x.AppUser.UserName == currentUser);
+            return View(companyvms);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateCompany(CreateCompanyVm companyVm)
         {
@@ -194,6 +218,8 @@ namespace HelloJobFinal.Mvc.Controllers
 
             return RedirectToAction("Index", "User");
         }
+
+
     }
 }
 

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/assets/css/slick.css">
-    <link rel="stylesheet" href="~/assets/css/slick.css.map">
-    <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="./assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/slick.css">
+    <link rel="stylesheet" href="./assets/css/slick.css.map">
+    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
@@ -16,9 +16,6 @@
     <title>Hello Job</title>
 </head>
 <body>
-    @await Html.RenderPartial("_LoginPartialView", new LoginVm())
-    @await Html.RenderPartial("_RegisterPartialView", new RegisterVm())
-
     <header class="header">
         <div class="container">
             <div class="row">
@@ -27,52 +24,81 @@
                 </div>
                 <div class="col-lg-6 col-md-4">
                     <div class="logo">
-                        <a href="~/index.html">
-                            <img class="lightmode" src="~/assets/images/logo.svg" alt="">
-                            <img class="nightmode" src="~/assets/images/night_mode_logo.svg" alt="">
+                        <a asp-controller="home" asp-action="index">
+                            @*<img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
+                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">*@
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="buttons">
-                        <div class="enters  d-none">
-                            <a class="login_btn popup_btn" href="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
-                                    <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
-                                        <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                                        <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                                        <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
-                                    </g>
-                                </svg>
-                                Sayta daxil ol
-                            </a>
-                        </div>
-                        <div class="account_head_user">
-                            <a href="~/account.html" class="profile__header__user__name">
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
-                                     alt="" />
-                                <span>Rashid Baghirov</span>
-                            </a>
-                            <ul class="account_head_user_drop">
-                                <li><a href="~/mysticker.html">Mənim elanlarım</a></li>
-                                <li>
-                                    <a href="~/security.html">Şəxsi məlumatlar</a>
-                                </li>
-                                <li><a href="/logout">Çıxış</a></li>
-                            </ul>
-                        </div>
-                        <span class="notification"></span>
-                        <div class="stickeradding">
-                            <a href="~/postCv.html" class="add">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                </svg>
-                                Elan yerləşdir
-                            </a>
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="account_head_user">
+                                <a class="profile__header__user__name">
+                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg" alt="" />
+                                    <span>Nigga </span>
+                                </a>
+                                <ul class="account_head_user_drop">
+                                    <li><a asp-controller="myaccount" asp-action="index">Hesabım </a></li>
+                                    <li><a asp-controller="myaccount" asp-action="Security">Şəxsi məlumatlar</a></li>
+                                    <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
+                                </ul>
+                            </div>
+                            @*var acceptedOrRejectedRequests = layoutService.GetAcceptedOrRejectedRequests(user.Id);
+
+                            if (acceptedOrRejectedRequests != null && acceptedOrRejectedRequests.Any())
+                            {
+                                <span class="notification"></span>
+                            }*@
+
+                            @if (User.IsInRole(UserRole.Company.ToString()))
+                            {
+                                <div class="stickeradding">
+                                    <a asp-controller="myaccount" asp-action="createVAcans" class="add">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                        Elan yerləşdir
+                                    </a>
+                                </div>
+
+                            }
+                            @if (User.IsInRole(UserRole.Employee.ToString()))
+                            {
+                                <div class="stickeradding">
+                                    <a asp-controller="myaccount" asp-action="createCv" class="add">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                        </svg>
+                                        CV yerləşdir
+                                    </a>
+                                </div>
+
+                            }
+                        }
+                        else
+                        {
+                            <div class="enters">
+                                <a class="login_btn popup_btn" href="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
+                                        <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
+                                            <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                            <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                            <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
+                                        </g>
+                                    </svg>
+                                    Sayta daxil ol
+                                </a>
+                            </div>
+                        }
+
+
+
                         <div class="wishlist">
-                            <a href="~/liked.html" class="wishlistitem">
+                            <a asp-controller="liked" asp-action="index" class="wishlistitem">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                                 </svg>
@@ -91,70 +117,51 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-4 col-sm-12 logo_cont mobile_logo_cont">
                         <div class="logo">
-                            <img class="lightmode" src="~/assets/images/logo.svg" alt="">
-                            <img class="nightmode" src="~/assets/images/night_mode_logo.svg" alt="">
+                            @*<img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
+                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">*@
                         </div>
                         <button name="menu_close" class="menu_close"></button>
                     </div>
                 </div>
             </div>
             <div class="buttons_mobile">
-                <a href="" class="add">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    Elan yerləşdir
-                </a>
-                <a class="login_btn popup_btn d-none" href="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
-                        <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
-                            <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                            <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                            <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
-                        </g>
-                    </svg>
-                    Sayta daxil ol
-                </a>
-                <a class="account_head_user" href="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
-                        <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
-                            <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                            <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                            <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
-                        </g>
-                    </svg>
-                    Rashid baghirov
-                </a>
-                <span class="notification"></span>
+              
+                    <a class="login_btn popup_btn" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
+                            <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
+                                <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
+                            </g>
+                        </svg>
+                        Sayta daxil ol
+                    </a>
+                
+
+
             </div>
             <div class="col-md-12 p-0">
                 <ul class="mobile_nav">
+
                     <li>
-                        <a href="">Bütün vakansiyalar</a>
+                        <a asp-controller="home" asp-action="index">Bütün vakansiyalar</a>
                     </li>
                     <li>
-                        <a href="">Seçilmişlər</a>
+                        <a asp-controller="liked" asp-action="index">Seçilmişlər</a>
                     </li>
                     <li>
-                        <a href="">Şirkətlər</a>
+                        <a asp-controller="company" asp-action="index">Şirkətlər</a>
                     </li>
                     <li>
-                        <a href="">Bloq</a>
-                    </li>
-                    <li>
-                        <a href="">Qaydalar</a>
-                    </li>
-                    <li>
-                        <a href="/page/saytda-reklam">Saytda reklam</a>
+                        <a asp-controller="rules" asp-action="index">Qaydalar</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-12 p-0 mm_social">
-                <a target="_blank" href="https://www.facebook.com/hellojobaz"><i class="fab fa-facebook-f" aria-hidden="true"><span class="d-none">Facebook</span></i></a>
-                <a target="_blank" href="https://www.instagram.com/hellojobaz"><i class="fab fa-instagram" aria-hidden="true"><span class="d-none">Instagram</span></i></a>
-                <a target="_blank" href="https://www.linkedin.com/company/hellojobaz"><i class="fab fa-linkedin-in" aria-hidden="true"><span class="d-none">Linkedin</span></i></a>
-                <a target="_blank" href="https://t.me/hellojobaz"><i class="fab fa-telegram" aria-hidden="true"></i><span class="d-none">Telegram</span></a>
+                <a target="_blank" href="https://www.facebook.com/hellojobaz"><i class="fab fa-facebook-f"><span class="d-none">Facebook</span></i></a>
+                <a target="_blank" href="https://www.instagram.com/hellojobaz"><i class="fab fa-instagram"><span class="d-none">Instagram</span></i></a>
+                <a target="_blank" href="https://www.linkedin.com/company/hellojobaz"><i class="fab fa-linkedin-in"><span class="d-none">Linkedin</span></i></a>
+                <a target="_blank" href="https://t.me/hellojobaz"><i class="fab fa-telegram"></i><span class="d-none">Telegram</span></a>
             </div>
         </div>
         <div class="back animate__animated">
@@ -177,47 +184,12 @@
                     </div>
 
                 </div>
-                <div class="login">
-                    <form action="">
-                        <div class="inputs_lg form-group">
-                            <label for="">E-Poçt</label>
-                            <input type="email" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">Şifrə</label>
-                            <input type="password" placeholder="********">
-                        </div>
-                        <div class="log_foot">
-                            <div class="rememberme form-group">
-                                <input type="checkbox">
-                                <span>Yadda saxla</span>
-                            </div>
-                            <a class="regs_bopup_open">Şifrəni unutmuşam</a>
-
-                        </div>
-                        <div class="buttons_sbmt">
-                            <div class="login_submit">
-                                <button type="submit">Daxil ol</button>
-                            </div>
-                            <div class="goRegister">
-                                <button type="submit">Qeydiyyatdan keç</button>
-                            </div>
-                            <div class="gogmail">
-
-                                <a href=""> <i class="bi bi-google"></i> E-poçt ilə Giriş et</a>
-                            </div>
-                            <div class="gofb">
-
-                                <a href=""> <i class="bi bi-facebook"></i> Facebook ilə Giriş et</a>
-                            </div>
-                            <div class="alert alert-light" role="alert">
-                                Əgər vakansiya yerləşdirmək istəyirsinizsə,sayt daxilində "Qeydiyyat" zamanı "Kateqoriya" olaraq "Şirkət seçin"!.
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                @{
+                    await Html.RenderPartialAsync("_LoginPartialView", new LoginVM());
+                }
             </div>
             <div class="registration_body  d-none">
+
                 <div class="reg_head">
                     <div class="close_button">
                         <button title="Close (Esc)" type="button" class="close">×</button>
@@ -229,56 +201,11 @@
                         <h3>Qeydiyyatdan keç</h3>
                     </div>
                 </div>
-                <div class="register">
-                    <form action="">
-                        <div class="inputs_lg form-group">
-                            <label for="">Adınız*</label>
-                            <input type="text" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">Soyadınız*</label>
-                            <input type="text" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">istifadəşi adı*</label>
-                            <input type="text" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">E-Poçt</label>
-                            <input type="email" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">Şifrə*</label>
-                            <input type="password" placeholder="********">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">Şifrə təkrar*</label>
-                            <input type="password" placeholder="********">
-                        </div>
-                        <div class="inputs_lg form-group">
-                            <label for="">Kateqoriya</label>
-                            <select class="form-select role mb-3">
-                                <option value="">Şirkət</option>
-                                <option value="">İşçi</option>
-                            </select>
-                        </div>
-                        <div class="log_foot">
-                            <div class="rememberme form-group">
-                                <input type="checkbox">
-                                <span>Qeydiyyatı Təsdiqlə</span>
-                            </div>
+                @{
+                    await Html.RenderPartialAsync("_RegisterPartialView", new RegisterVM());
+                }
 
-                        </div>
-                        <div class="buttons_sbmt">
-                            <div class="register_submit">
-                                <button type="submit">Qeydiyyat ol</button>
-                            </div>
-                            <div class="goLogin">
-                                <button type="submit">Giriş səhifəsi</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
             </div>
             <div class="forgot_password  d-none">
                 <div class="pass_head">
@@ -292,57 +219,11 @@
                         <h3>Şifrəni unutmuşam</h3>
                     </div>
                 </div>
-                <div class="forgot">
-                    <form action="">
-                        <div class="inputs_lg form-group">
-                            <label for="">E-Poçt</label>
-                            <input type="email" placeholder="E-poçtunuzu yazın">
-                        </div>
-                        <div class="buttons_sbmt">
-                            <div class="forgot_submit">
-                                <button type="submit">Göndər</button>
-                            </div>
-                            <div class="goLogin">
-                                <button type="submit">Giriş səhifəsi</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+             
             </div>
         </div>
     </header>
     <main class="main">
-        <section id="titles_and_bgblue">
-            <div class="blueback">
-
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="titles col-lg-12 col-md-12">
-                        <ul>
-                            <li>
-                                <a href="~/index.html">İş elanları</a>
-                            </li>
-                            <li>
-                                <a href="~/CvPage.html">CV-lər</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="search_titles_bottom col-lg-12 col-md-12">
-                        <div class="searchbar full">
-                            <div class="searchbar_top" style="display: flex;">
-                                <form>
-                                    <div class="input">
-                                        <input type="text" placeholder="Məsələn, Dizayner">
-                                    </div>
-                                    <button type="submit" class="search_btn"><span>Axtar</span></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         @RenderBody()
     </main>
     <footer class="footer">
@@ -351,7 +232,7 @@
                 <div class="col-md-4">
                     <a href="/">
                         <div class="footer__logo">
-                            <img src="~/assets/images/night_mode_logo.svg" alt="" />
+                            <img src="./assets/images/night_mode_logo.svg" alt="" />
                         </div>
                         <p>Yeni işinizi qarşılayın</p>
                     </a>
@@ -372,26 +253,33 @@
                         <a href="#" class="footer__head"> Hellojob.az </a>
                         <ul>
                             <li>
-                                <a href="~/company.html">Şirkətlər</a>
+                                <a href="./company.html">Şirkətlər</a>
                             </li>
                             <li>
-                                <a href="~/rules.html">Qaydalar</a>
+                                <a href="./rules.html">Qaydalar</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="footer__menu">
-                        <a href="~/index.html" class="footer__head"> Elanlar </a>
+                        <a href="./index.html" class="footer__head"> Elanlar </a>
                         <ul>
                             <li>
                                 <a href="">Bütün Vakansiyalar</a>
                             </li>
                             <li>
-                                <a href="~/CvPage.html">Bütün CV-lər</a>
+                                <a href="./CvPage.html">Bütün CV-lər</a>
                             </li>
                             <li>
-                                <a href="~/business.html">Elan Yerləşdir</a>
+                                @if (User.IsInRole(UserRole.Employee.ToString()))
+                                {
+                                    <a asp-action="createcv" asp-controller="user">Elan Yerləşdir</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="createvacancy" asp-controller="user">Elan Yerləşdir</a>
+                                }
                             </li>
                         </ul>
                     </div>
@@ -450,9 +338,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
             integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
             crossorigin="anonymous"></script>
-    <script src="~/assets/js/slick.min.js"></script>
-    <script src="~/assets/js/script.js"></script>
-    <script src="~/assets/js/darkmode.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/darkmode.js"></script>
 </body>
 </html>
-

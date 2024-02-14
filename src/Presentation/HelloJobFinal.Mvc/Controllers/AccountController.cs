@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HelloJobFinal.Application.Abstractions.Services;
+﻿using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,17 +15,14 @@ namespace HelloJobFinal.Mvc.Controllers
             _service = service;
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
+
+
         public async Task<IActionResult> Login(LoginVM login, string? returnUrl)
         {
             bool result = await _service.LogInAsync(login, ModelState);
             if (!result)
             {
-                return View(login);
+                return RedirectToAction("Index", "Home", new { Area = "" });
             }
             if (returnUrl != null)
             {
@@ -37,17 +30,13 @@ namespace HelloJobFinal.Mvc.Controllers
             }
             return RedirectToAction("Index", "Home", new { Area = "" });
         }
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
+
         public async Task<IActionResult> Register(RegisterVM register)
         {
             bool result = await _service.RegisterAsync(register, ModelState, Url);
             if (!result)
             {
-                return View(register);
+                return RedirectToAction("Index", "Home", new { Area = "" });
             }
             return RedirectToAction(nameof(SuccessfullyRegistred));
         }

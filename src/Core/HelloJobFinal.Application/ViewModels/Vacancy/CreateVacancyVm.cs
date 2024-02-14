@@ -9,6 +9,8 @@
         public List<IncludeExperienceVm> Experiences { get; set; }
         public List<IncludWorkingHourVm> WorkingHours { get; set; }
         public List<IncludeCategoryItemVm> CategoryItems { get; set; }
+        public List<IncludeCompanyVm> Companies { get; set; }
+
     }
 
 }

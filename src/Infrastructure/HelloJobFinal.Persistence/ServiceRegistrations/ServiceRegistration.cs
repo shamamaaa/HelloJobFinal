@@ -51,6 +51,7 @@ namespace HelloJobFinal.Persistence.ServiceRegistrations
             services.AddScoped<IVacancyService, VacancyService>();
             services.AddScoped<IVacancyWishlistService, VacancyWishlistService>();
             services.AddScoped<IWorkingHourService, WorkingHourService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IBaseCategoryRepository, BaseCategoryRepository>();
             services.AddScoped<ICategoryItemRepository, CategoryItemRepository>();

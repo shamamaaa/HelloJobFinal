@@ -1,0 +1,17 @@
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Infrastructure.deps.json
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Infrastructure.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Infrastructure.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Application.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Domain.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Application.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/bin/Release/net6.0/HelloJobFinal.Domain.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.csproj.AssemblyReference.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.AssemblyInfoInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.AssemblyInfo.cs
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.csproj.CopyComplete
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/refint/HelloJobFinal.Infrastructure.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/HelloJobFinal.Infrastructure.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Infrastructure/obj/Release/net6.0/ref/HelloJobFinal.Infrastructure.dll

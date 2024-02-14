@@ -1,0 +1,15 @@
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/bin/Release/net6.0/HelloJobFinal.Application.deps.json
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/bin/Release/net6.0/HelloJobFinal.Application.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/bin/Release/net6.0/HelloJobFinal.Application.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/bin/Release/net6.0/HelloJobFinal.Domain.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/bin/Release/net6.0/HelloJobFinal.Domain.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.csproj.AssemblyReference.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.AssemblyInfoInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.AssemblyInfo.cs
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.csproj.CoreCompileInputs.cache
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.csproj.CopyComplete
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/refint/HelloJobFinal.Application.dll
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/HelloJobFinal.Application.pdb
+/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Core/HelloJobFinal.Application/obj/Release/net6.0/ref/HelloJobFinal.Application.dll

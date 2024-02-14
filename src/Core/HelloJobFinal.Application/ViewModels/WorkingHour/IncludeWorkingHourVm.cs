@@ -1,6 +1,6 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record IncludWorkingHourVm(string Name);
+    public record IncludWorkingHourVm(int Id,string Name);
 
 }
 

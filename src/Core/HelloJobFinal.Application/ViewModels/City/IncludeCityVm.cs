@@ -1,7 +1,7 @@
 ﻿using System;
 namespace HelloJobFinal.Application.ViewModels
 {
-    public record IncludeCityVm(string Name);
+    public record IncludeCityVm(int Id,string Name);
 
 }
 
