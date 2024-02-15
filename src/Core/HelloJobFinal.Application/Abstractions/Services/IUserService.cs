@@ -17,8 +17,8 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task DeleteAsync(string id);
         Task GiveRoleModeratorAsync(string id);
         Task DeleteRoleModeratorAsync(string id);
-        //Task<EditAppUserVm> EditUser(string id);
-        //Task<bool> EditUserAsync(string id, EditAppUserVm update, ModelStateDictionary model);
+        Task<EditAppUserVm> EditUser(string id);
+        Task<bool> EditUserAsync(string id, EditAppUserVm update, ModelStateDictionary model);
         Task ForgotPassword(string id, IUrlHelper url);
         Task<bool> ChangePassword(string id, string token, ForgotPasswordVm fogotPassword, ModelStateDictionary model);
     }

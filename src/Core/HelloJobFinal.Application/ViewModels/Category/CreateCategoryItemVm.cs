@@ -2,9 +2,11 @@
 
 namespace HelloJobFinal.Application.ViewModels
 {
-    public record CreateCategoryItemVm(string Name, int BaseCategoryId)
+    public record CreateCategoryItemVm
     {
-        public List<IncludeBaseCategoryVm> Categorys { get; set; }
+        public string Name { get; init; }
+        public int BaseCategoryId { get; init; }
+        public List<IncludeBaseCategoryVm>? Categorys { get; set; }
     }
 }
 

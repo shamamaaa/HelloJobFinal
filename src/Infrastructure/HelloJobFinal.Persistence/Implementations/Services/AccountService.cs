@@ -92,11 +92,11 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (register.Role.Contains(UserRole.Company.ToString()))
             {
                 await _emailService.SendMailAsync(_configuration["AdminSettings:Email"], "Email Confirmation", $"{user.UserName} want join us");
-                user.IsActivate = false;
+                user.IsActivate = true;
                 await _userManager.AddToRoleAsync(user, UserRole.Company.ToString());
                 return true;
             }
-            user.IsActivate = true;
+            user.IsActivate = false;
             await _userManager.AddToRoleAsync(user, UserRole.Employee.ToString());
             return true;
         }

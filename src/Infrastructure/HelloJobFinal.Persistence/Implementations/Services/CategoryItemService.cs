@@ -62,7 +62,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
             CategoryItem item = await _repository.GetByIdAsync(id, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
@@ -73,7 +74,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<ICollection<ItemCategoryItemVm>> GetAllWhereAsync(int take, int page = 1)
         {
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
 
             ICollection<CategoryItem> items = await _repository
                     .GetAllWhere(skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
@@ -86,7 +88,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<ICollection<ItemCategoryItemVm>> GetAllWhereByOrderAsync(int take, Expression<Func<CategoryItem, object>>? orderExpression, int page = 1)
         {
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
 
             ICollection<CategoryItem> items = await _repository
                     .GetAllWhereByOrder(orderException: orderExpression, skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
@@ -100,7 +103,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
 
             CategoryItem item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
@@ -116,7 +120,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
 
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
             double count = await _repository.CountAsync();
 
             ICollection<CategoryItem> items = new List<CategoryItem>();
@@ -166,7 +171,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
 
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
-                $"{nameof(CategoryItem.Cvs)}" };
+                $"{nameof(CategoryItem.Cvs)}",
+                $"{nameof(CategoryItem.BaseCategory)}"};
             double count = await _repository.CountAsync();
 
             ICollection<CategoryItem> items = new List<CategoryItem>();
@@ -237,7 +243,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (item == null) throw new NotFoundException("Your request was not found");
 
             UpdateCategoryItemVm update = _mapper.Map<UpdateCategoryItemVm>(item);
-
+            await UpdatePopulateDropdowns(update);
             return update;
         }
 

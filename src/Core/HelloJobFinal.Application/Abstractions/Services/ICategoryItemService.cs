@@ -18,6 +18,8 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task DeleteAsync(int id);
         Task SoftDeleteAsync(int id);
         Task ReverseSoftDeleteAsync(int id);
+        Task UpdatePopulateDropdowns(UpdateCategoryItemVm update);
+        Task CreatePopulateDropdowns(CreateCategoryItemVm create);
     }
 
 }

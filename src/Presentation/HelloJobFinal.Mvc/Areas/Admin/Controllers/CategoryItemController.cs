@@ -27,9 +27,11 @@ namespace HelloJobFinal.Mvc.Areas.Admin.Controllers
             return View(model: await _service.GetDeleteFilteredAsync(search, 10, page, order));
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            CreateCategoryItemVm create = new CreateCategoryItemVm();
+            await _service.CreatePopulateDropdowns(create);
+            return View(create);
         }
         [HttpPost]
         public async Task<IActionResult> Create(CreateCategoryItemVm create)

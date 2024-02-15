@@ -429,6 +429,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     model.AddModelError("CvFile", "Max file 5Mb.");
                     return false;
                 }
+                item.CvFile.DeleteFile(_env.WebRootPath, "assets", "User", "Cvs");
                 item.CvFile = await update.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "Cvs");
             }
             if(update.Photo != null)
@@ -445,6 +446,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     model.AddModelError("Photo", "Max file 5Mb.");
                     return false;
                 }
+                item.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "User", "Cvs");
                 item.ImageUrl = await update.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
             }
 
@@ -467,7 +469,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task UpdatePopulateDropdowns(UpdateCvVm update)
         {
-            update.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync());
+            update.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.BaseCategory)}").ToListAsync());
             update.Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync());
             update.Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync());
             update.Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync());
@@ -475,7 +477,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
         public async Task CreatePopulateDropdowns(CreateCvVm create)
         {
-            create.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync());
+            create.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.BaseCategory)}").ToListAsync());
             create.Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync());
             create.Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync());
             create.Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync());

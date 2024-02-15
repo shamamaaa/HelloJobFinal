@@ -15,7 +15,6 @@ closebtn.addEventListener("click", function () {
     mobmenu.classList.remove("active");
 });
 
-let likeButtons = document.querySelectorAll('.like');
 let unlikedIcons = document.querySelectorAll('.unliked');
 let likedIcons = document.querySelectorAll('.liked');
 
@@ -130,7 +129,6 @@ close_button.forEach(btn => {
         registration_body.classList.add("d-none");
         login_body.classList.remove("d-none");
         forgot_password.classList.add("d-none");
-        enter_gmail.classList.add("d-none");
         setTimeout(function () {
             backgray.classList.remove("active");
             backgray.classList.remove("animate__fadeOutUp");
@@ -141,13 +139,10 @@ close_button.forEach(btn => {
 
 const goRegister = document.querySelector(".goRegister");
 const goLogin = document.querySelectorAll(".goLogin");
-const gogmail = document.querySelector(".gogmail");
-
 const login_body = document.querySelector(".login_body")
 const registration_body = document.querySelector(".registration_body");
 const regs_bopup_open = document.querySelector(".regs_bopup_open");
 const forgot_password = document.querySelector(".forgot_password");
-const enter_gmail = document.querySelector(".enter_gmail");
 
 
 
@@ -164,11 +159,6 @@ goRegister.addEventListener("click", (e) => {
     login_body.classList.add("d-none");
 })
 
-gogmail.addEventListener("click", (e) => {
-    e.preventDefault();
-    enter_gmail.classList.remove("d-none");
-    login_body.classList.add("d-none");
-})
 
 goLogin.forEach(btn => {
     btn.addEventListener("click", (e) => {
@@ -189,3 +179,8 @@ account_head_user.addEventListener("click", (event) => {
     event.preventDefault();
     account_head_user_drop.classList.toggle("active");
 });
+
+
+
+
+

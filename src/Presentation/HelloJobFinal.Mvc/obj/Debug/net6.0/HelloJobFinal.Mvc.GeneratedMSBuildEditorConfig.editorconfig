@@ -120,6 +120,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Setting/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2V0dGluZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Setting/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2V0dGluZy9VcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -152,6 +160,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vVmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9DaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Db25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/FogotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Gb2dvdFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/FogotPasswordSended.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Gb2dvdFBhc3N3b3JkU2VuZGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/SuccessfullyRegistred.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9TdWNjZXNzZnVsbHlSZWdpc3RyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -172,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/CompanyIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9Db21wYW55SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/CreateCompany.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGVDb21wYW55LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -182,6 +214,38 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/CreateVacancy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGVWYWNhbmN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/CvIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DdkluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/CvWishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9Ddldpc2hsaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/UpdateCompany.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9VcGRhdGVDb21wYW55LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/UpdateCv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9VcGRhdGVDdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/UpdateVacancy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9VcGRhdGVWYWNhbmN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/VacancyIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9WYWNhbmN5SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/User/VacancyWishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9WYWNhbmN5V2lzaGxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/_ViewImports.cshtml]

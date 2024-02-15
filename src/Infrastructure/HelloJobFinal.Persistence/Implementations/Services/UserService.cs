@@ -247,39 +247,34 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             await _userManager.DeleteAsync(user);
         }
 
-        //public async Task<EditAppUserVm> EditUser(string id)
-        //{
-        //    if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
-        //    AppUser user = await _userManager.Users
-        //        .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-        //    if (user == null) throw new NotFoundException("Your request was not found");
+        public async Task<EditAppUserVm> EditUser(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
+            AppUser user = await _userManager.Users
+                .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            if (user == null) throw new NotFoundException("Your request was not found");
 
-        //    EditAppUserVm get = _mapper.Map<EditAppUserVm>(user);
+            EditAppUserVm get = _mapper.Map<EditAppUserVm>(user);
 
-        //    return get;
-        //}
+            return get;
+        }
 
-        //public async Task<bool> EditUserAsync(string id, EditAppUserVm update, ModelStateDictionary model)
-        //{
-        //    if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
-        //    AppUser user = await _userManager.FindByIdAsync(id);
-        //    if (user == null) throw new NotFoundException("Your request was not found");
+        public async Task<bool> EditUserAsync(string id, EditAppUserVm update, ModelStateDictionary model)
+        {
+            if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
+            AppUser user = await _userManager.FindByIdAsync(id);
+            if (user == null) throw new NotFoundException("Your request was not found");
 
-        //    _mapper.Map(update, user);
-        //    user.Name = user.Name.Capitalize();
-        //    user.Surname = user.Surname.Capitalize();
-        //    if (update.Photo != null)
-        //    {
-        //        await 
-        //        user.im = await _cLoud.FileCreateAsync(update.Photo);
-        //    }
+            _mapper.Map(update, user);
+            user.Name = user.Name.Capitalize();
+            user.Surname = user.Surname.Capitalize();
 
-        //    await _userManager.UpdateAsync(user);
-        //    await _signInManager.SignOutAsync();
-        //    await _signInManager.SignInAsync(user, false);
+            await _userManager.UpdateAsync(user);
+            await _signInManager.SignOutAsync();
+            await _signInManager.SignInAsync(user, false);
 
-        //    return true;
-        //}
+            return true;
+        }
 
         public async Task ForgotPassword(string id, IUrlHelper url)
         {

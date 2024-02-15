@@ -9,14 +9,14 @@ namespace HelloJobFinal.Mvc.Controllers
 {
     public class UserController : Controller
     {
-
         private readonly IUserService _service;
         private readonly ICvService _cvService;
         private readonly IVacancyService _vacancyService;
         private readonly ICompanyService _companyService;
 
 
-        public UserController(IUserService service, ICvService cvService, IVacancyService vacancyService, ICompanyService companyService)
+        public UserController(IUserService service, ICvService cvService, IVacancyService vacancyService,
+            ICompanyService companyService)
         {
             _service = service;
             _cvService = cvService;
@@ -29,20 +29,20 @@ namespace HelloJobFinal.Mvc.Controllers
             return View(await _service.GetByUserNameAsync(User.Identity.Name));
         }
 
-        //public async Task<IActionResult> EditUser(string id)
-        //{
-        //    return View(await _service.EditUser(id));
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> EditUser(string id, EditAppUserVm editUser)
-        //{
-        //    bool result = await _service.EditUserAsync(id, editUser, ModelState);
-        //    if (!result)
-        //    {
-        //        return View(editUser);
-        //    }
-        //    return RedirectToAction(nameof(Index));
-        //}
+        public async Task<IActionResult> EditUser(string id)
+        {
+            return View(await _service.EditUser(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditUser(string id, EditAppUserVm editUser)
+        {
+            bool result = await _service.EditUserAsync(id, editUser, ModelState);
+            if (!result)
+            {
+                return View(editUser);
+            }
+            return RedirectToAction(nameof(Index));
+        }
 
         public async Task<IActionResult> FogotPassword(string id)
         {
@@ -69,13 +69,16 @@ namespace HelloJobFinal.Mvc.Controllers
         [Authorize(Roles = "Employee")]
         public async Task<IActionResult> CvIndex(string id)
         {
+
             return View(await _service.GetByIdAsync(id));
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult CreateCv()
+        public async Task<IActionResult> CreateCv()
         {
-            return View();
+            CreateCvVm create = new CreateCvVm();
+            await _cvService.CreatePopulateDropdowns(create);
+            return View(create);
         }
 
         [HttpPost]

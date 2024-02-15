@@ -28,10 +28,7 @@
     <Folder Include="Areas\Admin\Views\Vacancy\" />
     <Folder Include="Areas\Admin\Views\WorkingHour\" />
     <Folder Include="Views\User\" />
-    <Folder Include="Views\User\Dashboard\" />
-    <Folder Include="Views\User\Dashboard\Cv\" />
-    <Folder Include="Views\User\Dashboard\Vacancy\" />
-    <Folder Include="Views\User\Dashboard\Company\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\HelloJobFinal.Infrastructure\HelloJobFinal.Infrastructure.csproj">
@@ -65,9 +62,6 @@
     <None Remove="Areas\Admin\Views\Vacancy\" />
     <None Remove="Areas\Admin\Views\WorkingHour\" />
     <None Remove="Views\User\" />
-    <None Remove="Views\User\Dashboard\" />
-    <None Remove="Views\User\Dashboard\Cv\" />
-    <None Remove="Views\User\Dashboard\Vacancy\" />
-    <None Remove="Views\User\Dashboard\Company\" />
+    <None Remove="Views\Account\" />
   </ItemGroup>
 </Project>

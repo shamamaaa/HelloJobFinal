@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label asp-for="BaseCategoryId">Base Category</label>
                     <select asp-for="BaseCategoryId" asp-items="new SelectList(Model.Categorys, nameof(IncludeBaseCategoryVm.Id), nameof(IncludeBaseCategoryVm.Name))" class="form-control">
-                        <option selected disabled>Choose base Cctegory</option>
+                        <option selected disabled>Choose Base Category</option>
                     </select>
                     <span asp-validation-for="BaseCategoryId" class="text-danger"></span>
                 </div>
