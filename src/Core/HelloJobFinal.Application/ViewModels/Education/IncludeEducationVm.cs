@@ -1,6 +1,10 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record IncludeEducationVm(int Id,string Name);
+    public record IncludeEducationVm
+    {
+        public int Id { get; init; }
+        public string Name { get; init; }
+    }
 
 }
 

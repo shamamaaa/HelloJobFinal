@@ -1,10 +1,11 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record GetExperienceVm(int Id, string Name)
+    public record GetExperienceVm
     {
-        public ICollection<IncludeCvVm> IncludeCvVms { get; init; }
-        public ICollection<IncludeVacancyVm> IncludeVacancyVms { get; init; }
-
+        public int Id { get; init; }
+        public string Name { get; init; }
+        public ICollection<IncludeCvVm> IncludeCvVms { get; set; }
+        public ICollection<IncludeVacancyVm> IncludeVacancyVms { get; set; }
     }
 
 }

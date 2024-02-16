@@ -1,9 +1,11 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record ItemWorkingHourVm(int Id,string Name)
+    public record ItemWorkingHourVm
     {
-        public ICollection<IncludeCvVm> IncludeCvVms { get; init; }
-
+        public int Id { get; init; }
+        public string Name { get; init; }
+        public ICollection<IncludeCvVm> IncludeCvVms { get; set; }
+        public ICollection<IncludeVacancyVm> IncludeVacancyVms { get; set; }
     }
 
 }

@@ -1,13 +1,67 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
 namespace HelloJobFinal.Application.ViewModels
 {
-    public record UpdateCvVm(string Name, string Surname, string Email, DateTime Birthday, int Phone,
-        string ImageUrl, IFormFile? Photo, string Position, int MinSalary, bool HasDriverLicense, DateTime FinishTime,
-        string CvUrl, IFormFile? CvFile, bool IsTimeOver, int ViewCount, int CityId, int EducationId, int ExperienceId,
-        int WorkingHourId, int CategoryId, string AppUserId, string Status)
+    public record UpdateCvVm
     {
+        public string ImageUrl { get; init; }
+        public string CvUrl { get; init; }
+        public IFormFile? Photo { get; init; }
+        public IFormFile? CvFile { get; init; }
+
+        [Required(ErrorMessage = "Ad vacibdir")]
+        [StringLength(25, MinimumLength = 2, ErrorMessage = "Ad 2 ilə 25 simvol aralığında olmalıdır")]
+        public string Name { get; init; }
+
+        [Required(ErrorMessage = "Soyad vacibdir")]
+        [StringLength(25, MinimumLength = 2, ErrorMessage = "Soyad 2 ilə 25 simvol aralığında olmalıdır")]
+        public string Surname { get; init; }
+
+        [Required(ErrorMessage = "E-poçt vacibdir")]
+        [StringLength(255, MinimumLength = 10, ErrorMessage = "E-poçt ünvanı 10 ilə 255 simvol aralığında olmalıdır")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Yanlış e-poçt ünvanı")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Yanlış e-poçt formatı")]
+        public string Email { get; init; }
+
+        [Required(ErrorMessage = "Doğum tarixi daxil edilməlidir.")]
+        [DataType(DataType.Date)]
+        public DateTime Birthday { get; init; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Required(ErrorMessage = "Telefon nömrəsi daxil edilməlidir.")]
+        public int Phone { get; init; }
+
+        [Required(ErrorMessage = "Vəzifə daxil edilməlidir.")]
+        [StringLength(40, MinimumLength = 2, ErrorMessage = "Vəzifə 2 ilə 40 simvol aralığında olmalıdır")]
+        public string Position { get; init; }
+
+        [Required(ErrorMessage = "Minumum əmək haqqı daxil edilməlidir.")]
+        [Range(1, 30001, ErrorMessage = "Minumum əmək haqqı 0dan böyük, 30000dən az olmalıdır.")]
+        public int MinSalary { get; init; }
+
+        public bool HasDriverLicense { get; init; }
+        public DateTime FinishTime { get; init; }
+
+        public bool IsTimeOver { get; init; }
+        public int ViewCount { get; init; }
+
+
+        [Required(ErrorMessage = "Şəhər daxil edilməlidir.")]
+        public int CityId { get; init; }
+        [Required(ErrorMessage = "Təhsil daxil edilməlidir.")]
+        public int EducationId { get; init; }
+        [Required(ErrorMessage = "Staj daxil edilməlidir.")]
+        public int ExperienceId { get; init; }
+        [Required(ErrorMessage = "İş saatı daxil edilməlidir.")]
+        public int WorkingHourId { get; init; }
+        [Required(ErrorMessage = "Kateqoriya daxil edilməlidir.")]
+        public int CategoryId { get; init; }
+        public string AppUserId { get; init; }
+        public string Status { get; init; }
+
         public List<IncludeCityVm> Cities { get; set; }
         public List<IncludeEducationVm> Educations { get; set; }
         public List<IncludeExperienceVm> Experiences { get; set; }

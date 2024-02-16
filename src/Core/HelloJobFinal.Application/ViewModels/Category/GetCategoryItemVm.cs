@@ -2,10 +2,15 @@
 
 namespace HelloJobFinal.Application.ViewModels
 {
-    public record GetCategoryItemVm(int Id, string Name, int BaseCategoryId, IncludeBaseCategoryVm BaseCategory)
+    public record GetCategoryItemVm
     {
-        public List<a.Cv>? Cvs { get; init; }
-        public List<a.Vacancy>? Vacancies { get; init; }
+        public int Id { get; init; }
+        public string Name { get; init; }
+        public int BaseCategoryId { get; init; }
+        public IncludeBaseCategoryVm BaseCategory { get; init; }
+
+        public List<a.Cv>? Cvs { get; set; }
+        public List<a.Vacancy>? Vacancies { get; set; }
     }
 
 }

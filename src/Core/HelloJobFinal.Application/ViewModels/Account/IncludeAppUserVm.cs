@@ -3,7 +3,12 @@ using Microsoft.AspNetCore.Http;
 
 namespace HelloJobFinal.Application.ViewModels
 {
-    public record IncludeAppUserVm(string Name, string Surname, string Email);
+    public record IncludeAppUserVm
+    {
+        public string Name { get; init; }
+        public string Surname { get; init; }
+        public string Email { get; init; }
+    }
 
 }
 

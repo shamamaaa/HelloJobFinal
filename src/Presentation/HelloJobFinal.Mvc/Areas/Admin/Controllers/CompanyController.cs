@@ -29,34 +29,6 @@ namespace HelloJobFinal.Mvc.Areas.Admin.Controllers
             return View(model: await _service.GetDeleteFilteredAsync(search, 10, page, order));
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateCompanyVm create)
-        {
-            bool result = await _service.CreateAsync(create, ModelState);
-            if (!result)
-            {
-                return View(create);
-            }
-            return RedirectToAction(nameof(Index));
-        }
-        public async Task<IActionResult> Update(int id)
-        {
-            return View(await _service.UpdateAsync(id));
-        }
-        [HttpPost]
-        public async Task<IActionResult> Update(int id, UpdateCompanyVm update)
-        {
-            bool result = await _service.UpdatePostAsync(id, update, ModelState);
-            if (!result)
-            {
-                return View(update);
-            }
-            return RedirectToAction(nameof(Index));
-        }
         public async Task<IActionResult> SoftDelete(int id)
         {
             await _service.SoftDeleteAsync(id);

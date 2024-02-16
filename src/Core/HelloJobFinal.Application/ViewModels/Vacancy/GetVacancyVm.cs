@@ -1,7 +1,32 @@
 ﻿namespace HelloJobFinal.Application.ViewModels
 {
-    public record GetVacancyVm(int Id, string Position, int Salary, bool HasDriverLicense, DateTime FinishTime, bool IsTimeOver, int ViewCount,
-        IncludeCityVm IncludeCity, int CityId, IncludeEducationVm IncludeEducation, int EducationId, IncludeExperienceVm IncludeExperience,
-        int ExperienceId, IncludWorkingHourVm IncludeWorkingHour, int WorkingHourId, IncludeCategoryItemVm IncludeCategoryItem, string AppUserId, IncludeAppUserVm IncludeAppUser,
-        int CategoryId, IncludeCompanyVm IncludeCompany, int CompanyId, string Status);
+    public record GetVacancyVm
+    {
+        public int Id { get; init; }
+        public string Position { get; init; }
+        public int Salary { get; init; }
+        public bool HasDriverLicense { get; init; }
+        public DateTime FinishTime { get; init; }
+        public bool IsTimeOver { get; init; }
+        public int ViewCount { get; init; }
+
+        public IncludeCityVm IncludeCity { get; init; }
+        public int CityId { get; init; }
+        public IncludeEducationVm IncludeEducation { get; init; }
+        public int EducationId { get; init; }
+        public IncludeExperienceVm IncludeExperience { get; init; }
+        public int ExperienceId { get; init; }
+        public IncludWorkingHourVm IncludeWorkingHour { get; init; }
+        public int WorkingHourId { get; init; }
+        public IncludeCategoryItemVm IncludeCategoryItem { get; init; }
+        public int CategoryId { get; init; }
+
+        public IncludeAppUserVm IncludeAppUser { get; init; }
+        public string AppUserId { get; init; }
+
+        public IncludeCompanyVm IncludeCompany { get; init; }
+        public int CompanyId { get; init; }
+
+        public string Status { get; init; }
+    }
 }
