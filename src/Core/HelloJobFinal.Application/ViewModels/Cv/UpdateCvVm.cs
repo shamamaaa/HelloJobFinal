@@ -43,10 +43,6 @@ namespace HelloJobFinal.Application.ViewModels
         public int MinSalary { get; init; }
 
         public bool HasDriverLicense { get; init; }
-        public DateTime FinishTime { get; init; }
-
-        public bool IsTimeOver { get; init; }
-        public int ViewCount { get; init; }
 
 
         [Required(ErrorMessage = "Şəhər daxil edilməlidir.")]
@@ -58,9 +54,7 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = "İş saatı daxil edilməlidir.")]
         public int WorkingHourId { get; init; }
         [Required(ErrorMessage = "Kateqoriya daxil edilməlidir.")]
-        public int CategoryId { get; init; }
-        public string AppUserId { get; init; }
-        public string Status { get; init; }
+        public int CategoryItemId { get; init; }
 
         public List<IncludeCityVm> Cities { get; set; }
         public List<IncludeEducationVm> Educations { get; set; }

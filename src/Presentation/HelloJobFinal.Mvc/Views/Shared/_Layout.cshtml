@@ -34,24 +34,18 @@
                     <div class="buttons">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div class="account_head_user">
-                                <a class="profile__header__user__name">
-                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg" alt="" />
-                                    <span>@User.Identity.Name</span>
-                                </a>
-                                <ul class="account_head_user_drop" style="visibility:visible; opacity:100%;">
-                                    <li><a asp-controller="user" asp-action="index">Hesabım </a></li>
-                                    <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
-                                </ul>
-                            </div>
-                            @*var acceptedOrRejectedRequests = layoutService.GetAcceptedOrRejectedRequests(user.Id);
+                                <div class="account_head_user">
+                                    <a class="profile__header__user__name">
+                                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg" alt="" />
+                                        <span>@User.Identity.Name</span>
+                                    </a>
+                                    <ul class="account_head_user_drop" style="visibility:visible; opacity:100%;">
+                                        <li><a asp-controller="user" asp-action="index">Hesabım </a></li>
+                                        <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
+                                    </ul>
+                                </div>
 
-            if (acceptedOrRejectedRequests != null && acceptedOrRejectedRequests.Any())
-            {
-                <span class="notification"></span>
-            }*@
-
-                            @if (User.IsInRole(UserRole.Company.ToString()))
+                            @if (User.IsInRole("Company"))
                             {
                                 <div class="stickeradding">
                                     <a asp-controller="user" asp-action="createvacancy" class="add">
@@ -62,10 +56,9 @@
                                         Elan yerləşdir
                                     </a>
                                 </div>
-
-                            }
-                            else if (User.IsInRole(UserRole.Employee.ToString()))
-                            {
+                                }
+                                else if (User.IsInRole("Employee"))
+                                {
                                 <div class="stickeradding">
                                     <a asp-controller="user" asp-action="createcv" class="add">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">

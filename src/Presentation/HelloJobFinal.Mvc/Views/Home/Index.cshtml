@@ -1,4 +1,7 @@
-﻿<section id="sliders">
+﻿@model HomeVm
+@{
+}
+<section id="sliders">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -10,100 +13,45 @@
             </div>
             <div class="col-lg-12">
                 <div class="responsive">
-                    <div class="item">
-                        <div class="new-cat-card apply-cv">
-                            <a href="~/postCv.html">
-                                <img src="https://www.hellojob.az/content/assets/images/vacancies/upload.svg">
-                                <div class="new-cat-name"><p>CV əlavə et</p></div>
-                                <div class="new-cat-count"><p>Şirkətlər sizi tapsın</p></div>
-                            </a>
+                    @if (User.IsInRole(UserRole.Employee.ToString()))
+                    {
+                        <div class="item">
+                            <div class="new-cat-card apply-cv">
+                                <a asp-action="createcv" asp-controller="user">
+                                    <img src="https://www.hellojob.az/content/assets/images/vacancies/upload.svg">
+                                    <div class="new-cat-name"><p>CV əlavə et</p></div>
+                                    <div class="new-cat-count"><p>Şirkətlər sizi tapsın</p></div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/maliyye-cat-6414340658330641434065833b-26NMIAq7bV3-yXq.svg" alt="Maliyyə">
-                                <div class="new-cat-name"><p>Maliyyə</p></div>
-                                <div class="new-cat-count"><p><span>105</span> iş elanı</p></div>
-                            </a>
+                    }
+                    @if (User.IsInRole(UserRole.Company.ToString()))
+                     {
+                        <div class="item">
+                            <div class="new-cat-card apply-cv">
+                                <a asp-action="createvacancy" asp-controller="user">
+                                    <img src="https://www.hellojob.az/content/assets/images/vacancies/upload.svg">
+                                    <div class="new-cat-name"><p>Vakansiya əlavə et</p></div>
+                                    <div class="new-cat-count"><p>İşçilər sizi tapsın</p></div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/marketinq-cat-641433fe9e5c6641433fe9e5d3-rKuhtYV5f4UPa85.svg" alt="Marketinq">
-                                <div class="new-cat-name"><p>Marketinq</p></div>
-                                <div class="new-cat-count"><p><span>20</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/texnologiya-cat-641433be8b37d641433be8b38e-e9_0BJdsJbmUnVB.svg" alt="Texnologiya">
-                                <div class="new-cat-name"><p>Texnologiya</p></div>
-                                <div class="new-cat-count"><p><span>48</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/satis-cat-64143417860756414341786081-vC1K1njTVifH3Sh.svg" alt="Satış">
-                                <div class="new-cat-name"><p>Satış</p></div>
-                                <div class="new-cat-count"><p><span>42</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="/is-elanlari/dizayn">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/dizayn-cat-64143423043a064143423043ab-dW7E0i95SRjZ4mG.svg" alt="Dizayn">
-                                <div class="new-cat-name"><p>Dizayn</p></div>
-                                <div class="new-cat-count"><p><span>6</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/muxtelif-cat-6414343d74be26414343d74bed-Q30Ca59zmtb--84.svg" alt="Müxtəlif">
-                                <div class="new-cat-name"><p>Müxtəlif</p></div>
-                                <div class="new-cat-count"><p><span>11</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/tibb-ve-eczaciliq-cat-6414344d875b26414344d875bd-N7Sq_u6Y1JguQLo.svg" alt="Səhiyyə">
-                                <div class="new-cat-name"><p>Səhiyyə</p></div>
-                                <div class="new-cat-count"><p><span>5</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/tehsil-ve-elm-cat-6414348e561bd6414348e561cb-lY0Gl-kw9Pyk_kP.svg" alt="Təhsil və elm">
-                                <div class="new-cat-name"><p>Təhsil və elm</p></div>
-                                <div class="new-cat-count"><p><span>14</span> iş elanı</p></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="new-cat-card">
-                            <a href="">
-                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/xidmet-cat-6414342ff21226414342ff212e-m10Qat01rxfzfT3.svg" alt="Xidmət">
-                                <div class="new-cat-name"><p>Xidmət</p></div>
-                                <div class="new-cat-count"><p><span>26</span> iş elanı</p></div>
-                            </a>
-                        </div>
-
-
-
-
-                    </div>
+                    }
+                    @foreach (var x in Model.CategoryItemVms)
+                    {
+                        @foreach (var item in Model.BaseCategoryVms)
+                        {
+                            <div class="item">
+                                <div class="new-cat-card">
+                                    <a href="">
+                                        <img src="~/assets/images/BusinessTitle/@item.ImageUrl" alt="@item.Name">
+                                        <div class="new-cat-name"><p>@item.Name</p></div>
+                                        <div class="new-cat-count"><p><span>@x.Vacancies.Where(a => a.CategoryId == x.Id).Count()</span> iş elanı</p></div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>

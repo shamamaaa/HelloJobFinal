@@ -1,9 +1,11 @@
 ﻿using System.Linq.Expressions;
+using System.Security.Claims;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
+using HelloJobFinal.Domain.Enums;
 using HelloJobFinal.Infrastructure.Exceptions;
 using HelloJobFinal.Infrastructure.Implementations;
 using Microsoft.AspNetCore.Hosting;
@@ -73,13 +75,13 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("WorkingHourId", "Working-hour not found");
                 return false;
             }
-            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == create.CategoryId))
+            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == create.CategoryItemId))
             {
                 await CreatePopulateDropdowns(create);
-                model.AddModelError("CategoryId", "Category not found");
+                model.AddModelError("CategoryItemId", "Category not found");
                 return false;
             }
-            if (!create.CvFile.ValidateTypeCVFile(".docx", ".pdf"))
+            if (!create.CvFile.ValidateTypeCVFile("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf"))
             {
                 await CreatePopulateDropdowns(create);
                 model.AddModelError("CvFile", "File type is not valid.");
@@ -106,8 +108,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
             Cv item = _mapper.Map<Cv>(create);
 
-            item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "CVs");
-            item.ImageUrl = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
+            item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images","User", "CVs");
+            item.ImageUrl = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
+            item.Status = Status.New.ToString();
+            item.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             await _repository.AddAsync(item);
             await _repository.SaveChanceAsync();
@@ -180,7 +184,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
 
         public async Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
-            int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId)
+            int? CategoryItemId, int? cityId, int? educationId, int? experienceId, int? workingHourId)
         {
             if (page <= 0) throw new WrongRequestException("The request sent does not exist");
             if (order <= 0) throw new WrongRequestException("The request sent does not exist");
@@ -198,7 +202,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 case 1:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -208,7 +212,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 2:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -218,7 +222,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 3:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -228,7 +232,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 4:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -252,7 +256,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 Take = take,
                 Search = search,
                 Order = order,
-                CategoryId = categoryId,
+                CategoryId = CategoryItemId,
                 CurrentPage = page,
                 TotalPage = Math.Ceiling(count / take),
                 Item = filtered
@@ -262,7 +266,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
 
         public async Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
-            int? categoryId, int? cityId, int? educationId,int? experienceId, int? workingHourId)
+            int? CategoryItemId, int? cityId, int? educationId,int? experienceId, int? workingHourId)
         {
             if (page <= 0) throw new WrongRequestException("The request sent does not exist");
             if (order <= 0) throw new WrongRequestException("The request sent does not exist");
@@ -280,7 +284,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 case 1:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -290,7 +294,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 2:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -300,7 +304,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 3:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -310,7 +314,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 4:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (CategoryItemId != null ? x.CategoryItemId == CategoryItemId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -334,7 +338,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 Take = take,
                 Search = search,
                 Order = order,
-                CategoryId = categoryId,
+                CategoryId = CategoryItemId,
                 CurrentPage = page,
                 TotalPage = Math.Ceiling(count / take),
                 Item = filtered
@@ -409,7 +413,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("CorporateId", "Corporate not found");
                 return false;
             }
-            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == update.CategoryId))
+            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == update.CategoryItemId))
             {
                 await UpdatePopulateDropdowns(update);
                 model.AddModelError("CorporateId", "Corporate not found");

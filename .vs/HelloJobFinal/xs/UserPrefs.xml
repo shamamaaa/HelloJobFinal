@@ -1,30 +1,58 @@
 ﻿<Properties StartupConfiguration="{08EB6B18-50AE-4732-BE2D-49AA16695857}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" line="73" column="1" />
+      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" line="38" column="1" />
+      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Controllers/HomeController.cs" relfile="src/Presentation/HelloJobFinal.Mvc/Controllers/HomeController.cs" line="22" column="1" />
+      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CategoryItemService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CategoryItemService.cs" line="74" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Presentation/HelloJobFinal.Mvc/Views/Home/Index.cshtml">
     <Files>
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Setting/Index.cshtml" Line="63" Column="83" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/SettingController.cs" Line="5" Column="28" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Setting/Update.cshtml" Line="1" Column="1" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Views/Shared/_Layout.cshtml" Line="219" Column="26" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Views/Home/Index.cshtml" Line="36" Column="37" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/HomeController.cs" Line="37" Column="1" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CategoryItemService.cs" Line="86" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Program.cs" Line="54" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="HelloJobFinal" expanded="True">
             <Node name="src" expanded="True">
-              <Node name="Presentation">
+              <Node name="Core" expanded="True">
+                <Node name="HelloJobFinal.Application">
+                  <Node name="MappingProfiles" expanded="True" />
+                  <Node name="ViewModels" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Infrastructure" expanded="True">
+                <Node name="HelloJobFinal.Persistence">
+                  <Node name="Implementations" expanded="True">
+                    <Node name="Services" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Presentation" expanded="True">
                 <Node name="HelloJobFinal.Mvc">
-                  <Node name="Areas">
-                    <Node name="Admin">
-                      <Node name="Views">
-                        <Node name="Setting" expanded="True" />
-                        <Node name="Shared" expanded="True">
-                          <Node name="_Layout.cshtml" selected="True" />
-                        </Node>
-                      </Node>
+                  <Node name="Areas" expanded="True">
+                    <Node name="Admin" expanded="True">
+                      <Node name="Controllers" expanded="True" />
                     </Node>
                   </Node>
                   <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Home" expanded="True">
+                      <Node name="Index.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                  <Node name="wwwroot" expanded="True">
+                    <Node name="assets" expanded="True">
+                      <Node name="images" expanded="True" />
+                    </Node>
+                  </Node>
                 </Node>
               </Node>
             </Node>
@@ -33,12 +61,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" line="73" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MultiItemStartupConfigurations />
 </Properties>
