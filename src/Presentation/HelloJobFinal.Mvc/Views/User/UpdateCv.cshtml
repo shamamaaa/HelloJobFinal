@@ -4,117 +4,9 @@
 @model UpdateCvVm
 
 <div class="account">
-    <div class="account_bar">
-        <a asp-controller="account" asp-action="index" class="logo" aria-label="hellojob">
-            <img src="~/assets/images/night_mode_logo.svg" alt="" />
-        </a>
-        <ul class="myprofile">
-
-            <li>
-                <a asp-controller="account" asp-action="index">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
-                             alt="" />
-                    </span>
-                    Profilim
-                </a>
-            </li>
-            <li>
-                <a asp-controller="account" asp-action="myrequest">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                             alt="" />
-                    </span>
-                    Müraciətlər
-                </a>
-            </li>
-            <li>
-                <a asp-controller="account" asp-action="myorder">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                             alt="" />
-                    </span>
-                    Gözləmədə olan elanlar
-                </a>
-            </li>
-
-            <li>
-                <a asp-controller="account" asp-action="mysticker">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                             alt="" />
-                    </span>
-                    Elanlarım
-                </a>
-            </li>
-            <li>
-                <a asp-controller="account" asp-action="wishlistpage">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
-                             alt="" />
-                    </span>
-                    Bəyəndiklərim
-                </a>
-            </li>
-            <li>
-                <a asp-controller="account" asp-action="security">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                             alt="" />
-                    </span>
-                    Təhlükəsizlik
-                </a>
-            </li>
-            @if (User.IsInRole(UserRole.Company.ToString()))
-            {
-                <li>
-                    <a asp-controller="account" asp-action="createvacans">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                                 alt="" />
-                        </span>
-                        Vakansiya Yerləşdir
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="account" asp-action="creatingcompany">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                                 alt="" />
-                        </span>
-                        Şirkət Yarat
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="account" asp-action="mycompany">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Şirkətlərim
-                    </a>
-                </li>
-
-            }
-            else
-            {
-                <li>
-                    <a class="active" asp-controller="account" asp-action="createcv">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Cv yerləşdir
-                    </a>
-                </li>
-            }
-
-        </ul>
-        <div class="backsite">
-            <a asp-controller="home" asp-action="index"
-               class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
-        </div>
-    </div>
+    @{
+        await Html.RenderPartialAsync("_UserSidebarPartialView");
+    }
     <div class="account_content">
         <div class="account_head">
             <div class="account_head_tools">
@@ -124,7 +16,7 @@
                     <a href="./account.html" class="profile__header__user__name">
                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
                              alt="" />
-                        <span>@ViewBag.User.FullName</span>
+                        <span>@User.Identity.Name</span>
                     </a>
                     <ul class="account_head_user_drop">
                         <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
@@ -138,7 +30,7 @@
         </div>
         <div class="create_cv">
             <div class="title">
-                <h1>CV editlə</h1>
+                <h1>CV redaktə et</h1>
                 <ul class="profile__add-cv__parts">
                     <li class="active">
                         <a href="#tab1" class="tab1 step_btn"> Şəxsi məlumatlar</a>
@@ -159,6 +51,7 @@
                                            asp-for="Photo"
                                            id="fileInput"
                                            accept="image/*" />
+                                    <input type="hidden"  asp-for="ImageUrl"/>
                                     <span class="upload_file_img">
                                         <img id="preview"
                                              src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png"
@@ -170,7 +63,7 @@
                                     <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                          alt="" />
                                     <span>Şəkil əlavə et</span>
-                                    <p>SVG, PNG, JPG or GIF (max. 1000x1000px)</p>
+                                    <p>SVG, PNG or JPG(max. 1000x1000px)</p>
                                 </label>
                                 <span asp-validation-for="Photo" class="text-danger"></span>
 
@@ -222,26 +115,13 @@
                                     <div class="cv_inputs">
                                         <label asp-for="Photo">Mobil nömrəniz</label>
                                         <div class="position-relative">
-                                            <select name="phone_frst"
-                                                    class="shadow-none operator form-select">
-                                                <option value="070">070</option>
-                                                <option value="077">077</option>
-                                                <option value="050">050</option>
-                                                <option value="051">051</option>
-                                                <option value="010">010</option>
-                                                <option value="055">055</option>
-                                                <option value="099">099</option>
-                                            </select>
-                                            <input id="phone"
-                                                   inputmode="tel"
-                                                   type="text"
-                                                   name="phone"
+                                            <input 
+                                                   asp-for="Phone"
                                                    placeholder="Mobil nömrənizi qeyd edin"
                                                    class="form-control inputs"
                                                    im-insert="true"
                                                    style="padding-left: 60px" required />
                                         </div>
-                                        <input type="hidden" asp-for="Phone" id="full_phone_number" />
                                         <span asp-validation-for="Phone" class="text-danger"></span>
 
                                     </div>
@@ -279,14 +159,14 @@
                                         <label asp-for="CategoryItemId">Kateqoriya</label>
                                         <select asp-for=CategoryItemId class="form-control cities">
                                             @foreach (var businessTitle in Model.CategoryItems)
-                                            {
-                                                <optgroup label="@businessTitle.IncludeBaseCategory.Name">
-                                                    @foreach (var x in Model.CategoryItems)
+                                             {
+                                                    <optgroup label="@businessTitle.IncludeBaseCategory.Name">                                          
+                                               @foreach (var x in businessTitle.IncludeBaseCategory.CategoryItems)
                                                     {
                                                         <option value="@x.Id">@x.Name</option>
                                                     }
-                                                </optgroup>
-                                            }
+                                                    </optgroup>
+                                             }
                                         </select>
                                         <span asp-validation-for="CategoryItemId" class="text-danger"></span>
 
@@ -325,7 +205,7 @@
                                         <input asp-for="MinSalary"
                                                max="12000"
                                                class="form-control inputs"
-                                               placeholder="" value="0" />
+                                               placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -348,11 +228,12 @@
                         </div>
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <input asp-for="CvFile"
+                                <input asp-for="CvUFile"
                                        class="d-none"
                                        id="cv_inp"
                                        multiple=""
                                        accept=".pdf,.docx" />
+                                <input type="hidden" asp-for="CvFile" />
                                 <label for="cv_inp" class="cv_label">
                                     <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                          alt="" />
@@ -409,7 +290,7 @@
         <div class="persons_menu">
             <div class="account_head_user">
                 <ul>
-                    <li><a asp-controller="account" asp-action="index">@ViewBag.User.FullName</a></li>
+                    <li><a asp-controller="account" asp-action="index">@User.Identity.Name</a></li>
                     <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
                     <li>
                         <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
@@ -516,7 +397,7 @@
         <div class="account_content">
             <div class="create_cv">
                 <div class="title">
-                    <h1>CV editlə</h1>
+                    <h1>CV Yerləşdir</h1>
                     <ul class="profile__add-cv__parts">
                         <li class="active">
                             <a href="#tab1" class="tab1 step_btn"> Şəxsi məlumatlar</a>
@@ -537,6 +418,7 @@
                                                asp-for="Photo"
                                                id="fileInput"
                                                accept="image/*" />
+                                        <input type="hidden" asp-for="ImageUrl" />
                                         <span class="upload_file_img">
                                             <img id="preview"
                                                  src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png"
@@ -548,7 +430,7 @@
                                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                              alt="" />
                                         <span>Şəkil əlavə et</span>
-                                        <p>SVG, PNG, JPG or GIF (max. 1000x1000px)</p>
+                                        <p>SVG, PNG or JPG(max. 1000x1000px)</p>
                                     </label>
                                     <span asp-validation-for="Photo" class="text-danger"></span>
 
@@ -600,26 +482,12 @@
                                         <div class="cv_inputs">
                                             <label asp-for="Photo">Mobil nömrəniz</label>
                                             <div class="position-relative">
-                                                <select name="phone_frst"
-                                                        class="shadow-none operator form-select">
-                                                    <option value="070">070</option>
-                                                    <option value="077">077</option>
-                                                    <option value="050">050</option>
-                                                    <option value="051">051</option>
-                                                    <option value="010">010</option>
-                                                    <option value="055">055</option>
-                                                    <option value="099">099</option>
-                                                </select>
-                                                <input id="phone"
-                                                       inputmode="tel"
-                                                       type="text"
-                                                       name="phone"
+                                                <input asp-for="Phone"
                                                        placeholder="Mobil nömrənizi qeyd edin"
                                                        class="form-control inputs"
                                                        im-insert="true"
                                                        style="padding-left: 60px" required />
                                             </div>
-                                            <input type="hidden" asp-for="Phone" id="full_phone_number" />
                                             <span asp-validation-for="Phone" class="text-danger"></span>
 
                                         </div>
@@ -656,12 +524,12 @@
                                         <div class="cv_inputs">
                                             <label asp-for="CategoryItemId">Kateqoriya</label>
                                             <select asp-for=CategoryItemId class="form-control cities">
-                                                @foreach (var x in Model.CategoryItems)
+                                                @foreach (var businessTitle in Model.CategoryItems)
                                                 {
-                                                    <optgroup label="@x.IncludeBaseCategory.Name">
-                                                        @foreach (var a in Model.CategoryItems)
+                                                    <optgroup label="@businessTitle.IncludeBaseCategory.Name">
+                                                        @foreach (var x in Model.CategoryItems)
                                                         {
-                                                            <option value="@a.Id">@a.Name</option>
+                                                            <option value="@x.Id">@x.Name</option>
                                                         }
                                                     </optgroup>
                                                 }
@@ -703,7 +571,7 @@
                                             <input asp-for="MinSalary"
                                                    max="12000"
                                                    class="form-control inputs"
-                                                   placeholder="" value="0" />
+                                                   placeholder="" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -726,11 +594,12 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <input asp-for="CvFile"
+                                    <input asp-for="CvUFile"
                                            class="d-none"
                                            id="cv_inp"
                                            multiple=""
                                            accept=".pdf,.docx" />
+                                    <input type="hidden" asp-for="CvFile" />
                                     <label for="cv_inp" class="cv_label">
                                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                              alt="" />

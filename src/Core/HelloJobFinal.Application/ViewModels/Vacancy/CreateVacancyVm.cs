@@ -13,8 +13,6 @@ namespace HelloJobFinal.Application.ViewModels
         public int Salary { get; init; }
 
         public bool HasDriverLicense { get; init; }
-        public DateTime FinishTime { get; init; }
-        public bool IsTimeOver { get; init; }
         public int ViewCount { get; init; }
 
 
@@ -30,7 +28,6 @@ namespace HelloJobFinal.Application.ViewModels
         public int CategoryId { get; init; }
         [Required(ErrorMessage = "Şirkət daxil edilməlidir.")]
         public int CompanyId { get; init; }
-        public string Status { get; init; }
 
         public List<IncludeCityVm> Cities { get; set; }
         public List<IncludeEducationVm> Educations { get; set; }
@@ -38,6 +35,27 @@ namespace HelloJobFinal.Application.ViewModels
         public List<IncludWorkingHourVm> WorkingHours { get; set; }
         public List<IncludeCategoryItemVm> CategoryItems { get; set; }
         public List<IncludeCompanyVm> Companies { get; set; }
+
+        public List<IncludeWorkInfo>? AllWorkInfos { get; set; }
+        public List<IncludeRequirement>? AllEmployeerInfos { get; set; }
+
+
+        [Required(ErrorMessage = " İş barədə məlumat qeyd olunmalıdır.*")]
+        public string? WorkInfo { get; init; }
+        public List<int>? DeleteWork { get; set; }
+
+        [Required(ErrorMessage = " Namizəddən tələblər qeyd olunmalıdır.*")]
+        public string? EmployeeRequirement { get; init; }
+        public List<int>? DeleteEmployeers { get; set; }
+
+
+        public CreateVacancyVm()
+        {
+            AllWorkInfos = new();
+            AllEmployeerInfos = new();
+            DeleteWork = new List<int>();
+            DeleteEmployeers = new List<int>();
+        }
 
     }
 

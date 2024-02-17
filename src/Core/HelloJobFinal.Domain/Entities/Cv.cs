@@ -8,7 +8,7 @@ namespace HelloJobFinal.Domain.Entities
 		public string Surname { get; set; } //Name baseden gelir
 		public string Email { get; set; }
 		public DateTime Birthday { get; set; }
-		public int Phone { get; set; }
+		public string Phone { get; set; }
 		public string ImageUrl { get; set; }
 		public string Position { get; set; }
 		public int MinSalary { get; set; }

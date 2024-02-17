@@ -24,7 +24,7 @@ namespace HelloJobFinal.Application.ViewModels
         public DateTime Birthday { get; init; }
 
         [Required(ErrorMessage = "Telefon nömrəsi daxil edilməlidir.")]
-        public int Phone { get; init; }
+        public string Phone { get; init; }
 
         [Required(ErrorMessage = "Şəkil daxil edilməlidir.")]
         public IFormFile Photo { get; init; }

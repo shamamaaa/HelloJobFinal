@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mT9QJQU7DEIr81gD73Jiz5foiqZBqO9vFV8GapMFSCg=",
+  "Hash": "OIzqo3ArpfRUt3vxahxtFNHOYnOI+43vVz+F89pLyN8=",
   "Source": "HelloJobFinal.Mvc",
   "BasePath": "_content/HelloJobFinal.Mvc",
   "Mode": "Default",
@@ -3825,6 +3825,23 @@
       "OriginalItemSpec": "wwwroot/assets/images/User/454photo_2023-05-14_12-45-48.jpg"
     },
     {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/47b5fefc-ada9-4324-8ace-7252c14d6556.jpeg",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/User/47b5fefc-ada9-4324-8ace-7252c14d6556.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/User/47b5fefc-ada9-4324-8ace-7252c14d6556.jpeg"
+    },
+    {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/49713.jpg",
       "SourceId": "HelloJobFinal.Mvc",
       "SourceType": "Discovered",
@@ -4624,6 +4641,23 @@
       "OriginalItemSpec": "wwwroot/assets/images/User/CVs/787cashier.docx"
     },
     {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/7b576808-08f4-4570-a221-371f3ca16107.pdf",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/User/CVs/7b576808-08f4-4570-a221-371f3ca16107.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/User/CVs/7b576808-08f4-4570-a221-371f3ca16107.pdf"
+    },
+    {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/833cashier.docx",
       "SourceId": "HelloJobFinal.Mvc",
       "SourceType": "Discovered",
@@ -4826,6 +4860,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/images/User/CVs/992Customer-Service-Representative.docx"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/CVs/cf4567f9-e823-4d9b-925b-62ad6500c87d.pdf",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/User/CVs/cf4567f9-e823-4d9b-925b-62ad6500c87d.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/User/CVs/cf4567f9-e823-4d9b-925b-62ad6500c87d.pdf"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/f55bf65d-ca64-4abe-8713-cb547561ada0.pdf",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/User/f55bf65d-ca64-4abe-8713-cb547561ada0.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/User/f55bf65d-ca64-4abe-8713-cb547561ada0.pdf"
     },
     {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/user-128.png",

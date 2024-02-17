@@ -7,7 +7,7 @@
         public string Surname { get; init; }
         public string Email { get; init; }
         public DateTime Birthday { get; init; }
-        public int Phone { get; init; }
+        public string Phone { get; init; }
         public string ImageUrl { get; init; }
         public string Position { get; init; }
         public int MinSalary { get; init; }

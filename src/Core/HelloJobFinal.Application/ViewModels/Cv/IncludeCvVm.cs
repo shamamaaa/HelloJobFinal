@@ -9,7 +9,7 @@ namespace HelloJobFinal.Application.ViewModels
         public string Surname { get; init; }
         public string Email { get; init; }
         public DateTime Birthday { get; init; }
-        public int Phone { get; init; }
+        public string Phone { get; init; }
         public string ImageUrl { get; init; }
         public string Position { get; init; }
         public int MinSalary { get; init; }
@@ -28,8 +28,6 @@ namespace HelloJobFinal.Application.ViewModels
         public int WorkingHourId { get; init; }
         public IncludeCategoryItemVm IncludeCategoryItem { get; init; }
         public int CategoryId { get; init; }
-        public IncludeAppUserVm IncludeAppUser { get; init; }
-        public string AppUserId { get; init; }
         public string Status { get; init; }
     }
 

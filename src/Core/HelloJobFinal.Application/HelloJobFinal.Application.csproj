@@ -28,6 +28,7 @@
     <None Remove="ViewModels\WorkingHour\" />
     <None Remove="ViewModels\Setting\" />
     <None Remove="ViewModels\Wishlist\" />
+    <None Remove="ViewModels\Info\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\" />
@@ -48,6 +49,7 @@
     <Folder Include="ViewModels\WorkingHour\" />
     <Folder Include="ViewModels\Setting\" />
     <Folder Include="ViewModels\Wishlist\" />
+    <Folder Include="ViewModels\Info\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />

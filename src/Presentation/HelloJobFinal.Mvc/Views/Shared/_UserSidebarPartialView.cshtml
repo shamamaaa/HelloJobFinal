@@ -1,0 +1,122 @@
+﻿<div class="account_bar">
+    <a asp-controller="user" asp-action="index" class="logo" aria-label="hellojob">
+        <img src="~/assets/images/night_mode_logo.svg" alt="" />
+    </a>
+    <ul class="myprofile">
+
+        <li>
+            <a asp-controller="user" asp-action="index">
+                <span>
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
+                         alt="" />
+                </span>
+                Profilim
+            </a>
+        </li>
+        <li>
+            <a asp-controller="user" asp-action="requestindex">
+                <span>
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                         alt="" />
+                </span>
+                Müraciətlər
+            </a>
+        </li>
+        <li>
+            <a asp-controller="user" asp-action="orderindex"  >
+                <span>
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                         alt="" />
+                </span>
+                Gözləmədə olan elanlar
+            </a>
+        </li>
+        <li>
+            @if (User.IsInRole(nameof(UserRole.Company)))
+            {
+                <a asp-controller="user" asp-action="vacancyindex"  >
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Elanlarım
+                </a>
+            }
+            else
+            {
+                <a asp-controller="user" asp-action="cvindex"  >
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
+                             alt="" />
+                    </span>
+                    Elanlarım
+                </a>
+            }
+        </li>
+        <li>
+            <a asp-controller="user" asp-action="wishlist">
+                <span>
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
+                         alt="" />
+                </span>
+                Bəyəndiklərim
+            </a>
+        </li>
+        <li>
+            <a asp-controller="user" asp-action="security">
+                <span>
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                         alt="" />
+                </span>
+                Təhlükəsizlik
+            </a>
+        </li>
+        @if (User.IsInRole(UserRole.Company.ToString()))
+        {
+            <li>
+                <a asp-controller="user" asp-action="createvacancy">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Vakansiya Yerləşdir
+                </a>
+            </li>
+            <li>
+                <a class="active" asp-controller="user" asp-action="createcompany">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
+                             alt="" />
+                    </span>
+                    Şirkət Yarat
+                </a>
+            </li>
+            <li>
+                <a asp-controller="user" asp-action="companyindex"  >
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                             alt="" />
+                    </span>
+                    Şirkətlərim
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a asp-controller="user" asp-action="createcv">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
+                             alt="" />
+                    </span>
+                    Cv yerləşdir
+                </a>
+            </li>
+        }
+
+    </ul>
+    <div class="backsite">
+        <a asp-controller="home" asp-action="index"
+           class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
+    </div>
+</div>

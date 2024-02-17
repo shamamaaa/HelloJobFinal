@@ -109,7 +109,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             Cv item = _mapper.Map<Cv>(create);
 
             item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images","User", "CVs");
-            item.ImageUrl = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
+            item.ImageUrl = await create.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
             item.Status = Status.New.ToString();
             item.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -375,7 +375,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
             UpdateCvVm update = _mapper.Map<UpdateCvVm>(item);
 
-            UpdatePopulateDropdowns(update);
+            await UpdatePopulateDropdowns(update);
             return update;
         }
 
@@ -419,22 +419,22 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("CorporateId", "Corporate not found");
                 return false;
             }
-            if(update.CvFile != null)
+            if(update.CvUFile != null)
             {
-                if (!update.CvFile.ValidateTypeCVFile("image/", ".docx", ".pdf"))
+                if (!update.CvUFile.ValidateTypeCVFile("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf"))
                 {
                     await UpdatePopulateDropdowns(update);
                     model.AddModelError("CvFile", "File type is not valid.");
                     return false;
                 }
-                if (!update.CvFile.ValidataSize())
+                if (!update.CvUFile.ValidataSize())
                 {
                     await UpdatePopulateDropdowns(update);
                     model.AddModelError("CvFile", "Max file 5Mb.");
                     return false;
                 }
                 item.CvFile.DeleteFile(_env.WebRootPath, "assets", "User", "Cvs");
-                item.CvFile = await update.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "Cvs");
+                item.CvFile = await update.CvUFile.CreateFileAsync(_env.WebRootPath, "assets", "User", "Cvs");
             }
             if(update.Photo != null)
             {
@@ -451,7 +451,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     return false;
                 }
                 item.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "User", "Cvs");
-                item.ImageUrl = await update.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
+                item.ImageUrl = await update.CvUFile.CreateFileAsync(_env.WebRootPath, "assets", "User");
             }
 
             var config = new MapperConfiguration(cfg =>

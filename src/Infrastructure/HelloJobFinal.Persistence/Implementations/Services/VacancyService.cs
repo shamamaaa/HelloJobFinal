@@ -19,10 +19,13 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         private readonly IExperienceRepository _experienceRepository;
         private readonly IWorkingHourRepository _workingHourRepository;
         private readonly ICategoryItemRepository _categoryItemRepository;
+        private readonly IWorkInfoRepository _workInfoRepository;
+        private readonly IRequirementRepository _requirementRepository;
+
 
         public VacancyService(IMapper mapper, IVacancyRepository repository, ICityRepository cityRepository,
             IEducationRepository educationRepository, IExperienceRepository experienceRepository,
-            IWorkingHourRepository workingHourRepository, ICategoryItemRepository categoryItemRepository)
+            IWorkingHourRepository workingHourRepository, ICategoryItemRepository categoryItemRepository, IWorkInfoRepository workInfoRepository, IRequirementRepository requirementRepository)
         {
             _mapper = mapper;
             _repository = repository;
@@ -31,6 +34,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             _experienceRepository = experienceRepository;
             _workingHourRepository = workingHourRepository;
             _categoryItemRepository = categoryItemRepository;
+            _workInfoRepository = workInfoRepository;
+            _requirementRepository = requirementRepository;
         }
 
         public async Task CreatePopulateDropdowns(CreateVacancyVm create)
@@ -89,6 +94,29 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
 
             Vacancy item = _mapper.Map<Vacancy>(create);
+
+            if (create.WorkInfo is null)
+            {
+                await CreatePopulateDropdowns(create);
+                model.AddModelError("", "Write work info");
+                return false;
+            }
+            else
+            {
+                _repository.AddInfoWorks(item, create.WorkInfo);
+
+            }
+
+            if (create.EmployeeRequirement is null)
+            {
+                await CreatePopulateDropdowns(create);
+                model.AddModelError("", "Write employeer info");
+                return false;
+            }
+            else
+            {
+                _repository.AddInfoWorks(item, create.EmployeeRequirement);
+            }
 
             await _repository.AddAsync(item);
             await _repository.SaveChanceAsync();
@@ -392,6 +420,18 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 return false;
             }
 
+            item.WorkInfos.RemoveAll(p => !update.DeleteWork.Contains(p.Id));
+            if (update.AllWorkInfos is not null)
+            {
+                _repository.AddInfoWorks(item, update.WorkInfo);
+
+            }
+            item.Requirements.RemoveAll(p => !update.DeleteEmployeers.Contains(p.Id));
+            if (update.AllEmployeerInfos is not null)
+            {
+                _repository.AddInfoEmployeers(item, update.EmployeeRequirement);
+
+            }
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<UpdateVacancyVm, Vacancy>();
@@ -405,6 +445,36 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             await _repository.SaveChanceAsync();
 
             return true;
+        }
+
+        public async void AddInfoWorks(Vacancy vacans, string workInfo)
+        {
+            string[] workInfoArray = workInfo?.Split('/') ?? new string[0];
+            foreach (string info in workInfoArray)
+            {
+                WorkInfo infoWork = new WorkInfo
+                {
+                    Vacancy = vacans,
+                    Info = info
+                };
+                
+                await _workInfoRepository.AddAsync(infoWork);
+            }
+        }
+
+        public async void AddInfoEmployeers(Vacancy vacans, string employeeInfo)
+        {
+            string[] employeeInfoArray = employeeInfo?.Split('/') ?? new string[0];
+            foreach (string info in employeeInfoArray)
+            {
+                Requirement infoEmployeer = new Requirement
+                {
+                    Vacancy = vacans,
+                    EmployeeRequirement = info
+                };
+
+                await _requirementRepository.AddAsync(infoEmployeer);
+            }
         }
     }
 }

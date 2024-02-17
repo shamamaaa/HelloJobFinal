@@ -20,12 +20,12 @@
         public IncludWorkingHourVm IncludeWorkingHour { get; init; }
         public int WorkingHourId { get; init; }
         public IncludeCategoryItemVm IncludeCategoryItem { get; init; }
-        public string AppUserId { get; init; }
-        public IncludeAppUserVm IncludeAppUser { get; init; }
         public int CategoryId { get; init; }
         public IncludeCompanyVm IncludeCompany { get; init; }
         public int CompanyId { get; init; }
         public string Status { get; init; }
+        public List<IncludeWorkInfo>? AllWorkInfos { get; set; }
+        public List<IncludeRequirement>? AllEmployeerInfos { get; set; }
     }
 	
 }

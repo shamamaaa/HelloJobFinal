@@ -34,16 +34,27 @@
                     <div class="buttons">
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <div class="account_head_tools">
                                 <div class="account_head_user">
-                                    <a class="profile__header__user__name">
-                                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg" alt="" />
+                                    <a href="./account.html" class="profile__header__user__name">
+                                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                                             alt="" />
                                         <span>@User.Identity.Name</span>
                                     </a>
-                                    <ul class="account_head_user_drop" style="visibility:visible; opacity:100%;">
-                                        <li><a asp-controller="user" asp-action="index">Hesabım </a></li>
+                                    <ul class="account_head_user_drop">
+                                        @if (User.IsInRole(nameof(UserRole.Company)) || User.IsInRole(nameof(UserRole.Employee)))
+                                        {
+                                            <li><a asp-controller="user" asp-action="index">Panel</a></li>
+
+                                        }
+                                        else
+                                        {
+                                            <li><a asp-controller="home" asp-action="index" asp-area="admin">Panel</a></li>
+                                        }
                                         <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                                     </ul>
                                 </div>
+                            </div>
 
                             @if (User.IsInRole("Company"))
                             {
@@ -56,9 +67,9 @@
                                         Elan yerləşdir
                                     </a>
                                 </div>
-                                }
-                                else if (User.IsInRole("Employee"))
-                                {
+                            }
+                            else if (User.IsInRole("Employee"))
+                            {
                                 <div class="stickeradding">
                                     <a asp-controller="user" asp-action="createcv" class="add">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -74,10 +85,6 @@
                             {
                                 <div class="stickeradding">
                                     <a asp-controller="home" asp-action="index" asp-area="admin" class="add">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                        </svg>
                                         Admin panelə keçid
                                     </a>
                                 </div>

@@ -1,114 +1,28 @@
 ﻿@model GetAppUserVM
+@{
+    Layout = "_UserLayout";
+}
 <div class="account">
-    <div class="account_bar">
-        <a href="#" class="logo" aria-label="hellojob">
-            <img src="./assets/images/night_mode_logo.svg" alt="" />
-        </a>
-        <ul class="myprofile">
-            <li>
-                <a class="active" href="./account.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
-                             alt="" />
-                    </span>
-                    Profilim
-                </a>
-            </li>
-            <li>
-                <a href="./postCv.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                             alt="" />
-                    </span>
-                    Cv yerləşdir
-                </a>
-            </li>
-            <li>
-                <a href="./myOrder.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                             alt="" />
-                    </span>
-                    Gözləmədə olan elanlar
-                </a>
-            </li>
-            <li>
-                <a href="./mysticker.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                             alt="" />
-                    </span>
-                    Elanlarım
-                </a>
-            </li>
-            <li>
-                <a href="./WishListpage.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
-                             alt="" />
-                    </span>
-                    Bəyəndiklərim
-                </a>
-            </li>
-            <li>
-                <a href="./security.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                             alt="" />
-                    </span>
-                    Təhlükəsizlik
-                </a>
-            </li>
-            <li>
-                <a href="./CreateCompany.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                             alt="" />
-                    </span>
-                    Şirkət yarat
-                </a>
-            </li>
-            <li>
-                <a href="./myCompany.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                             alt="" />
-                    </span>
-                    Şirkətlərim
-                </a>
-            </li>
-            <li>
-                <a href="./PostVacans.html">
-                    <span>
-                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                             alt="" />
-                    </span>
-                    Vakansiya Yerləşdir
-                </a>
-            </li>
-        </ul>
-        <div class="backsite">
-            <a href="./index.html"
-               class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
-        </div>
-    </div>
+    @{
+        await Html.RenderPartialAsync("_UserSidebarPartialView");
+    }
     <div class="account_content">
         <div class="account_head">
             <div class="account_head_tools">
-                <a href="./index.html"
+                <a asp-controller="home" asp-action="index"
                    class="btn btn-site btn-transparent d-none d-md-block">Sayta keçid et</a>
                 <div class="account_head_user">
                     <a href="./account.html" class="profile__header__user__name">
                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
                              alt="" />
-                        <span>Rashid Baghirov</span>
+                        <span>@User.Identity.Name</span>
                     </a>
                     <ul class="account_head_user_drop">
-                        <li><a href="./mysticker.html">Mənim elanlarım</a></li>
+                        <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
                         <li>
-                            <a href="./security.html">Şəxsi məlumatlar</a>
+                            <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
                         </li>
-                        <li><a href="/logout">Çıxış</a></li>
+                        <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                     </ul>
                 </div>
             </div>

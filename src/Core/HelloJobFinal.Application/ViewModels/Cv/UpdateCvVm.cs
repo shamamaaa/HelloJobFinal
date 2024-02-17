@@ -7,9 +7,9 @@ namespace HelloJobFinal.Application.ViewModels
     public record UpdateCvVm
     {
         public string ImageUrl { get; init; }
-        public string CvUrl { get; init; }
+        public string CvFile { get; init; }
         public IFormFile? Photo { get; init; }
-        public IFormFile? CvFile { get; init; }
+        public IFormFile? CvUFile { get; init; }
 
         [Required(ErrorMessage = "Ad vacibdir")]
         [StringLength(25, MinimumLength = 2, ErrorMessage = "Ad 2 ilə 25 simvol aralığında olmalıdır")]
@@ -22,7 +22,6 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = "E-poçt vacibdir")]
         [StringLength(255, MinimumLength = 10, ErrorMessage = "E-poçt ünvanı 10 ilə 255 simvol aralığında olmalıdır")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Yanlış e-poçt ünvanı")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Yanlış e-poçt formatı")]
         public string Email { get; init; }
 
@@ -30,9 +29,8 @@ namespace HelloJobFinal.Application.ViewModels
         [DataType(DataType.Date)]
         public DateTime Birthday { get; init; }
 
-        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Telefon nömrəsi daxil edilməlidir.")]
-        public int Phone { get; init; }
+        public string Phone { get; init; }
 
         [Required(ErrorMessage = "Vəzifə daxil edilməlidir.")]
         [StringLength(40, MinimumLength = 2, ErrorMessage = "Vəzifə 2 ilə 40 simvol aralığında olmalıdır")]
@@ -56,11 +54,11 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = "Kateqoriya daxil edilməlidir.")]
         public int CategoryItemId { get; init; }
 
-        public List<IncludeCityVm> Cities { get; set; }
-        public List<IncludeEducationVm> Educations { get; set; }
-        public List<IncludeExperienceVm> Experiences { get; set; }
-        public List<IncludWorkingHourVm> WorkingHours { get; set; }
-        public List<IncludeCategoryItemVm> CategoryItems { get; set; }
+        public List<IncludeCityVm>? Cities { get; set; }
+        public List<IncludeEducationVm>? Educations { get; set; }
+        public List<IncludeExperienceVm>? Experiences { get; set; }
+        public List<IncludWorkingHourVm>? WorkingHours { get; set; }
+        public List<IncludeCategoryItemVm>? CategoryItems { get; set; }
     }
 
 }

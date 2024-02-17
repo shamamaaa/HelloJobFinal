@@ -15,6 +15,7 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<EditAppUserVm, AppUser>().ReverseMap();
             CreateMap<ItemAppUserVm, AppUser>().ReverseMap();
             CreateMap<GetAppUserVM, AppUser>().ReverseMap()
+                .ForMember(x => x.Cvs, opt => opt.MapFrom(src => src.Cvs.ToList()))
                 .ForMember(x => x.Companies, opt => opt.MapFrom(src => src.Companies.ToList()))
                 .ForMember(x => x.WishListCvs, opt => opt.MapFrom(src => src.WishListCvs.Select(a => a.Cv).ToList()))
                 .ForMember(x => x.WishListVacancies, opt => opt.MapFrom(src => src.WishListVacancies.Select(a => a.Vacancy).ToList()))

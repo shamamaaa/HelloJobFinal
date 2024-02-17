@@ -135,7 +135,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<GetAppUserVM> GetByIdAdminAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
-            AppUser user = await _userManager.Users
+            AppUser user = await _userManager.Users.Include(x => x.Cvs)
                 .Include(x => x.WishListCvs).ThenInclude(x => x.Cv)
                 .Include(x => x.WishListVacancies).ThenInclude(x => x.Vacancy)
                 .Include(x => x.Companies).Include(x => x.Cvs)
@@ -153,6 +153,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (string.IsNullOrWhiteSpace(userName)) throw new WrongRequestException("The request sent does not exist");
             AppUser user = await _userManager.Users
+                .Include(x => x.Cvs)
                 .Include(x => x.WishListCvs).ThenInclude(x => x.Cv)
                 .Include(x => x.WishListVacancies).ThenInclude(x => x.Vacancy)
                 .Include(x => x.Companies).Include(x => x.Cvs)
@@ -169,10 +170,15 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<GetAppUserVM> GetByIdAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException("The request sent does not exist");
-            AppUser user = await _userManager.Users
+            AppUser user = await _userManager.Users.Include(x => x.Cvs.Where(a => a.IsDeleted == false))
                 .Include(x => x.WishListCvs).ThenInclude(x => x.Cv)
                 .Include(x => x.WishListVacancies).ThenInclude(x => x.Vacancy)
-                .Include(x => x.Companies).Include(x => x.Cvs)
+                .Include(x => x.Companies).Include(x => x.Cvs).ThenInclude(x=>x.WorkingHour)
+                .Include(x => x.Cvs).ThenInclude(x => x.Education)
+                .Include(x => x.Cvs).ThenInclude(x => x.Experience)
+                .Include(x => x.Cvs).ThenInclude(x => x.CategoryItem)
+                .Include(x => x.Cvs).ThenInclude(x => x.City)
+
                 .Include(x => x.CvRequests).ThenInclude(x => x.Cv)
                 .Include(x => x.VacancyRequests).ThenInclude(x => x.Vacancy)
                 .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);

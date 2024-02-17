@@ -24,6 +24,8 @@
         public IncludeCompanyVm IncludeCompany { get; init; }
         public int CompanyId { get; init; }
         public string Status { get; init; }
+        public List<IncludeWorkInfo>? AllWorkInfos { get; set; }
+        public List<IncludeRequirement>? AllEmployeerInfos { get; set; }
     }
 }
 

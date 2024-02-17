@@ -1,4 +1,5 @@
-﻿using HelloJobFinal.Application.Abstractions.Services;
+﻿using System.Security.Claims;
+using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace HelloJobFinal.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _service.GetByUserNameAsync(User.Identity.Name));
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         public async Task<IActionResult> EditUser(string id)
@@ -67,10 +68,10 @@ namespace HelloJobFinal.Mvc.Controllers
 
         //Cv pages
         [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> CvIndex(string id)
+        public async Task<IActionResult> CvIndex()
         {
 
-            return View(await _service.GetByIdAsync(id));
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         [Authorize(Roles = "Employee")]
@@ -130,7 +131,7 @@ namespace HelloJobFinal.Mvc.Controllers
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> VacancyIndex(string id)
         {
-            return View(await _service.GetByIdAsync(id));
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         [HttpPost]
@@ -179,7 +180,7 @@ namespace HelloJobFinal.Mvc.Controllers
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> CompanyIndex(string id)
         {
-            return View(await _service.GetByIdAsync(id));
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         [HttpPost]
