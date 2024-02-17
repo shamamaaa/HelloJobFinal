@@ -2,6 +2,7 @@
 using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace HelloJobFinal.Application.Abstractions.Services
 {
@@ -20,6 +21,9 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task ReverseSoftDeleteAsync(int id);
         Task CreatePopulateDropdowns(CreateCvVm create);
         Task UpdatePopulateDropdowns(UpdateCvVm update);
+        Task<bool> AddCvRequestAsync(int id, ITempDataDictionary tempData);
+        Task AcceptCvRequestAsync(int requestId);
+        Task DeleteCvRequestAsync(int requestId);
     }
 }
 

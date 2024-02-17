@@ -29,14 +29,14 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = "Şirkət daxil edilməlidir.")]
         public int CompanyId { get; init; }
 
-        public List<IncludeCityVm> Cities { get; set; }
-        public List<IncludeEducationVm> Educations { get; set; }
-        public List<IncludeExperienceVm> Experiences { get; set; }
-        public List<IncludWorkingHourVm> WorkingHours { get; set; }
-        public List<IncludeCategoryItemVm> CategoryItems { get; set; }
+        public List<IncludeCityVm>? Cities { get; set; }
+        public List<IncludeEducationVm>? Educations { get; set; }
+        public List<IncludeExperienceVm>? Experiences { get; set; }
+        public List<IncludWorkingHourVm>? WorkingHours { get; set; }
+        public List<IncludeCategoryItemVm>? CategoryItems { get; set; }
 
-        public List<IncludeWorkInfo>? AllWorkInfos { get; set; }
-        public List<IncludeRequirement>? AllEmployeerInfos { get; set; }
+        public List<IncludeWorkInfo>? WorkInfos { get; set; }
+        public List<IncludeRequirement>? Requirements { get; set; }
 
 
         [Required(ErrorMessage = " İş barədə məlumat qeyd olunmalıdır.*")]
@@ -46,15 +46,6 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = " Namizəddən tələblər qeyd olunmalıdır.*")]
         public string? EmployeeRequirement { get; init; }
         public List<int>? DeleteEmployeers { get; set; }
-
-
-        public UpdateVacancyVm()
-        {
-            AllWorkInfos = new();
-            AllEmployeerInfos = new();
-            DeleteWork = new List<int>();
-            DeleteEmployeers = new List<int>();
-        }
     }
 
 }

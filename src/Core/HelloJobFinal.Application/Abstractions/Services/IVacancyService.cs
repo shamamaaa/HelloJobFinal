@@ -2,6 +2,7 @@
 using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace HelloJobFinal.Application.Abstractions.Services
 {
@@ -21,8 +22,9 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task CreatePopulateDropdowns(CreateVacancyVm create);
         Task UpdatePopulateDropdowns(UpdateVacancyVm update);
 
-        void AddInfoWorks(Vacancy vacancy, string workInfo);
-        void AddInfoEmployeers(Vacancy vacancy, string employeeInfo);
+        Task<bool> AddVacancyRequestAsync(int id, ITempDataDictionary tempData);
+        Task AcceptVacancyRequestAsync(int requestId);
+        Task DeleteVacancyRequestAsync(int requestId);
     }
 }
 
