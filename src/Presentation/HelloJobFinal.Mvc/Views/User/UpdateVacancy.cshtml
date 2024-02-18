@@ -1,9 +1,6 @@
 ﻿@{
     Layout = "_UserLayout";
 }
-@{
-    Layout = "_UserLayout";
-}
 @model UpdateVacancyVm
 
 <div class="account">
@@ -124,7 +121,6 @@
                                         <label asp-for="Salary">Əmək haqqı AZN(Məs:1500)</label>
                                         <input asp-for="Salary"
                                                max="12000"
-                                               value="0"
                                                class="form-control inputs" />
                                         <span asp-validation-for="Salary" class="text-danger"></span>
 
@@ -149,6 +145,16 @@
                         <div class="col-lg-10">
                             <div class="adding work_add">
                                 <div class="row">
+                                    <ol style="padding:15px">
+                                        @foreach (var item in Model.WorkInfos)
+                                        {
+                                            <li>
+                                                <span> @item.Info</span>
+                                                <i style="cursor:pointer;" class="bi bi-trash delbtn"></i>
+                                                <input type="hidden" name="DeleteWork" value="@item.Id" />
+                                            </li>
+                                        }
+                                    </ol>
                                     <div class="col-lg-6">
                                         <div class="vacans_inputs">
                                             <input type="text"
@@ -181,6 +187,16 @@
                         <div class="col-lg-10">
                             <div class="adding user_add">
                                 <div class="row">
+                                    <ol style="padding:15px">
+                                        @foreach (var item in Model.Requirements)
+                                        {
+                                            <li>
+                                                <span> @item.EmployeeRequirement</span>
+                                                <i style="cursor:pointer;" class="bi bi-trash delbtn"></i>
+                                                <input type="hidden" name="DeleteEmployeers" value="@item.Id" />
+                                            </li>
+                                        }
+                                    </ol>
                                     <div class="col-lg-6">
                                         <div class="vacans_inputs">
                                             <input type="text"
@@ -528,5 +544,11 @@
 </div>
 @section Scripts{
     <script src="~/assets/js/postvacans.js"></script>
-
+    <script>let delbtn = document.querySelectorAll(".delbtn");
+        delbtn.forEach(btn => {
+            btn.addEventListener("click", function () {
+                this.parentElement.remove();
+                console.log(this.parentElement.parentElement.parentElement)
+            })
+        })</script>
 }

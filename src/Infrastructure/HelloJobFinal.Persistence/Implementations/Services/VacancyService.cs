@@ -401,14 +401,16 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<bool> UpdatePostAsync(int id, UpdateVacancyVm update, ModelStateDictionary model)
         {
+            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            Vacancy item = await _repository.GetByIdAsync(id, true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
+            update.WorkInfos = _mapper.Map<List<IncludeWorkInfo>>(item.WorkInfos);
+            update.Requirements = _mapper.Map<List<IncludeRequirement>>(item.Requirements);
+            if (item == null) throw new NotFoundException("Your request was not found");
             if (!model.IsValid)
             {
                 await UpdatePopulateDropdowns(update);
                 return false;
             }
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
-            Vacancy item = await _repository.GetByIdAsync(id, true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
-            if (item == null) throw new NotFoundException("Your request was not found");
             if (!await _cityRepository.CheckUniqueAsync(x => x.Id == update.CityId))
             {
                 await UpdatePopulateDropdowns(update);
@@ -460,7 +462,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UpdateVacancyVm, Vacancy>();
+                cfg.CreateMap<UpdateVacancyVm, Vacancy>()
+                    .ForMember(dest => dest.Requirements, opt => opt.Ignore())
+                    .ForMember(dest => dest.WorkInfos, opt => opt.Ignore());
             });
             var mapper = config.CreateMapper();
 

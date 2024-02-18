@@ -39,12 +39,10 @@ namespace HelloJobFinal.Application.ViewModels
         public List<IncludeRequirement>? Requirements { get; set; }
 
 
-        [Required(ErrorMessage = " İş barədə məlumat qeyd olunmalıdır.*")]
-        public string WorkInfo { get; init; }
+        public string? WorkInfo { get; init; }
         public List<int>? DeleteWork { get; set; }
 
-        [Required(ErrorMessage = " Namizəddən tələblər qeyd olunmalıdır.*")]
-        public string EmployeeRequirement { get; init; }
+        public string? EmployeeRequirement { get; init; }
         public List<int>? DeleteEmployeers { get; set; }
     }
 
