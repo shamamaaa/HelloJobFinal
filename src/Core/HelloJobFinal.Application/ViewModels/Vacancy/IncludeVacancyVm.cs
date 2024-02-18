@@ -9,6 +9,7 @@
         public DateTime FinishTime { get; init; }
         public DateTime CreatedAt { get; init; }
 
+
         public bool IsTimeOver { get; init; }
         public int ViewCount { get; init; }
         public IncludeCityVm IncludeCity { get; init; }
@@ -20,7 +21,7 @@
         public IncludWorkingHourVm IncludeWorkingHour { get; init; }
         public int WorkingHourId { get; init; }
         public IncludeCategoryItemVm IncludeCategoryItem { get; init; }
-        public int CategoryId { get; init; }
+        public int CategoryItemId { get; init; }
         public IncludeCompanyVm IncludeCompany { get; init; }
         public int CompanyId { get; init; }
         public string Status { get; init; }

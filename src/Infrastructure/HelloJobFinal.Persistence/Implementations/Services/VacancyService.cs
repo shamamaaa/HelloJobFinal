@@ -24,6 +24,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         private readonly IExperienceRepository _experienceRepository;
         private readonly IWorkingHourRepository _workingHourRepository;
         private readonly ICategoryItemRepository _categoryItemRepository;
+        private readonly ICompanyRepository _companyRepository;
         private readonly IHttpContextAccessor _http;
         private readonly IEmailService _email;
         private readonly UserManager<AppUser> _userManager;
@@ -31,7 +32,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public VacancyService(IMapper mapper, IVacancyRepository repository, ICityRepository cityRepository,
             IEducationRepository educationRepository, IExperienceRepository experienceRepository,
-            IWorkingHourRepository workingHourRepository, ICategoryItemRepository categoryItemRepository, IHttpContextAccessor http, IEmailService email, UserManager<AppUser> userManager)
+            IWorkingHourRepository workingHourRepository, ICategoryItemRepository categoryItemRepository,
+            IHttpContextAccessor http, IEmailService email, UserManager<AppUser> userManager,
+            ICompanyRepository companyRepository)
         {
             _mapper = mapper;
             _repository = repository;
@@ -43,12 +46,14 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             _http = http;
             _email = email;
             _userManager = userManager;
+            _companyRepository = companyRepository;
         }
 
         public async Task CreatePopulateDropdowns(CreateVacancyVm create)
         {
-            create.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync());
+            create.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.BaseCategory)}").ToListAsync());
             create.Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync());
+            create.Companies = _mapper.Map<List<IncludeCompanyVm>>(await _companyRepository.GetAll().ToListAsync());
             create.Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync());
             create.Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync());
             create.WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync());
@@ -56,8 +61,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
         public async Task UpdatePopulateDropdowns(UpdateVacancyVm update)
         {
-            update.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync());
+            update.CategoryItems = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.BaseCategory)}").ToListAsync());
             update.Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync());
+            update.Companies = _mapper.Map<List<IncludeCompanyVm>>(await _companyRepository.GetAll().ToListAsync());
             update.Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync());
             update.Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync());
             update.WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync());
@@ -93,7 +99,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("WorkingHourId", "Working-hour not found");
                 return false;
             }
-            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == create.CategoryId))
+            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == create.CategoryItemId))
             {
                 await CreatePopulateDropdowns(create);
                 model.AddModelError("CategoryId", "Category not found");
@@ -101,6 +107,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
 
             Vacancy item = _mapper.Map<Vacancy>(create);
+            item.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            item.Status = Status.New.ToString();
 
             if (create.WorkInfo is null)
             {
@@ -122,7 +130,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
             else
             {
-                _repository.AddInfoWorks(item, create.EmployeeRequirement);
+                _repository.AddInfoEmployeers(item, create.EmployeeRequirement);
             }
 
             await _repository.AddAsync(item);
@@ -145,6 +153,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
+                $"{nameof(Vacancy.Company)}",
                 $"{nameof(Vacancy.Education)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
@@ -162,6 +171,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
                 $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.Company)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
                 $"{nameof(Vacancy.CategoryItem)}" };
@@ -179,6 +189,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
                 $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.Company)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
                 $"{nameof(Vacancy.CategoryItem)}" };
@@ -200,6 +211,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
                 $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.Company)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
                 $"{nameof(Vacancy.CategoryItem)}" };
@@ -210,7 +222,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 case 1:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -220,7 +232,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 2:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -230,7 +242,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 3:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -240,7 +252,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 4:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -282,6 +294,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
                 $"{nameof(Vacancy.Education)}",
+                $"{nameof(Vacancy.Company)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
                 $"{nameof(Vacancy.CategoryItem)}" };
@@ -292,7 +305,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 case 1:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -302,7 +315,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 2:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -312,7 +325,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 3:
                     items = await _repository
-                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                    .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -322,7 +335,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     break;
                 case 4:
                     items = await _repository
-                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryId == categoryId : true)
+                     .GetAllWhereByOrder(x => (categoryId != null ? x.CategoryItemId == categoryId : true)
                                 && (cityId != null ? x.CityId == cityId : true)
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
@@ -377,12 +390,12 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<UpdateVacancyVm> UpdateAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
-            Vacancy item = await _repository.GetByIdAsync(id);
+            Vacancy item = await _repository.GetByIdAsync(id,true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
             if (item == null) throw new NotFoundException("Your request was not found");
 
             UpdateVacancyVm update = _mapper.Map<UpdateVacancyVm>(item);
 
-            UpdatePopulateDropdowns(update);
+            await UpdatePopulateDropdowns(update);
             return update;
         }
 
@@ -394,12 +407,18 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 return false;
             }
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
-            Vacancy item = await _repository.GetByIdAsync(id);
+            Vacancy item = await _repository.GetByIdAsync(id, true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
             if (item == null) throw new NotFoundException("Your request was not found");
             if (!await _cityRepository.CheckUniqueAsync(x => x.Id == update.CityId))
             {
                 await UpdatePopulateDropdowns(update);
                 model.AddModelError("CityId", "City not found");
+                return false;
+            }
+            if (!await _companyRepository.CheckUniqueAsync(x => x.Id == update.CompanyId))
+            {
+                await UpdatePopulateDropdowns(update);
+                model.AddModelError("CompanyId", "Company not found");
                 return false;
             }
             if (!await _educationRepository.CheckUniqueAsync(x => x.Id == update.EducationId))
@@ -420,7 +439,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("WorkingHourId", "Working-hour not found");
                 return false;
             }
-            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == update.CategoryId))
+            if (!await _categoryItemRepository.CheckUniqueAsync(x => x.Id == update.CategoryItemId))
             {
                 await UpdatePopulateDropdowns(update);
                 model.AddModelError("CategoryId", "Category not found");

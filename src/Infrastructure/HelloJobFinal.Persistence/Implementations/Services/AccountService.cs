@@ -109,7 +109,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 throw new WrongRequestException("The request sent does not exist");
             }
-            await _signInManager.SignInAsync(appUser, false);
+            if(appUser.IsActivate == false)
+            {
+                await _signInManager.SignInAsync(appUser, false);
+            }
 
             return true;
         }

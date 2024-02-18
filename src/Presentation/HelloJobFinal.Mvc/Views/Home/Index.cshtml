@@ -46,7 +46,7 @@
                                     <a href="">
                                         <img src="~/assets/images/BusinessTitle/@item.ImageUrl" alt="@item.Name">
                                         <div class="new-cat-name"><p>@item.Name</p></div>
-                                        <div class="new-cat-count"><p><span>@x.Vacancies.Where(a => a.CategoryId == x.Id).Count()</span> iş elanı</p></div>
+                                        <div class="new-cat-count"><p><span>@x.Vacancies.Where(a => a.CategoryItemId == x.Id).Count()</span> iş elanı</p></div>
                                     </a>
                                 </div>
                             </div>

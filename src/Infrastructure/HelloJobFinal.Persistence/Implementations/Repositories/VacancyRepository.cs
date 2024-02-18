@@ -17,6 +17,8 @@ namespace HelloJobFinal.Persistence.Implementations.Repositories
         public VacancyRepository(AppDbContext context) : base(context)
         {
             _dbVacancyRequests = context.Set<VacancyRequest>();
+            _dbworkInfos = context.Set<WorkInfo>();
+            _dbRequirements = context.Set<Requirement>();
         }
         public async Task<VacancyRequest> GetByIdVacancyRequest(int id)
         {

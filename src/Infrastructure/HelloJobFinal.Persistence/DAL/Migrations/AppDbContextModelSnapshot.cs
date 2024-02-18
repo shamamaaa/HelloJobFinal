@@ -533,9 +533,6 @@ namespace HelloJobFinal.Persistence.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryItemId")
                         .HasColumnType("int");
 

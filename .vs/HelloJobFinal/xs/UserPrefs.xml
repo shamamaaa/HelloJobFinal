@@ -1,18 +1,27 @@
 ﻿<Properties StartupConfiguration="{08EB6B18-50AE-4732-BE2D-49AA16695857}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" line="73" column="1" />
       <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/AccountService.cs" line="38" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/CreateVacancyVm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Core/HelloJobFinal.Application/MappingProfiles/WorkInfoProfile.cs">
     <Files>
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyService.cs" Line="441" Column="38" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/CreateVacancyVm.cs" Line="54" Column="34" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Vacancy.cs" Line="44" Column="47" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Views/User/VacancyIndex.cshtml" Line="26" Column="26" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Views/User/UpdateVacancy.cshtml" Line="236" Column="1" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Views/User/CreateVacancy.cshtml" Line="4" Column="21" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs" Line="166" Column="1" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyService.cs" Line="410" Column="134" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Areas/Admin/Controllers/VacancyController.cs" Line="1" Column="1" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/UpdateVacancyVm.cs" Line="5" Column="19" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/CreateVacancyVm.cs" Line="5" Column="19" />
+      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Vacancy.cs" Line="44" Column="28" />
+      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/VacancyProfile.cs" Line="15" Column="84" />
+      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Requirement.cs" Line="4" Column="15" />
+      <File FileName="src/Core/HelloJobFinal.Application/MappingProfiles/WorkInfoProfile.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,30 +30,41 @@
             <Node name="src" expanded="True">
               <Node name="Core" expanded="True">
                 <Node name="HelloJobFinal.Application">
+                  <Node name="Abstractions" expanded="True">
+                    <Node name="Repositories" expanded="True" />
+                    <Node name="Services" expanded="True" />
+                  </Node>
+                  <Node name="MappingProfiles" expanded="True">
+                    <Node name="WorkInfoProfile.cs" selected="True" />
+                  </Node>
                   <Node name="ViewModels" expanded="True">
-                    <Node name="Vacancy" expanded="True">
-                      <Node name="CreateVacancyVm.cs" selected="True" />
-                    </Node>
+                    <Node name="Account" expanded="True" />
+                    <Node name="Category" expanded="True" />
+                    <Node name="Company" expanded="True" />
+                    <Node name="Cv" expanded="True" />
+                    <Node name="Vacancy" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="HelloJobFinal.Domain" expanded="True">
-                  <Node name="Entities" expanded="True" />
+                <Node name="HelloJobFinal.Domain">
+                  <Node name="Entities" expanded="True">
+                    <Node name="Base" expanded="True" />
+                  </Node>
+                  <Node name="Enums" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Infrastructure" expanded="True">
-                <Node name="HelloJobFinal.Persistence">
-                  <Node name="ServiceRegistrations" expanded="True" />
-                </Node>
-              </Node>
+              <Node name="Infrastructure" expanded="True" />
               <Node name="Presentation">
                 <Node name="HelloJobFinal.Mvc">
-                  <Node name="wwwroot" expanded="True">
-                    <Node name="assets" expanded="True">
-                      <Node name="js" expanded="True" />
-                      <Node name="others" expanded="True">
-                        <Node name="styles" expanded="True" />
+                  <Node name="Areas" expanded="True">
+                    <Node name="Admin" expanded="True">
+                      <Node name="Controllers" expanded="True" />
+                      <Node name="Views" expanded="True">
+                        <Node name="User" expanded="True" />
                       </Node>
                     </Node>
+                  </Node>
+                  <Node name="Views" expanded="True">
+                    <Node name="User" expanded="True" />
                   </Node>
                 </Node>
               </Node>
@@ -54,5 +74,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
 </Properties>

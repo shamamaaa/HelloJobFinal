@@ -88,8 +88,8 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="vacans_inputs">
-                                        <label asp-for="CategoryId">Kateqoriya</label>
-                                        <select asp-for=CategoryId class="form-control cities">
+                                        <label asp-for="CategoryItemId">Kateqoriya</label>
+                                        <select asp-for=CategoryItemId class="form-control cities">
                                             @foreach (var x in Model.CategoryItems)
                                             {
                                                 <optgroup label="@x.IncludeBaseCategory.Name">
@@ -100,7 +100,7 @@
                                                 </optgroup>
                                             }
                                         </select>
-                                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                        <span asp-validation-for="CategoryItemId" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -126,6 +126,8 @@
                                                max="12000"
                                                value="0"
                                                class="form-control inputs" />
+                                        <span asp-validation-for="Salary" class="text-danger"></span>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -162,9 +164,10 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="vacans_inputs">
-                                            <input asp-for="WorkInfos"
+                                            <input asp-for="WorkInfo"
                                                    class="form-control inputs hidden_work w-100"
                                                    readonly />
+                                            <span asp-validation-for="WorkInfo" class="text-danger"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -193,9 +196,11 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="vacans_inputs">
-                                            <input asp-for="Requirements"
+                                            <input asp-for="EmployeeRequirement"
                                                    class="form-control inputs hidden_user w-100"
                                                    readonly />
+                                            <span asp-validation-for="EmployeeRequirement" class="text-danger"></span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +233,6 @@
         <div class="persons_menu">
             <div class="account_head_user">
                 <ul>
-                    <li><a asp-controller="myaccount" asp-action="index">@ViewBag.User.FullName</a></li>
                     <li><a asp-controller="myaccount" asp-action="mysticker">Mənim elanlarım</a></li>
                     <li>
                         <a asp-controller="myaccount" asp-action="security">Şəxsi məlumatlar</a>
@@ -399,8 +403,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="vacans_inputs">
-                                            <label asp-for="CategoryId">Kateqoriya</label>
-                                            <select asp-for=CategoryId class="form-control cities">
+                                            <label asp-for="CategoryItemId">Kateqoriya</label>
+                                            <select asp-for=CategoryItemId class="form-control cities">
                                                 @foreach (var x in Model.CategoryItems)
                                                 {
                                                     <optgroup label="@x.IncludeBaseCategory.Name">
@@ -411,7 +415,7 @@
                                                     </optgroup>
                                                 }
                                             </select>
-                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                            <span asp-validation-for="CategoryItemId" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">

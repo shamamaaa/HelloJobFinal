@@ -43,43 +43,40 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 ">
-                            @foreach (var item in Model.Companies)
+                            @foreach (var vacancy in Model.Vacancies)
                             {
-                                foreach (var vacancy in item.Vacancies)
-                                {
-                                    <div class="vacancies">
-                                        <div class="vacancies_href">
-                                            <a href="./vacansdetail.html">
-                                                <div class="item_left">
-                                                    <div class="icon">
-                                                        <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/muxtelif-cat-6414343d74be26414343d74bed-Q30Ca59zmtb--84.svg"
-                                                             alt="Bağban" />
-                                                    </div>
-                                                    <div class="title">
-                                                        <h3>Bağban</h3>
-                                                        <p></p>
-                                                    </div>
+                                <div class="vacancies">
+                                    <div class="vacancies_href">
+                                        <a href="./vacansdetail.html">
+                                            <div class="item_left">
+                                                <div class="icon">
+                                                    <img src="~/assets/images/BusinessTitle/@vacancy.IncludeCategoryItem.IncludeBaseCategory.ImageUrl"
+                                                         alt="@vacancy.IncludeCategoryItem.IncludeBaseCategory.Name" />
                                                 </div>
+                                                <div class="title">
+                                                    <h3>@vacancy.Position</h3>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="item_right">
+                                            <span class="salary">@vacancy.Salary AZN</span>
+                                            <span class="date">@vacancy.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")</span>
+                                        </div>
+                                        <div class="vacans_buttons">
+                                            <a asp-action="updatevacancy" asp-controller="user" asp-route-id="@vacancy.Id" class="edited btn">
+                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
+                                                     alt="" />
+                                                <span>Redaktə et</span>
                                             </a>
-                                            <div class="item_right">
-                                                <span class="salary">500 - 500 AZN</span>
-                                                <span class="date">Dünən 11:29</span>
-                                            </div>
-                                            <div class="vacans_buttons">
-                                                <a href="" class="edited btn">
-                                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
-                                                         alt="" />
-                                                    <span>Redaktə et</span>
-                                                </a>
-                                                <a class="deleted btn" href="">
-                                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
-                                                         alt="" />
-                                                    <span>Sil</span>
-                                                </a>
-                                            </div>
+                                            <a class="deleted btn" asp-action="softdeletevacancy" asp-controller="user" asp-route-id="@vacancy.Id">
+                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
+                                                     alt="" />
+                                                <span>Sil</span>
+                                            </a>
                                         </div>
                                     </div>
-                                }
+                                </div>
                             }
                         </div>
                     </div>
@@ -217,75 +214,47 @@
                 <div class="inner_tab">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-12 ">
-                                @foreach (var item in Model.Cvs)
-                                {
-                                    <div class="user_block">
-                                        <a href="./userdetail.html" target="_blank">
-                                            <div class="header_user">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="user_img">
-                                                        <img src="~/assets/images/User/@item.ImageUrl"
-                                                             alt="" />
-                                                    </div>
-                                                    <div class="d-flex justify-content-between w-100">
-                                                        <div class="user_desc">
-                                                            <h3 class="profession">
-                                                                @item.Position
-                                                            </h3>
-
-                                                            <p class="fullname">@item.Name @item.Surname</p>
+                            <div class="row">
+                                <div class="col-lg-12 ">
+                                    @foreach (var item in Model.Companies)
+                                    {
+                                        foreach (var vacancy in item.Vacancies)
+                                        {
+                                            <div class="vacancies">
+                                                <div class="vacancies_href">
+                                                    <a href="./vacansdetail.html">
+                                                        <div class="item_left">
+                                                            <div class="icon">
+                                                                <img src="https://www.hellojob.az/uploads/_categories/2023/03/17/muxtelif-cat-6414343d74be26414343d74bed-Q30Ca59zmtb--84.svg"
+                                                                     alt="Bağban" />
+                                                            </div>
+                                                            <div class="title">
+                                                                <h3>Bağban</h3>
+                                                                <p></p>
+                                                            </div>
                                                         </div>
+                                                    </a>
+                                                    <div class="item_right">
+                                                        <span class="salary">500 - 500 AZN</span>
+                                                        <span class="date">Dünən 11:29</span>
+                                                    </div>
+                                                    <div class="vacans_buttons">
+                                                        <a href="" class="edited btn">
+                                                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
+                                                                 alt="" />
+                                                            <span>Redaktə et</span>
+                                                        </a>
+                                                        <a class="deleted btn" href="">
+                                                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
+                                                                 alt="" />
+                                                            <span>Sil</span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="user_options">
-                                                <div class="item">
-                                                    <div class="icon">
-                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/user-clock.svg"
-                                                             alt="" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4>@item.IncludeWorkingHour.Name</h4>
-                                                        <p>İş rejimi</p>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="icon">
-                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/money.svg"
-                                                             alt="" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4>@item.MinSalary</h4>
-                                                        <p>Minimum əmək haqqı AZN</p>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="icon">
-                                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
-                                                             alt="" />
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4>@item.IncludeExperience.Name</h4>
-                                                        <p>İş staji</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="user_buttons">
-                                            <a asp-action="updatecv" asp-controller="user" class="edited btn">
-                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/edit.svg"
-                                                     alt="" />
-                                                <span>Redaktə et</span>
-                                            </a>
-                                            <a class="deleted btn" asp-action="SoftDeleteCv" asp-controller="user">
-                                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/delete.svg"
-                                                     alt="" />
-                                                <span>Sil</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                }
+                                        }
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -293,4 +262,3 @@
             </div>
         </div>
     </div>
-</div>

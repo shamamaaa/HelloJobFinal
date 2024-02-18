@@ -13,8 +13,6 @@ namespace HelloJobFinal.Application.ViewModels
         public int Salary { get; init; }
 
         public bool HasDriverLicense { get; init; }
-        public int ViewCount { get; init; }
-
 
         [Required(ErrorMessage = "Şəhər daxil edilməlidir.")]
         public int CityId { get; init; }
@@ -25,7 +23,7 @@ namespace HelloJobFinal.Application.ViewModels
         [Required(ErrorMessage = "İş saatı daxil edilməlidir.")]
         public int WorkingHourId { get; init; }
         [Required(ErrorMessage = "Kateqoriya daxil edilməlidir.")]
-        public int CategoryId { get; init; }
+        public int CategoryItemId { get; init; }
         [Required(ErrorMessage = "Şirkət daxil edilməlidir.")]
         public int CompanyId { get; init; }
 
@@ -41,11 +39,11 @@ namespace HelloJobFinal.Application.ViewModels
 
 
         [Required(ErrorMessage = " İş barədə məlumat qeyd olunmalıdır.*")]
-        public string? WorkInfo { get; init; }
+        public string WorkInfo { get; init; }
         public List<int>? DeleteWork { get; set; }
 
         [Required(ErrorMessage = " Namizəddən tələblər qeyd olunmalıdır.*")]
-        public string? EmployeeRequirement { get; init; }
+        public string EmployeeRequirement { get; init; }
         public List<int>? DeleteEmployeers { get; set; }
 
     }

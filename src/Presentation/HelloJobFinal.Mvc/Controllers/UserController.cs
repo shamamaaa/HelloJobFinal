@@ -123,16 +123,19 @@ namespace HelloJobFinal.Mvc.Controllers
         //Vacancy pages
 
         [Authorize(Roles = "Company")]
-        public IActionResult CreateVacancy()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Company")]
         public async Task<IActionResult> VacancyIndex(string id)
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> CreateVacancy()
+        {
+            CreateVacancyVm create = new CreateVacancyVm();
+            await _vacancyService.CreatePopulateDropdowns(create);
+            return View(create);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateVacancy(CreateVacancyVm vacancyVm)

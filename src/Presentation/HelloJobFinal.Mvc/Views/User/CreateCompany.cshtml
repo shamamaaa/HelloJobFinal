@@ -118,11 +118,15 @@
     <div class="body">
         <div class="persons_menu">
             <div class="account_head_user">
-                <ul>
-                    <li><a asp-controller="myaccount" asp-action="index">@ViewBag.User.FullName</a></li>
-                    <li><a asp-controller="myaccount" asp-action="mysticker">Mənim elanlarım</a></li>
+                <a href="./account.html" class="profile__header__user__name">
+                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                         alt="" />
+                    <span>@User.Identity.Name</span>
+                </a>
+                <ul class="account_head_user_drop">
+                    <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
                     <li>
-                        <a asp-controller="myaccount" asp-action="security">Şəxsi məlumatlar</a>
+                        <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
                     </li>
                     <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                 </ul>
@@ -243,7 +247,7 @@
                     </ul>
                 </div>
                 <div class="inner_tab">
-                    <form asp-controller="myaccount" asp-action="creatingcompany" method="post" enctype="multipart/form-data">
+                    <form asp-controller="user" asp-action="createcompany" method="post" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row mb-5">

@@ -36,7 +36,7 @@ namespace HelloJobFinal.Domain.Entities
         public int WorkingHourId { get; set; }
         public WorkingHour WorkingHour { get; set; }
 
-        public int CategoryId { get; set; }
+        public int CategoryItemId { get; set; }
         public CategoryItem CategoryItem { get; set; }
 
         public string Status { get; set; }

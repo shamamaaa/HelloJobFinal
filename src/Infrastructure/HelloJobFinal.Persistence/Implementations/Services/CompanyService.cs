@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Security.Claims;
 using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Repositories;
 using HelloJobFinal.Application.Abstractions.Services;
@@ -51,7 +52,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             item.ImageUrl = await create.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images","Company");
             
             item.CreatedBy = _http.HttpContext.User.Identity.Name;
-
+            item.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             await _repository.AddAsync(item);
             await _repository.SaveChanceAsync();
 

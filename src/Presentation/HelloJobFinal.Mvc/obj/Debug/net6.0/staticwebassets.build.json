@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OIzqo3ArpfRUt3vxahxtFNHOYnOI+43vVz+F89pLyN8=",
+  "Hash": "PVa/PRvyseONnE+ctbHcwakIP00wEQ74YZzSYRf/jqE=",
   "Source": "HelloJobFinal.Mvc",
   "BasePath": "_content/HelloJobFinal.Mvc",
   "Mode": "Default",
@@ -3534,6 +3534,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/images/Company/860coffamena.png"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/Company/ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/Company/ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/Company/f8a374c3-4f04-4975-a95d-1eda6793ee38.jpeg",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/Company/f8a374c3-4f04-4975-a95d-1eda6793ee38.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/Company/f8a374c3-4f04-4975-a95d-1eda6793ee38.jpeg"
     },
     {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/logo.svg",
