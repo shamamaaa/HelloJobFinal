@@ -157,7 +157,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 $"{nameof(Vacancy.Education)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
-                $"{nameof(Vacancy.CategoryItem)}" };
+                $"{nameof(Vacancy.CategoryItem)}.{nameof(CategoryItem.BaseCategory)}" };
             ICollection<Vacancy> items = await _repository
                     .GetAllWhere(skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
 

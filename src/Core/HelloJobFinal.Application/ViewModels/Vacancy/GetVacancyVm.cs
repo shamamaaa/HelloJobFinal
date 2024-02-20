@@ -9,6 +9,8 @@
         public DateTime FinishTime { get; init; }
         public bool IsTimeOver { get; init; }
         public int ViewCount { get; init; }
+        public DateTime CreatedAt { get; init; }
+
 
         public IncludeCityVm IncludeCity { get; init; }
         public int CityId { get; init; }

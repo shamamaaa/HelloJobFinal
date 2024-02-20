@@ -18,10 +18,7 @@
                         <span>@User.Identity.Name</span>
                     </a>
                     <ul class="account_head_user_drop">
-                        <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
-                        <li>
-                            <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
-                        </li>
+                        <li><a asp-controller="user" asp-action="index">Panel</a></li>
                         <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                     </ul>
                 </div>
@@ -91,107 +88,9 @@
         </div>
     </div>
     <div class="body">
-        <div class="persons_menu">
-            <div class="account_head_user">
-                <ul>
-                    <li><a href="./account.html">Rəşid Bağırov</a></li>
-                    <li><a href="./mysticker.html">Mənim elanlarım</a></li>
-                    <li>
-                        <a href="./security.html">Şəxsi məlumatlar</a>
-                    </li>
-                    <li><a href="/logout">Çıxış</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="hamburgers_menu">
-            <ul class="myprofile">
-                <li>
-                    <a href="./account.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
-                                 alt="" />
-                        </span>
-                        Profilim
-                    </a>
-                </li>
-                <li>
-                    <a href="./postCv.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Cv yerləşdir
-                    </a>
-                </li>
-                <li>
-                    <a href="./postCv.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Vakansiya yerləşdir
-                    </a>
-                </li>
-                <li>
-                    <a href="./postCv.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Şirkət yarat
-                    </a>
-                </li>
-                <li>
-                    <a class="active" href="./myCompany.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                 alt="" />
-                        </span>
-                        Şirkətlərim
-                    </a>
-                </li>
-                <li>
-                    <a href="./myOrder.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Gözləmədə olan elanlar
-                    </a>
-                </li>
-                <li>
-                    <a href="./mysticker.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Elanlarım
-                    </a>
-                </li>
-                <li>
-                    <a href="./WishListpage.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
-                                 alt="" />
-                        </span>
-                        Bəyəndiklərim
-                    </a>
-                </li>
-                <li>
-                    <a href="./security.html">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                                 alt="" />
-                        </span>
-                        Təhlükəsizlik
-                    </a>
-                </li>
-            </ul>
-            <div class="backsite">
-                <a href="./index.html"
-                   class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
-            </div>
-        </div>
+        @{
+            await Html.RenderPartialAsync("_MobileSidebarPartialView");
+        }
         <div class="account_content">
             <div class="create_cv">
                 <div class="title">

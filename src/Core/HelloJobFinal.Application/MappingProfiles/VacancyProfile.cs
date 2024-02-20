@@ -6,7 +6,7 @@ using HelloJobFinal.Domain.Entities;
 namespace HelloJobFinal.Application.MappingProfiles
 {
     internal class VacancyProfile : Profile
-	{//sey e bunun creati duz gemmeisdi work info mu yoxsa requirement null gpndermisdik belke tezesin c
+	{
 		public VacancyProfile()
 		{
             CreateMap<CreateVacancyVm, Vacancy>().ReverseMap();

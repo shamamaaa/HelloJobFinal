@@ -20,10 +20,7 @@
                         <span>@User.Identity.Name</span>
                     </a>
                     <ul class="account_head_user_drop">
-                        <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
-                        <li>
-                            <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
-                        </li>
+                        <li><a asp-controller="user" asp-action="index">Panel</a></li>
                         <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                     </ul>
                 </div>
@@ -41,7 +38,6 @@
             <div class="inner_tab">
                 <form asp-controller="user" asp-action="updatecompany" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <div class="row mb-5">
                         <div class="col-lg-2">
                             <h2 class="section_title">Şirkət məlumatları</h2>
@@ -64,7 +60,7 @@
                                     <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                          alt="" />
                                     <span>Şəkil əlavə et</span>
-                                    <p>SVG, PNG, JPG or GIF (max. 1000x1000px)</p>
+                                    <p>SVG, PNG, JPG(max. 1000x1000px)</p>
                                 </label>
 
 
@@ -116,122 +112,9 @@
         </div>
     </div>
     <div class="body">
-        <div class="persons_menu">
-            <div class="account_head_user">
-                <ul>
-                    <li><a asp-controller="myaccount" asp-action="index">@ViewBag.User.FullName</a></li>
-                    <li><a asp-controller="myaccount" asp-action="mysticker">Mənim elanlarım</a></li>
-                    <li>
-                        <a asp-controller="myaccount" asp-action="security">Şəxsi məlumatlar</a>
-                    </li>
-                    <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="hamburgers_menu">
-            <ul class="myprofile">
-                <li>
-                    <a asp-controller="myaccount" asp-action="index">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
-                                 alt="" />
-                        </span>
-                        Profilim
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="myaccount" asp-action="myrequest">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Müraciətlər
-                    </a>
-                </li>
-                @if (User.IsInRole(UserRole.Company.ToString()))
-                {
-                    <li>
-                        <a asp-controller="myaccount" asp-action="createvacans">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Vakansiya yerləşdir
-                        </a>
-                    </li>
-                    <li>
-                        <a class="active" asp-controller="myaccount" asp-action="updatecompany">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Şirkət Yarat
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="myaccount" asp-action="mycompany">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Şirkətlərim
-                        </a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a asp-controller="myaccount" asp-action="createcv">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Cv yerləşdir
-                        </a>
-                    </li>
-                }
-                <li>
-                    <a asp-controller="myaccount" asp-action="myorder">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Gözləmədə olan elanlar
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="myaccount" asp-action="mysticker">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Elanlarım
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="myaccount" asp-action="wishlistpage">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
-                                 alt="" />
-                        </span>
-                        Bəyəndiklərim
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="myaccount" asp-action="security">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                                 alt="" />
-                        </span>
-                        Təhlükəsizlik
-                    </a>
-                </li>
-            </ul>
-            <div class="backsite">
-                <a asp-controller="Home" asp-action="index"
-                   class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
-            </div>
-        </div>
+        @{
+            await Html.RenderPartialAsync("_MobileSidebarPartialView");
+        }
         <div class="account_content">
             <div class="create_cv">
                 <div class="title">

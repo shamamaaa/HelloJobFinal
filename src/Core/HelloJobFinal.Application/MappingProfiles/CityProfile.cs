@@ -13,10 +13,11 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<UpdateCityVm, City>().ReverseMap();
             CreateMap<IncludeCityVm, City>().ReverseMap();
             CreateMap<ItemCityVm, City>().ReverseMap()
-                .ForMember(x => x.Cvs, opt => opt.MapFrom(src => src.Vacancies.ToList()));
+                .ForMember(x => x.Cvs, opt => opt.MapFrom(src => src.Cvs.ToList()))
+                .ForMember(x => x.Vacancies, opt => opt.MapFrom(src => src.Vacancies.ToList()));
             CreateMap<GetCityVm, City>().ReverseMap()
-                .ForMember(x => x.Cvs, opt => opt.MapFrom(src => src.Vacancies.ToList()));
-
+                .ForMember(x => x.Cvs, opt => opt.MapFrom(src => src.Cvs.ToList()))
+                .ForMember(x => x.Vacancies, opt => opt.MapFrom(src => src.Vacancies.ToList()));
 
 
         }

@@ -3,11 +3,11 @@ namespace HelloJobFinal.Application.ViewModels
 {
 	public class HomeVm
 	{
-		public ICollection<ItemCategoryItemVm> CategoryItemVms { get; set; }
+		//public ICollection<ItemCategoryItemVm> CategoryItemVms { get; set; }
         public ICollection<ItemBaseCategoryVm> BaseCategoryVms { get; set; }
-
-        //public ICollection<ItemVacancyVm> VacancyVms { get; set; }
-        //public ICollection<ItemCompanyVm> CompanyVms { get; set; }
+        public ICollection<ItemVacancyVm> VacancyVms { get; set; }
+        public ICollection<ItemCompanyVm> CompanyVms { get; set; }
+        public ICollection<VacancyWishlistItemVm> VacancyWishlists { get; set; }
 
     }
 }

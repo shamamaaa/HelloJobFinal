@@ -9,7 +9,7 @@ namespace HelloJobFinal.Application.ViewModels
 
         public IncludeBaseCategoryVm IncludeBaseCategory { get; set; }
         public List<a.Cv>? Cvs { get; init; }
-        public List<a.Vacancy>? Vacancies { get; init; }
+        public List<IncludeVacancyVm>? Vacancies { get; init; }
     }
 }
 

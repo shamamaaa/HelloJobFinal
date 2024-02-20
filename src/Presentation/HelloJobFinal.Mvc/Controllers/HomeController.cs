@@ -7,31 +7,27 @@ namespace HelloJobFinal.Mvc.Controllers;
 public class HomeController : Controller
 {
     private readonly IVacancyService _vacancyService;
-    private readonly ICategoryItemService _categoryItemService;
     private readonly IBaseCategoryService _baseCategoryService;
-
     private readonly ICompanyService _companyService;
+    private readonly IVacancyWishlistService _vacancyWishlist;
 
-    public HomeController(ICategoryItemService categoryItemService, IBaseCategoryService baseCategoryService)
+    public HomeController(IBaseCategoryService baseCategoryService, IVacancyService vacancyService,
+        ICompanyService companyService, IVacancyWishlistService vacancyWishlist)
     {
-        _categoryItemService = categoryItemService;
         _baseCategoryService = baseCategoryService;
+        _vacancyService = vacancyService;
+        _companyService = companyService;
+        _vacancyWishlist = vacancyWishlist;
     }
 
     public async Task<IActionResult> Index()
     {
-        //var vacancies = await _vacancyService.GetAllWhereAsync(10);
-        //var companies = await _companyService.GetAllWhereAsync(10);
-        var categories = await _categoryItemService.GetAllWhereAsync(10);
-        var basecategories = await _baseCategoryService.GetAllWhereAsync(10);
-
-
         HomeVm homeVm = new HomeVm
         {
-            CategoryItemVms = categories,
-            BaseCategoryVms = basecategories
-            //CompanyVms = companies,
-            //VacancyVms = vacancies
+            BaseCategoryVms = await _baseCategoryService.GetAllWhereAsync(11, 1),
+            CompanyVms = await _companyService.GetAllWhereAsync(5, 1),
+            VacancyVms = await _vacancyService.GetAllWhereAsync(15, 1),
+            VacancyWishlists = await _vacancyWishlist.WishList()
         };  
         return View(homeVm);
     }

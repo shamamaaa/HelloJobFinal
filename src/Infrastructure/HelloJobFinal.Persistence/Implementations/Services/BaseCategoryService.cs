@@ -76,8 +76,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<ICollection<ItemBaseCategoryVm>> GetAllWhereAsync(int take, int page = 1)
         {
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
-
+            string[] includes = {$"{nameof(BaseCategory.CategoryItems)}.{nameof(CategoryItem.Vacancies)}" };
             ICollection<BaseCategory> items = await _repository
                     .GetAllWhere(skip: (page - 1) * take, take: take, IsTracking: false, includes: includes).ToListAsync();
 

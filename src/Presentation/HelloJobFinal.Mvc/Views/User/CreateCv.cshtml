@@ -19,10 +19,7 @@
                         <span>@User.Identity.Name</span>
                     </a>
                     <ul class="account_head_user_drop">
-                        <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
-                        <li>
-                            <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
-                        </li>
+                        <li><a asp-controller="user" asp-action="index">Panel</a></li>
                         <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
                     </ul>
                 </div>
@@ -284,113 +281,9 @@
         </div>
     </div>
     <div class="body">
-        <div class="persons_menu">
-            <div class="account_head_user">
-                <ul
-                    <li><a asp-controller="account" asp-action="index">@User.Identity.Name</a></li>
-                    <li><a asp-controller="account" asp-action="mysticker">Mənim elanlarım</a></li>
-                    <li>
-                        <a asp-controller="account" asp-action="security">Şəxsi məlumatlar</a>
-                    </li>
-                    <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="hamburgers_menu">
-            <ul class="myprofile">
-                <li>
-                    <a asp-controller="account" asp-action="index">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user2.svg"
-                                 alt="" />
-                        </span>
-                        Profilim
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="account" asp-action="myrequest">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Müraciətlər
-                    </a>
-                </li>
-                @if (User.IsInRole(UserRole.Company.ToString()))
-                {
-                    <li>
-                        <a asp-controller="account" asp-action="createvacans">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Vakansiya yerləşdir
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="account" asp-action="creatingcompany">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Şirkət Yarat
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="account" asp-action="mycompany">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Şirkətlərim
-                        </a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a class="active" asp-controller="account" asp-action="createcv">
-                            <span>
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/cv.svg"
-                                     alt="" />
-                            </span>
-                            Cv yerləşdir
-                        </a>
-                    </li>
-                }
-                <li>
-                    <a asp-controller="account" asp-action="mysticker">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg"
-                                 alt="" />
-                        </span>
-                        Elanlarım
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="account" asp-action="wishlistpage">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg"
-                                 alt="" />
-                        </span>
-                        Bəyəndiklərim
-                    </a>
-                </li>
-                <li>
-                    <a asp-controller="account" asp-action="security">
-                        <span>
-                            <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg"
-                                 alt="" />
-                        </span>
-                        Təhlükəsizlik
-                    </a>
-                </li>
-            </ul>
-            <div class="backsite">
-                <a asp-controller="Home" asp-action="index"
-                   class="btn btn-site btn-transparent d-md-none">Sayta keçid et</a>
-            </div>
-        </div>
+        @{
+            await Html.RenderPartialAsync("_MobileSidebarPartialView");
+        }
         <div class="account_content">
             <div class="create_cv">
                 <div class="title">
@@ -533,7 +426,7 @@
                                     <div class="col-lg-6">
                                         <div class="cv_inputs">
                                             <label asp-for="CategoryItemId">Kateqoriya</label>
-                                            <select  asp-for="CategoryItemId" asp-items="new SelectList(Model.CategoryItems, nameof(IncludeCategoryItemVm.Id), nameof(IncludeCategoryItemVm.Name))" class="form-control cities">
+                                            <select asp-for="CategoryItemId" asp-items="new SelectList(Model.CategoryItems, nameof(IncludeCategoryItemVm.Id), nameof(IncludeCategoryItemVm.Name))" class="form-control cities">
                                                 @foreach (var x in Model.CategoryItems)
                                                 {
                                                     <optgroup label="@x.IncludeBaseCategory.Name">
