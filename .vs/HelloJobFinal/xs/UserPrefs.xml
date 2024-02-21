@@ -2,25 +2,29 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CvService.cs" relfile="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CvService.cs" line="113" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Core/HelloJobFinal.Application/ViewModels/Wishlist/CvWishlistItemVm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CvService.cs">
     <Files>
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/VacancyWishlistController.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/ItemVacancyVm.cs" Line="25" Column="62" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/CvWishlistController.cs" Line="1" Column="1" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs" Line="1" Column="1" />
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyWishlistService.cs" Line="16" Column="51" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Wishlist/VacancyWishlistItemVm.cs" Line="4" Column="16" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Wishlist/CvWishlistItemVm.cs" Line="12" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/UpdateVacancyVm.cs" Line="1" Column="1" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Entities/WishListVacancy.cs" Line="11" Column="20" />
-      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Vacancy.cs" Line="10" Column="21" />
-      <File FileName="src/Core/HelloJobFinal.Application/Abstractions/Services/IVacancyWishlistService.cs" Line="8" Column="61" />
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/UserService.cs" Line="178" Column="55" />
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyService.cs" Line="247" Column="60" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/VacancyWishlistController.cs" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/ItemVacancyVm.cs" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/CvWishlistController.cs" />
+      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyWishlistService.cs" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Wishlist/VacancyWishlistItemVm.cs" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Wishlist/CvWishlistItemVm.cs" Line="8" Column="4" />
+      <File FileName="src/Core/HelloJobFinal.Application/ViewModels/Vacancy/UpdateVacancyVm.cs" />
+      <File FileName="src/Core/HelloJobFinal.Domain/Entities/WishListVacancy.cs" />
+      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Vacancy.cs" />
+      <File FileName="src/Core/HelloJobFinal.Application/Abstractions/Services/IVacancyWishlistService.cs" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/UserService.cs" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyService.cs" Line="478" Column="1" />
+      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CvService.cs" Line="471" Column="72" />
+      <File FileName="src/Core/HelloJobFinal.Domain/Entities/Cv.cs" Line="6" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -28,15 +32,9 @@
           <Node name="HelloJobFinal" expanded="True">
             <Node name="src" expanded="True">
               <Node name="Core" expanded="True">
-                <Node name="HelloJobFinal.Application">
-                  <Node name="Abstractions">
-                    <Node name="Repositories" expanded="True" />
-                  </Node>
-                  <Node name="ViewModels">
-                    <Node name="Vacancy" expanded="True" />
-                    <Node name="Wishlist" expanded="True">
-                      <Node name="CvWishlistItemVm.cs" selected="True" />
-                    </Node>
+                <Node name="HelloJobFinal.Application" expanded="True">
+                  <Node name="ViewModels" expanded="True">
+                    <Node name="Wishlist" expanded="True" />
                   </Node>
                 </Node>
                 <Node name="HelloJobFinal.Domain" expanded="True">
@@ -44,18 +42,17 @@
                 </Node>
               </Node>
               <Node name="Infrastructure" expanded="True">
-                <Node name="HelloJobFinal.Persistence">
+                <Node name="HelloJobFinal.Persistence" expanded="True">
                   <Node name="Implementations" expanded="True">
-                    <Node name="Services" expanded="True" />
+                    <Node name="Services" expanded="True">
+                      <Node name="CvService.cs" selected="True" />
+                    </Node>
                   </Node>
                 </Node>
               </Node>
               <Node name="Presentation" expanded="True">
-                <Node name="HelloJobFinal.Mvc">
+                <Node name="HelloJobFinal.Mvc" expanded="True">
                   <Node name="Controllers" expanded="True" />
-                  <Node name="Views" expanded="True">
-                    <Node name="Home" expanded="True" />
-                  </Node>
                 </Node>
               </Node>
             </Node>

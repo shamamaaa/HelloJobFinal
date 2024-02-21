@@ -109,7 +109,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             Vacancy item = _mapper.Map<Vacancy>(create);
             item.AppUserId = _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             item.Status = Status.New.ToString();
-
+            item.FinishTime = DateTime.Now.AddMonths(2);
             if (create.WorkInfo is null)
             {
                 await CreatePopulateDropdowns(create);
@@ -310,7 +310,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                         x => x.CategoryItem.Name, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 2:
@@ -320,7 +321,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 3:
@@ -330,7 +332,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                         x => x.Position, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 4:
@@ -340,7 +343,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
             }
@@ -470,6 +474,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
             mapper.Map(update, item);
             //item.CreatedBy = _http.HttpContext.User.Identity.Name;
+            item.FinishTime = DateTime.Now.AddMonths(2);
 
             _repository.Update(item);
             await _repository.SaveChanceAsync();

@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject LayoutService service
+
+@{
+    Dictionary<string, string> settings = await service.GetSettingsAsync();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,8 +30,8 @@
                 <div class="col-lg-6 col-md-4">
                     <div class="logo">
                         <a asp-controller="home" asp-action="index">
-                            @*<img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
-                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">*@
+                            <img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
+                                <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
                         </a>
                     </div>
                 </div>
@@ -128,26 +133,26 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-4 col-sm-12 logo_cont mobile_logo_cont">
                         <div class="logo">
-                            @*<img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
-                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">*@
+                            <img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
+                                <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
                         </div>
                         <button name="menu_close" class="menu_close"></button>
                     </div>
                 </div>
             </div>
             <div class="buttons_mobile">
-              
-                    <a class="login_btn popup_btn" href="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
-                            <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
-                                <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                                <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
-                                <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
-                            </g>
-                        </svg>
-                        Sayta daxil ol
-                    </a>
-                
+
+                <a class="login_btn popup_btn" href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19.576" height="17.567" viewBox="0 0 19.576 17.567">
+                        <g id="log-in_1_" data-name="log-in (1)" transform="translate(0.994 0.75)">
+                            <path id="Path_12" data-name="Path 12" d="M15,3h4.764c1.315,0,2.382.8,2.382,1.785v12.5c0,.986-1.066,1.785-2.382,1.785H15" transform="translate(-4.313 -3)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path id="Path_13" data-name="Path 13" d="M10,15.926l4.463-4.463L10,7" transform="translate(-3.776 -3.43)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <line id="Line_5" data-name="Line 5" x1="11" transform="translate(-0.244 7.915)" fill="none" stroke="#212844" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></line>
+                        </g>
+                    </svg>
+                    Sayta daxil ol
+                </a>
+
 
 
             </div>
@@ -169,10 +174,10 @@
                 </ul>
             </div>
             <div class="col-md-12 p-0 mm_social">
-                <a target="_blank" href="https://www.facebook.com/hellojobaz"><i class="fab fa-facebook-f"><span class="d-none">Facebook</span></i></a>
-                <a target="_blank" href="https://www.instagram.com/hellojobaz"><i class="fab fa-instagram"><span class="d-none">Instagram</span></i></a>
-                <a target="_blank" href="https://www.linkedin.com/company/hellojobaz"><i class="fab fa-linkedin-in"><span class="d-none">Linkedin</span></i></a>
-                <a target="_blank" href="https://t.me/hellojobaz"><i class="fab fa-telegram"></i><span class="d-none">Telegram</span></a>
+                <a target="_blank" href="@settings["FbLink"]"><i class="@settings["FbIcon"]"><span class="d-none">Facebook</span></i></a>
+                <a target="_blank" href="@settings["IgLink"]"><i class="@settings["IgIcon"]"><span class="d-none">Instagram</span></i></a>
+                <a target="_blank" href="@settings["LinLink"]"><i class="@settings["LinIcon"]"><span class="d-none">Linkedin</span></i></a>
+                <a target="_blank" href="@settings["TgLink"]"><i class="@settings["TgIcon"]"></i><span class="d-none">Telegram</span></a>
             </div>
         </div>
         <div class="back animate__animated">
@@ -183,7 +188,7 @@
                 <div class="head">
                     <div class="head_icon">
                         <div class="image">
-                            <img src="https://www.hellojob.az/content/assets/images/login/sign-in.svg" alt="">
+                            <img src="~/assets/images/@settings["LoginIcon"]" alt="">
                         </div>
 
                     </div>
@@ -206,7 +211,7 @@
                         <button title="Close (Esc)" type="button" class="close">×</button>
                     </div>
                     <div class="reg_head_icon">
-                        <img src="https://www.hellojob.az/content/assets/images/login/flag.svg" alt="">
+                        <img src="~/assets/images/@settings["FlagIcon"]" alt="">
                     </div>
                     <div class="reg_head_text">
                         <h3>Qeydiyyatdan keç</h3>
@@ -224,17 +229,50 @@
                         <button title="Close (Esc)" type="button" class="close">×</button>
                     </div>
                     <div class="pass_head_icon">
-                        <img src="https://www.hellojob.az/content/assets/images/login/flag.svg" alt="">
+                        <img src="~/assets/images/@settings["FlagIcon"]" alt="">
                     </div>
                     <div class="pass_head_text">
                         <h3>Şifrəni unutmuşam</h3>
                     </div>
                 </div>
-             
+
             </div>
         </div>
     </header>
     <main class="main">
+        <section id="titles_and_bgblue">
+            <div class="blueback">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="titles col-lg-12 col-md-12">
+                        <ul>
+                            <li>
+                                <a asp-action="index" asp-controller="vacancy">İş elanları</a>
+                            </li>
+                            <li>
+                                <a asp-action="index" asp-controller="cv">CV-lər</a>
+                            </li>
+                            <li>
+                                <a asp-action="index" asp-controller="wishlist">Seçilmişlər</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search_titles_bottom col-lg-12 col-md-12">
+                        <div class="searchbar full">
+                            <div class="searchbar_top" style="display: flex;">
+                                <form>
+                                    <div class="input">
+                                        <input type="text" placeholder="Məsələn, Dizayner">
+                                    </div>
+                                    <button type="submit" class="search_btn"><span>Axtar</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         @RenderBody()
     </main>
     <footer class="footer">
@@ -243,7 +281,7 @@
                 <div class="col-md-4">
                     <a href="/">
                         <div class="footer__logo">
-                            <img src="~/assets/images/night_mode_logo.svg" alt="" />
+                            <img src="~/assets/images/@settings["LogoNight"]" alt="" />
                         </div>
                         <p>Yeni işinizi qarşılayın</p>
                     </a>
@@ -264,23 +302,30 @@
                         <a href="#" class="footer__head"> Hellojob.az </a>
                         <ul>
                             <li>
-                                <a href="./company.html">Şirkətlər</a>
+                                <a asp-action="index" asp-controller="company">Şirkətlər</a>
                             </li>
                             <li>
-                                <a href="./rules.html">Qaydalar</a>
+                                <a asp-action="index" asp-controller="rule">Qaydalar</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="footer__menu">
-                        <a href="./index.html" class="footer__head"> Elanlar </a>
+                        @if (User.IsInRole(UserRole.Employee.ToString()))
+                        {
+                            <a asp-action="index" asp-controller="vacancy" class="footer__head"> Elanlar </a>
+                        }
+                        @if (User.IsInRole(UserRole.Company.ToString()))
+                        {
+                            <a asp-action="index" asp-controller="cv" class="footer__head"> Elanlar </a>
+                        }
                         <ul>
                             <li>
-                                <a href="">Bütün Vakansiyalar</a>
+                                <a asp-action="index" asp-controller="vacancy">Bütün Vakansiyalar</a>
                             </li>
                             <li>
-                                <a href="./CvPage.html">Bütün CV-lər</a>
+                                <a asp-action="index" asp-controller="cv">Bütün CV-lər</a>
                             </li>
                             <li>
                                 @if (User.IsInRole(UserRole.Employee.ToString()))
@@ -295,50 +340,31 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="footer__menu">
-                        <a href="#" class="footer__head"> Elan növləri </a>
-                        <ul>
-                            <li>
-                                <a href="">Frilans İşlər</a>
-                            </li>
-                            <li>
-                                <a href="">Part-time işlər</a>
-                            </li>
-                            <li>
-                                <a href="">Təcrübə proqramları</a>
-                            </li>
-                            <li>
-                                <a href="">Frilanser</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="footer__bottom">
                 <p>© 2019-2023 Hellodigital</p>
                 <ul class="footer__social">
                     <li>
-                        <a href="">
-                            <img src="https://www.hellojob.az/content/assets//images/social/instagram.svg"
+                        <a href="@settings["IgLink"]">
+                            <img src="~/assets/images/@settings["InstagramLogo"]"
                                  alt="" />
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <img src="https://www.hellojob.az/content/assets//images/social/facebook.svg"
+                        <a href="@settings["FbLink"]">
+                            <img src="~/assets/images/@settings["FacebookLogo"]"
                                  alt="" />
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <img src="https://www.hellojob.az/content/assets//images/social/linkedin.svg"
+                        <a href="@settings["LinLink"]">
+                            <img src="~/assets/images/@settings["LinkedinLogo"]"
                                  alt="" />
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <img src="https://www.hellojob.az/content/assets//images/social/telegram.svg"
+                        <a href="@settings["TgLink"]">
+                            <img src="~/assets/images/@settings["TelegramLogo"]"
                                  alt="" />
                         </a>
                     </li>

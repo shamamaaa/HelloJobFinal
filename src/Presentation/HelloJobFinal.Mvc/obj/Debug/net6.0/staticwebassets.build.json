@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PVa/PRvyseONnE+ctbHcwakIP00wEQ74YZzSYRf/jqE=",
+  "Hash": "N9161MLacZ4pczXU3N75SZymN2KY95KN8kpVJPUayLg=",
   "Source": "HelloJobFinal.Mvc",
   "BasePath": "_content/HelloJobFinal.Mvc",
   "Mode": "Default",
@@ -1545,6 +1545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/admin/vendors/mdi/fonts/materialdesignicons-webfont.woff2"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/.DS_Store",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/.DS_Store"
     },
     {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css",
@@ -3570,6 +3587,23 @@
       "OriginalItemSpec": "wwwroot/assets/images/Company/f8a374c3-4f04-4975-a95d-1eda6793ee38.jpeg"
     },
     {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/flag.svg",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/flag.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/flag.svg"
+    },
+    {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/logo.svg",
       "SourceId": "HelloJobFinal.Mvc",
       "SourceType": "Discovered",
@@ -3636,6 +3670,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/images/Screenshot 2023-05-09 143145.png"
+    },
+    {
+      "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/sign-in.svg",
+      "SourceId": "HelloJobFinal.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/",
+      "BasePath": "_content/HelloJobFinal.Mvc",
+      "RelativePath": "assets/images/sign-in.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/sign-in.svg"
     },
     {
       "Identity": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/User/117photo_2023-04-28_17-30-34.jpg",

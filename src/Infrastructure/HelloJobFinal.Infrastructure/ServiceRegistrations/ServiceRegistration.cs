@@ -10,6 +10,8 @@ namespace HelloJobFinal.Infrastructure.ServiceRegistrations
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<LayoutService>();
+
             return services;
         }
     }

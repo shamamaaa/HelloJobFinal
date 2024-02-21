@@ -113,7 +113,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
 
             Cv item = _mapper.Map<Cv>(create);
-
+            item.FinishTime = DateTime.Now.AddMonths(2);
             item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images","User", "CVs");
             item.ImageUrl = await create.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
             item.Status = Status.New.ToString();
@@ -295,7 +295,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                         x => x.Name, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 2:
@@ -305,7 +306,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 3:
@@ -315,8 +317,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
-                        x => x.Name, true, false, (page - 1) * take, take, false, includes).ToListAsync();
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
+                                x => x.Name, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 4:
                     items = await _repository
@@ -325,7 +328,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (educationId != null ? x.EducationId == educationId : true)
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
             }
@@ -469,8 +473,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             var mapper = config.CreateMapper();
 
             mapper.Map(update, item);
-            //item.CreatedBy = _http.HttpContext.User.Identity.Name;
-
+            item.FinishTime = DateTime.Now.AddMonths(2);
             _repository.Update(item);
             await _repository.SaveChanceAsync();
 

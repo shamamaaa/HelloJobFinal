@@ -361,6 +361,10 @@
       "PackagePath": "staticwebassets/admin/vendors/mdi/fonts/materialdesignicons-webfont.woff2"
     },
     {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/.DS_Store",
+      "PackagePath": "staticwebassets/assets/.DS_Store"
+    },
+    {
       "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css",
       "PackagePath": "staticwebassets/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap-grid.css"
     },
@@ -1149,6 +1153,10 @@
       "PackagePath": "staticwebassets/assets/images/User/user-128.png"
     },
     {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/flag.svg",
+      "PackagePath": "staticwebassets/assets/images/flag.svg"
+    },
+    {
       "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/logo.svg",
       "PackagePath": "staticwebassets/assets/images/logo.svg"
     },
@@ -1159,6 +1167,10 @@
     {
       "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/night_mode_logo.svg",
       "PackagePath": "staticwebassets/assets/images/night_mode_logo.svg"
+    },
+    {
+      "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/images/sign-in.svg",
+      "PackagePath": "staticwebassets/assets/images/sign-in.svg"
     },
     {
       "Id": "/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/wwwroot/assets/js/account.js",
