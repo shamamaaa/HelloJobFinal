@@ -31,6 +31,8 @@
     <Folder Include="Areas\Admin\Views\WorkingHour\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Views\Cv\" />
+    <Folder Include="Views\Rule\" />
+    <Folder Include="Views\Vacancy\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\HelloJobFinal.Infrastructure\HelloJobFinal.Infrastructure.csproj">
@@ -67,5 +69,7 @@
     <None Remove="Areas\Admin\Views\WorkingHour\" />
     <None Remove="Areas\Admin\Views\User\" />
     <None Remove="Views\Cv\" />
+    <None Remove="Views\Rule\" />
+    <None Remove="Views\Vacancy\" />
   </ItemGroup>
 </Project>

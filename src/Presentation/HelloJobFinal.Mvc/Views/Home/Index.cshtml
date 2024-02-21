@@ -93,15 +93,16 @@
                                         <div class="mx-2">
                                             @if (Model.VacancyWishlists.Any(x => x.Id == item.Id))
                                             {
-                                                <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id">
+                                                <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                                     <i class="fa-solid fa-heart liked"></i>
 
                                                 </a>
                                             }
                                             else
                                             {
-                                        <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@item.Id">
+                                        <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                             <i class="fa-regular fa-heart unliked"></i>
+
 
                                         </a>
                                             }

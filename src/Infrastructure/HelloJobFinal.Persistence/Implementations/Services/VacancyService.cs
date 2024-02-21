@@ -188,17 +188,21 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
-                $"{nameof(Vacancy.Education)}",
                 $"{nameof(Vacancy.Company)}",
+                $"{nameof(Vacancy.Education)}",
                 $"{nameof(Vacancy.City)}",
                 $"{nameof(Vacancy.WorkingHour)}",
-                $"{nameof(Vacancy.CategoryItem)}" };
+                $"{nameof(Vacancy.WorkInfos)}",
+                $"{nameof(Vacancy.Requirements)}",
+                $"{nameof(Vacancy.WishListVacancies)}",
+                $"{nameof(Vacancy.VacancyRequests)}",
+                $"{nameof(Vacancy.CategoryItem)}.{nameof(CategoryItem.BaseCategory)}" };
 
             Vacancy item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
             GetVacancyVm get = _mapper.Map<GetVacancyVm>(item);
-
+            get.VacancyIds = item.WishListVacancies.Select(x => x.VacancyId).ToList();
             return get;
         }
 

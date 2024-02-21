@@ -8,22 +8,76 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using HelloJobFinal.Application.ViewModels;
-
+using AutoMapper;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
 {
     public class CvWishlistService : ICvWishlistService
     {
         private readonly IHttpContextAccessor _http;
+        private readonly IMapper _mapper;
         private readonly ICvRepository _cvRepository;
         private readonly UserManager<AppUser> _userManager;
 
         public CvWishlistService(UserManager<AppUser> userManager, IHttpContextAccessor http,
-            ICvRepository cvRepository)
+            ICvRepository cvRepository, IMapper mapper)
         {
             _userManager = userManager;
             _http = http;
             _cvRepository = cvRepository;
+            _mapper = mapper;
+        }
+        public async Task<ICollection<CvWishlistItemVm>> WishList()
+        {
+            ICollection<CvWishlistItemVm> wishLists = new List<CvWishlistItemVm>();
+            if (_http.HttpContext.User.Identity.IsAuthenticated)
+            {
+                AppUser appUser = await _userManager.Users
+                    .Include(b => b.WishListCvs).ThenInclude(p => p.Cv).ThenInclude(pi => pi.WorkingHour)
+                    .Include(b => b.WishListCvs).ThenInclude(p => p.Cv).ThenInclude(pi => pi.Experience)
+                    .FirstOrDefaultAsync(u => u.Id == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+                foreach (var item in appUser.WishListCvs)
+                {
+                    wishLists.Add(new CvWishlistItemVm
+                    {
+                        Id = item.Cv.Id,
+                        Position = item.Cv.Position,
+                        Salary = item.Cv.MinSalary,
+                        Name = item.Cv.Name,
+                        Surname = item.Cv.Surname,
+                        IncludeExperienceVm = _mapper.Map<IncludeExperienceVm>(item.Cv.Experience),
+                        IncludWorkingHourVm = _mapper.Map<IncludWorkingHourVm>(item.Cv.WorkingHour)
+                    });
+                }
+            }
+            else
+            {
+                if (_http.HttpContext.Request.Cookies["HellojobCvWishlist"] is not null)
+                {
+                    ICollection<CvWishlistItemVm> wishes = JsonConvert.DeserializeObject<ICollection<CvWishlistItemVm>>(_http.HttpContext.Request.Cookies["HellojobCvWishlist"]);
+                    foreach (CvWishlistItemVm wishListCookieItem in wishes)
+                    {
+                        Cv cv = await _cvRepository.GetByIdAsync(wishListCookieItem.Id, false, $"{nameof(Cv.Experience)}", $"{nameof(Cv.WorkingHour)}");
+                        if (cv is not null)
+                        {
+                            CvWishlistItemVm wish = new CvWishlistItemVm
+                            {
+                                Id = cv.Id,
+                                Position = cv.Position,
+                                Salary = cv.MinSalary,
+                                Name = cv.Name,
+                                Surname = cv.Surname,
+                                IncludeExperienceVm = _mapper.Map<IncludeExperienceVm>(cv.Experience),
+                                IncludWorkingHourVm = _mapper.Map<IncludWorkingHourVm>(cv.WorkingHour)
+                            };
+                            wishLists.Add(wish);
+                        }
+                    }
+                }
+            }
+
+
+            return wishLists;
         }
 
         public async Task AddWishList(int id)

@@ -30,6 +30,8 @@ namespace HelloJobFinal.Application.MappingProfiles
                 .ForMember(x => x.IncludeEducation, opt => opt.MapFrom(src => src.Education));
             CreateMap<GetVacancyVm, Vacancy>().ReverseMap()
                 .ForMember(x => x.IncludeCategoryItem, opt => opt.MapFrom(src => src.CategoryItem))
+                .ForMember(x => x.AllWorkInfos, opt => opt.MapFrom(src => src.WorkInfos.ToList()))
+                .ForMember(x => x.AllEmployeerInfos, opt => opt.MapFrom(src => src.Requirements.ToList()))
                 .ForMember(x => x.IncludeCity, opt => opt.MapFrom(src => src.City))
                 .ForMember(x => x.IncludeExperience, opt => opt.MapFrom(src => src.Experience))
                 .ForMember(x => x.IncludeWorkingHour, opt => opt.MapFrom(src => src.WorkingHour))

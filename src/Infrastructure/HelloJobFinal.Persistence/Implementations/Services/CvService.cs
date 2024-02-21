@@ -113,7 +113,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
 
             Cv item = _mapper.Map<Cv>(create);
-            item.FinishTime = DateTime.Now.AddMonths(2);
+            item.FinishTime = DateTime.Now.AddMonths(5);
             item.CvFile = await create.CvFile.CreateFileAsync(_env.WebRootPath, "assets", "images","User", "CVs");
             item.ImageUrl = await create.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
             item.Status = Status.New.ToString();
@@ -473,7 +473,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             var mapper = config.CreateMapper();
 
             mapper.Map(update, item);
-            item.FinishTime = DateTime.Now.AddMonths(2);
+            item.FinishTime = DateTime.Now.AddMonths(5);
             _repository.Update(item);
             await _repository.SaveChanceAsync();
 

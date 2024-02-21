@@ -1,0 +1,233 @@
+﻿@model GetVacancyVm
+    <section class="mt-5" id="vacansdetail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="right_side">
+                        <div class="vacancies">
+                            <div class="vacancies__href">
+                                <a href="">
+                                    <div class="item_left">
+                                        <div class="icon">
+                                            <img src="~/assets/images/BusinessTitle/@Model.IncludeCategoryItem.IncludeBaseCategory.ImageUrl"
+                                                 alt="@Model.IncludeCategoryItem.IncludeBaseCategory.Name" />
+                                        </div>
+                                        <div class="title">
+                                            <h3>@Model.Position</h3>
+                                            <p>By @Model.IncludeCompany.Name</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item_right">
+                                    <span class="salary">@Model.Salary</span>
+                                    <span class="date">@Model.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")</span>
+                                    <div class="mx-2">
+                                        @if (Model.VacancyIds.Contains(Model.Id))
+                                        {
+                                            <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                <i class="fa-solid fa-heart liked"></i>
+
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                <i class="fa-regular fa-heart unliked"></i>
+
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="vacans_block">
+                            <h3 class="infos">İş məlumatlar</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/pin.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.IncludeCity.Name</h4>
+                                            <p>Şəhər</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.IncludeExperience.Name</h4>
+                                            <p>İş təcrübəsi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.IncludeWorkingHour.Name</h4>
+                                            <p>İş rejimi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.IncludeCategoryItem.Name</h4>
+                                            <p>Sahə</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/graduation.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.IncludeEducation.Name</h4>
+                                            <p>Təhsil</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="text">
+                                            <h4>@Model.Salary AZN</h4>
+                                            <p>Əmək Haqqı(Azn)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="item mb-0">
+                                        <div class="icon">
+                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/folder.svg"
+                                                 alt="" />
+                                        </div>
+                                        <div class="d-flex justify-content-between w-100">
+                                            <div class="text">
+                                                <h4>@(Model.HasDriverLicense ? "Tələb olunur" : "Tələb olunmur.")</h4>
+                                                <p>Sürücülük vəsiqəsi</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vacans_block">
+                            <h3 class="infos">İş Barədə Məlumat</h3>
+                            <ul>
+                                @foreach (var item in Model.AllWorkInfos)
+                                {
+                                    <li>
+                                        @item.Info ;
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="vacans_block">
+                            <h3 class="infos">Namizəd üçün tələblər</h3>
+                            <ul>
+                                @foreach (var item in Model.AllEmployeerInfos)
+                                {
+                                    <li>
+                                        @item.EmployeeRequirement ;
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="request">
+                            <div class="button">
+                                <button class="req_btn">Müraciət et</button>
+                            </div>
+                        </div>
+                        <div class="alert alert-info" role="alert">
+                            Vakansiya-ya Müraciət etmək üçün zəhmət olmasa <strong>"işçi"</strong> kimi qeydiyyatdan keçin və ya  <strong>"işçi"</strong>  kimi giriş edin
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="user_contact">
+                        <div class="company_body_detail">
+                            <div class="contact_body">
+                                <div class="stick">
+                                    <div class="title">
+                                        <h4>Elan №@Model.Id</h4>
+                                    </div>
+                                    <div class="infos">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="item">
+                                                    <div class="icon d-flex">
+                                                        <div class="all d-flex">
+                                                            <div class="image">
+                                                                <img src="~/assets/images/403calendar.svg"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="text">
+                                                                <h4 class="secrets-title">@Model.CreatedAt.ToString("MMM dd")</h4>
+                                                                <p>Elan Tarixi</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="item">
+                                                    <div class="icon d-flex">
+                                                        <div class="all d-flex">
+                                                            <div class="image">
+                                                                <img src="~/assets/images/403calendar.svg"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="text">
+                                                                <h4 class="secrets-title">@Model.FinishTime.ToString("MMM dd")</h4>
+                                                                <p>Bitme Tarixi</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="item">
+                                                    <div class="icon d-flex justify-content-between">
+                                                        <div class="all d-flex">
+                                                            <div class="image">
+                                                                <img src="~/assets/images/262eye.svg"
+                                                                     alt="" />
+                                                            </div>
+                                                            <div class="text">
+                                                                <h4 class="secrets-title">@Model.ViewCount</h4>
+                                                                <p>Baxildi</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
