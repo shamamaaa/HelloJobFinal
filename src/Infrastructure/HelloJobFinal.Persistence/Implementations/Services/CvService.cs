@@ -179,13 +179,15 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 $"{nameof(Cv.Education)}",
                 $"{nameof(Cv.City)}",
                 $"{nameof(Cv.WorkingHour)}",
-                $"{nameof(Cv.CategoryItem)}" };
+                $"{nameof(Cv.WishListCvs)}",
+                $"{nameof(Cv.CvRequests)}",
+                $"{nameof(Cv.CategoryItem)}.{nameof(CategoryItem.BaseCategory)}" };
 
             Cv item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
             GetCvVm get = _mapper.Map<GetCvVm>(item);
-
+            get.CvIds = item.WishListCvs.Select(x => x.CvId).ToList();
             return get;
         }
 

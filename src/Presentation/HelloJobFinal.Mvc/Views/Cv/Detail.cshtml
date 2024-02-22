@@ -1,0 +1,346 @@
+﻿@model GetCvVm
+<section id="details" class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+                <div class="right_side">
+                    <div class="persons_cv">
+                        <div class="user_block">
+                            <a href="" target="_blank">
+                                <div class="header_user">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="user_img">
+                                            <img src="~/assets/images/User/@Model.ImageUrl"
+                                                 alt="" />
+                                        </div>
+                                        <div class="d-flex justify-content-between w-100">
+                                            <div class="user_desc">
+                                                <h3 class="profession">
+                                                    @Model.Name @Model.Surname
+                                                </h3>
+
+                                                <p class="fullname">
+                                                    @Model.Position
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="hearts">
+                                @if (Model.CvIds.Contains(Model.Id))
+                                {
+                                    <a asp-action="DeleteItem" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                        <i class="fa-solid fa-heart liked"></i>
+
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-action="AddWishList" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                        <i class="fa-regular fa-heart unliked"></i>
+
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users_blocks">
+                        <h3 class="infos">Şəxsİ məlumatlar</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="item">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/birthday-cake.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.Birthday.ToString("MMM dd, yyyy 'at' h:mm tt")</h4>
+                                        <p>Doğum tarixi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item mb-0">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/pin.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.IncludeCity.Name</h4>
+                                        <p>Şəhər</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users_blocks">
+                        <h3 class="infos">İŞ MƏLUMATLARI</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="item">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.IncludeWorkingHour.Name</h4>
+                                        <p>İş rejimi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item mb-0">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.IncludeCategoryItem.Name</h4>
+                                        <p>İşlədiyi sahə</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item mb-0">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.IncludeExperience.Name</h4>
+                                        <p>İş təcrübəsi</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item mb-0">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/briefcase.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.MinSalary AZN</h4>
+                                        <p>Minimum Əmək Haqqı(Azn)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="item mb-0">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/graduation.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="text">
+                                        <h4>@Model.IncludeEducation.Name</h4>
+                                        <p>Təhsil</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="users_blocks">
+                        <h3 class="infos">Sürücülük vəsiqəsi</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="item">
+                                    <div class="icon">
+                                        <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/folder.svg"
+                                             alt="" />
+                                    </div>
+                                    <div class="d-flex justify-content-between w-100">
+                                        <div class="text">
+                                            <h4>@(Model.HasDriverLicense ? "Var" : "Yoxdu")</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-6 mb-3">
+                <div class="user_contact">
+                    <div class="user_contact_body">
+                        <div class="contact_body">
+                            <div class="stick">
+                                <div class="title">
+                                    <h4>Elan Məlumatları</h4>
+                                </div>
+                                <div class="infos">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="item">
+                                                <div class="icon d-flex">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/phone.svg"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="text">
+                                                            <h4 class="secrets-title">
+                                                                @Model.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")
+                                                            </h4>
+                                                            <p>Elan Tarixi</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="item">
+                                                <div class="icon d-flex">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/phone.svg"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="text">
+                                                            <h4 class="secrets-title">
+                                                                @Model.FinishTime.ToString("MMM dd, yyyy 'at' h:mm tt")
+                                                            </h4>
+                                                            <p>Bitme Tarixi</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="item">
+                                                <div class="icon d-flex justify-content-between">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/eye.svg"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="text">
+                                                            <h4 class="secrets-title">
+                                                                @Model.ViewCount
+                                                            </h4>
+                                                            <p>Baxildi</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stick">
+                                <div class="infos">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="item" id="item1">
+                                                <div class="icon d-flex justify-content-between">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/mail.svg"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="text focus">
+                                                            <h4 class="secrets_title">
+                                                                E-poçtu göster
+                                                            </h4>
+                                                            <h4 class="secrets d-none">@Model.Email</h4>
+                                                            <p> E-poçt</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lock">
+                                                        <div class="locking">
+                                                            <div class="image">
+                                                                <i class="bi bi-lock close"></i>
+                                                                <i class="bi bi-unlock open"></i>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stick">
+                                <div class="infos">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="item" id="item1">
+                                                <div class="icon d-flex justify-content-between">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/phone.svg"
+                                                                 alt="" />
+                                                        </div>
+                                                        <div class="text focus">
+                                                            <h4 class="secrets_title">
+                                                                Nömrəni göstər
+                                                            </h4>
+                                                            <h4 class="secrets d-none">@Model.Phone</h4>
+                                                            <p>Əlaqə nömrəsi</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lock">
+                                                        <div class="locking">
+                                                            <div class="image">
+                                                                <i class="bi bi-lock close"></i>
+                                                                <i class="bi bi-unlock open"></i>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stick">
+                                <div class="title">
+                                    <h4>CV</h4>
+                                </div>
+                                <div class="infos">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="item">
+                                                <div class="icon d-flex justify-content-between">
+                                                    <div class="all d-flex">
+                                                        <div class="image">
+                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/file2.svg" alt="" />
+                                                        </div>
+                                                        <div class="text focus">
+                                                            <p style="font-size: 16px; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">cv.pdf formats</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="lock">
+                                                        <div class="locking">
+                                                            <a href="javascript:void(0);" onclick="downloadPDF('@Url.Content("~/assets/images/User/Cvs/" + Model.CvUrl)','@Model.Name')" class="image">
+                                                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Script{
+    <script>function downloadPDF(pdfUrl, userName) {
+            var downloadLink = document.createElement("a");
+            downloadLink.href = pdfUrl;
+            downloadLink.download = userName + "_CV.pdf";
+            downloadLink.click();
+        }</script>
+}

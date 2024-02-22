@@ -31,7 +31,7 @@
                     <div class="logo">
                         <a asp-controller="home" asp-action="index">
                             <img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
-                                <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
+                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
                         </a>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-12 logo_cont mobile_logo_cont">
                         <div class="logo">
                             <img class="lightmode" src="~/assets/images/@settings["Logo"]" alt="">
-                                <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
+                            <img class="nightmode" src="~/assets/images/@settings["LogoNight"]" alt="">
                         </div>
                         <button name="menu_close" class="menu_close"></button>
                     </div>
@@ -366,5 +366,7 @@
     <script src="~/assets/js/slick.min.js"></script>
     <script src="~/assets/js/script.js"></script>
     <script src="~/assets/js/darkmode.js"></script>
+    @RenderSection("Script", false)
+
 </body>
 </html>

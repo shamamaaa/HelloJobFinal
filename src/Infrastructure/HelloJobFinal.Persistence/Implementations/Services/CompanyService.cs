@@ -98,12 +98,20 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<GetCompanyVm> GetByIdAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            string[] includes = { $"{nameof(Company.Vacancies)}" };
+            string[] includes = { $"{nameof(Company.Vacancies)}.{nameof(Vacancy.WishListVacancies)}",
+            $"{nameof(Company.Vacancies)}.{nameof(Vacancy.CategoryItem)}.{nameof(CategoryItem.BaseCategory)}"};
 
             Company item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException("Your request was not found");
 
             GetCompanyVm get = _mapper.Map<GetCompanyVm>(item);
+            foreach (var vacancy in get.Vacancies)
+            {
+                vacancy.VacancyIds = item.Vacancies
+                                    .SelectMany(x => x.WishListVacancies)
+                                    .Select(a => a.VacancyId)
+                                    .ToList();
+            }
 
             return get;
         }

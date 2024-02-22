@@ -55,10 +55,12 @@
                                                     <div class="item_right">
                                                         <span class="salary">@item.Salary Azn</span>
                                                         <span class="date">@item.CreatedAt</span>
-                                                        <span class="like">
-                                                            <i class="fa-regular fa-heart unliked"></i>
-                                                            <i class="fa-solid fa-heart liked"></i>
-                                                        </span>
+                                                        <div class="mx-2">
+                                                                <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                                    <i class="fa-solid fa-heart liked"></i>
+
+                                                                </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

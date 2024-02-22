@@ -1,9 +1,13 @@
-﻿using HelloJobFinal.Application.Abstractions.Services;
+﻿using System.Data;
+using HelloJobFinal.Application.Abstractions.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace HelloJobFinal.Mvc.Controllers
 {
+    [Authorize(Roles = "Company")]
+    [AutoValidateAntiforgeryToken]
     public class CvWishlistController : Controller
     {
         private readonly ICvWishlistService _service;
@@ -23,6 +27,10 @@ namespace HelloJobFinal.Mvc.Controllers
         {
             await _service.DeleteItem(id);
             return RedirectToAction("Index", "Home", new { Area = "" });
+        }
+        public async Task<IActionResult> CvWishList()
+        {
+            return View(await _service.WishList());
         }
     }
 }

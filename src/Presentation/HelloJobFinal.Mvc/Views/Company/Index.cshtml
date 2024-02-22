@@ -1,0 +1,53 @@
+﻿@model PaginationVm<ItemCompanyVm>
+
+<section id="companies">
+        <div class="container">
+            <div class="row">
+                <div class="row mt-5">
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="company_card col-md-4 col-lg-3">
+                            <div class="company_box">
+                                <a asp-action="detail" asp-controller="company" asp-route-id="@item.Id" class="full">
+                                    <div class="company_images">
+                                        <div class="image">
+                                            <img src="~/assets/images/Company/@item.ImageUrl"
+                                                 alt="@item.Name" />
+                                        </div>
+                                    </div>
+                                    <p>@item.Name</p>
+                                    @if (item.Vacancies.Count>0)
+                                    {
+                                        <span>Vakansiya sayı <span>@item.Vacancies.Count</span> </span>
+
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-xs-12 offset-11">
+                        <ul class="pagination">
+                            <li class="@(Model.CurrentPage <= 1 ? "disabled" : "")">
+                                @if (Model.CurrentPage > 1)
+                                {
+                                    <a class="fa-chevron-left" asp-route-page="@(Model.CurrentPage -1)" asp-action="Index" asp-controller="company"></a>
+                                }
+                            </li>
+                            @for (int i = 1; i <= Model.TotalPage; i++)
+                            {
+                                <li class="@(Model.CurrentPage == i ? "disabled" : "")">
+                                    <a asp-action="Index" asp-route-page="@i" asp-controller="company">@i</a>
+                                </li>
+                            }
+                            <li class="@(Model.CurrentPage >= Model.TotalPage ? "disabled" : "")">
+                                @if (Model.CurrentPage < Model.TotalPage)
+                                {
+                                    <a class="fa-chevron-right" asp-route-page="@(Model.CurrentPage +1)" asp-action="Index" asp-controller="company"></a>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

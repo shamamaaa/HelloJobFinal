@@ -75,7 +75,7 @@
                         {
                             <div class="vacancies">
                                 <div class="vacancies_href">
-                                    <a href="~/vacansdetail.html">
+                                    <a asp-action="detail" asp-controller="vacancy" asp-route-id="@item.Id">
                                         <div class="item_left">
                                             <div class="icon">
                                                 <img src="~/assets/images/BusinessTitle/@item.IncludeCategoryItem.IncludeBaseCategory.ImageUrl"

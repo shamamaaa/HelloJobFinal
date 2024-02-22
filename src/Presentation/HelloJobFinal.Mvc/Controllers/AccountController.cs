@@ -15,8 +15,6 @@ namespace HelloJobFinal.Mvc.Controllers
             _service = service;
         }
 
-
-
         public async Task<IActionResult> Login(LoginVM login, string? returnUrl)
         {
             bool result = await _service.LogInAsync(login, ModelState);

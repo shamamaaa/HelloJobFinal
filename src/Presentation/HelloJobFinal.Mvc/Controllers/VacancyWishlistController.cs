@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HelloJobFinal.Application.Abstractions.Services;
+﻿using HelloJobFinal.Application.Abstractions.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HelloJobFinal.Mvc.Controllers
 {
+    [Authorize(Roles = "Employee")]
+    [AutoValidateAntiforgeryToken]
     public class VacancyWishlistController : Controller
     {
         private readonly IVacancyWishlistService _service;
@@ -36,6 +34,11 @@ namespace HelloJobFinal.Mvc.Controllers
                 return Redirect(returnUrl);
             }
             return RedirectToAction("Index", "Home", new { Area = "" });
+        }
+
+        public async Task<IActionResult> VacancyWishList()
+        {
+            return View(await _service.WishList());
         }
     }
 }

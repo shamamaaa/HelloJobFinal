@@ -13,6 +13,8 @@
         public int MinSalary { get; init; }
         public bool HasDriverLicense { get; init; }
         public DateTime FinishTime { get; init; }
+        public DateTime CreatedAt { get; init; }
+
         public string CvUrl { get; init; }
         public bool IsTimeOver { get; init; }
         public int ViewCount { get; init; }
@@ -29,6 +31,9 @@
         public IncludeAppUserVm IncludeAppUser { get; init; }
         public string AppUserId { get; init; }
         public string Status { get; init; }
+
+        public List<int> CvIds { get; set; }
+
     }
 
 }

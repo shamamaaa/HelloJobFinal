@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HelloJobFinal.Mvc.Controllers
 {
+    [Authorize(Roles = "Employee, Company")]
+    [AutoValidateAntiforgeryToken]
     public class UserController : Controller
     {
         private readonly IUserService _service;

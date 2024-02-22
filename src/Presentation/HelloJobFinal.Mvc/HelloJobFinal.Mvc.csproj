@@ -33,6 +33,9 @@
     <Folder Include="Views\Cv\" />
     <Folder Include="Views\Rule\" />
     <Folder Include="Views\Vacancy\" />
+    <Folder Include="Views\CvWishlist\" />
+    <Folder Include="Views\VacancyWishlist\" />
+    <Folder Include="Views\Company\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\HelloJobFinal.Infrastructure\HelloJobFinal.Infrastructure.csproj">
@@ -71,5 +74,8 @@
     <None Remove="Views\Cv\" />
     <None Remove="Views\Rule\" />
     <None Remove="Views\Vacancy\" />
+    <None Remove="Views\CvWishlist\" />
+    <None Remove="Views\VacancyWishlist\" />
+    <None Remove="Views\Company\" />
   </ItemGroup>
 </Project>

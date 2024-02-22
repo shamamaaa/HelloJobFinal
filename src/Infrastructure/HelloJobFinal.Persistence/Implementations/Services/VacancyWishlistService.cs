@@ -35,7 +35,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (_http.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser appUser = await _userManager.Users
-                    .Include(b => b.WishListVacancies).ThenInclude(p => p.Vacancy).ThenInclude(pi => pi.CategoryItem)
+                    .Include(b => b.WishListVacancies).ThenInclude(p => p.Vacancy).ThenInclude(pi => pi.CategoryItem).ThenInclude(x=>x.BaseCategory)
                     .FirstOrDefaultAsync(u => u.Id == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
                 foreach (var item in appUser.WishListVacancies)
                 {
