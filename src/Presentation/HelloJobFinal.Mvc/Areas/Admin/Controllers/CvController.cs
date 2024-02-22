@@ -21,12 +21,12 @@ namespace HelloJobFinal.Mvc.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index(string? search, int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId, int page= 1, int order = 1)
         {
-            return View(model: await _service.GetFilteredAsync(search, 10, page, order, categoryId, cityId, educationId, experienceId, workingHourId));
+            return View(model: await _service.GetFilteredAsync(search, 10, page, order, categoryId, cityId, educationId, experienceId, workingHourId, null));
         }
 
         public async Task<IActionResult> DeletedItems(string? search, int? categoryId, int? cityId, int? educationId, int? experienceId, int? workingHourId, int page = 1, int order = 1)
         {
-            return View(model: await _service.GetDeleteFilteredAsync(search, 10, page, order, categoryId, cityId, educationId, experienceId, workingHourId));
+            return View(model: await _service.GetDeleteFilteredAsync(search, 10, page, order, categoryId, cityId, educationId, experienceId, workingHourId, null));
         }
 
         public IActionResult Create()

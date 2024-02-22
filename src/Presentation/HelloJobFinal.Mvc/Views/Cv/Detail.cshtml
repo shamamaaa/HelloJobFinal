@@ -27,22 +27,25 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="hearts">
-                                @if (Model.CvIds.Contains(Model.Id))
-                                {
-                                    <a asp-action="DeleteItem" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
-                                        <i class="fa-solid fa-heart liked"></i>
+                            @if (User.IsInRole(nameof(UserRole.Company)))
+                            {
+                                <div class="hearts">
+                                    @if (Model.CvIds.Contains(Model.Id))
+                                    {
+                                        <a asp-action="DeleteItem" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                            <i class="fa-solid fa-heart liked"></i>
 
-                                    </a>
-                                }
-                                else
-                                {
-                                    <a asp-action="AddWishList" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
-                                        <i class="fa-regular fa-heart unliked"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-action="AddWishList" asp-controller="CvWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                            <i class="fa-regular fa-heart unliked"></i>
 
-                                    </a>
-                                }
-                            </div>
+                                        </a>
+                                    }
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="users_blocks">
@@ -55,7 +58,7 @@
                                              alt="" />
                                     </div>
                                     <div class="text">
-                                        <h4>@Model.Birthday.ToString("MMM dd, yyyy 'at' h:mm tt")</h4>
+                                        <h4>@Model.Birthday.ToString("MMM dd, yyyy")</h4>
                                         <p>Doğum tarixi</p>
                                     </div>
                                 </div>
@@ -179,7 +182,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h4 class="secrets-title">
-                                                                @Model.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")
+                                                                @Model.CreatedAt.ToString("MMM dd, yyyy")
                                                             </h4>
                                                             <p>Elan Tarixi</p>
                                                         </div>
@@ -197,7 +200,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h4 class="secrets-title">
-                                                                @Model.FinishTime.ToString("MMM dd, yyyy 'at' h:mm tt")
+                                                                @Model.FinishTime.ToString("MMM dd, yyyy")
                                                             </h4>
                                                             <p>Bitme Tarixi</p>
                                                         </div>
@@ -234,24 +237,14 @@
                                                 <div class="icon d-flex justify-content-between">
                                                     <div class="all d-flex">
                                                         <div class="image">
-                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/mail.svg"
+                                                            <img src="~/assets/images/470mail.svg"
                                                                  alt="" />
                                                         </div>
                                                         <div class="text focus">
                                                             <h4 class="secrets_title">
-                                                                E-poçtu göster
+                                                                @Model.Email
                                                             </h4>
-                                                            <h4 class="secrets d-none">@Model.Email</h4>
-                                                            <p> E-poçt</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="lock">
-                                                        <div class="locking">
-                                                            <div class="image">
-                                                                <i class="bi bi-lock close"></i>
-                                                                <i class="bi bi-unlock open"></i>
-                                                            </div>
-
+                                                            <p>E-poçt</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -269,24 +262,14 @@
                                                 <div class="icon d-flex justify-content-between">
                                                     <div class="all d-flex">
                                                         <div class="image">
-                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/phone.svg"
+                                                            <img src="~/assets/images/653phone.svg"
                                                                  alt="" />
                                                         </div>
                                                         <div class="text focus">
                                                             <h4 class="secrets_title">
-                                                                Nömrəni göstər
+                                                                @Model.Phone
                                                             </h4>
-                                                            <h4 class="secrets d-none">@Model.Phone</h4>
                                                             <p>Əlaqə nömrəsi</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="lock">
-                                                        <div class="locking">
-                                                            <div class="image">
-                                                                <i class="bi bi-lock close"></i>
-                                                                <i class="bi bi-unlock open"></i>
-                                                            </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -307,8 +290,8 @@
                                                 <div class="icon d-flex justify-content-between">
                                                     <div class="all d-flex">
                                                         <div class="image">
-                                                            <img src="https://www.hellojob.az/content/assets/images/resume/svg-icons/file2.svg" alt="" />
-                                                        </div>
+                                                            <img src="~/assets/images/635file2.svg"
+                                                                 alt="" />                                                        </div>
                                                         <div class="text focus">
                                                             <p style="font-size: 16px; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">cv.pdf formats</p>
                                                         </div>
@@ -337,10 +320,12 @@
 </section>
 
 @section Script{
-    <script>function downloadPDF(pdfUrl, userName) {
+    <script>
+        function downloadPDF(pdfUrl, userName) {
             var downloadLink = document.createElement("a");
             downloadLink.href = pdfUrl;
             downloadLink.download = userName + "_CV.pdf";
             downloadLink.click();
-        }</script>
+        }
+    </script>
 }

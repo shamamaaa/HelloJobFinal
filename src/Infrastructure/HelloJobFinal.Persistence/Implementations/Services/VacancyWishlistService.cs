@@ -79,9 +79,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task AddWishList(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Vacancy Vacancy = await _VacancyRepository.GetByIdAsync(id);
-            if (Vacancy == null) throw new NotFoundException("Your request was not found");
+            if (Vacancy == null) throw new NotFoundException();
             ICollection<VacancyWishlistCookieVM> cart;
             ICollection<IncludeVacancyVm> cartItems;
 
@@ -89,7 +89,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 AppUser appUser = await _userManager.Users
                     .Include(p => p.WishListVacancies).FirstOrDefaultAsync(u => u.Id == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (appUser == null) throw new NotFoundException("Your request was not found");
+                if (appUser == null) throw new NotFoundException();
                 WishListVacancy item = appUser.WishListVacancies.FirstOrDefault(b => b.VacancyId == id);
                 if (item == null)
                 {
@@ -140,18 +140,18 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task DeleteItem(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
 
             if (_http.HttpContext.User.Identity.IsAuthenticated)
             {
                 AppUser appUser = await _userManager.Users
                     .Include(p => p.WishListVacancies).FirstOrDefaultAsync(u => u.Id == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-                if (appUser == null) throw new NotFoundException("Your request was not found");
+                if (appUser == null) throw new NotFoundException();
 
                 WishListVacancy item = appUser.WishListVacancies.FirstOrDefault(b => b.VacancyId == id);
 
-                if (item == null) throw new WrongRequestException("The request sent does not exist");
+                if (item == null) throw new WrongRequestException();
 
                 appUser.WishListVacancies.Remove(item);
 
@@ -163,7 +163,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
                 VacancyWishlistCookieVM item = cart.FirstOrDefault(c => c.Id == id);
 
-                if (item == null) throw new WrongRequestException("The request sent does not exist");
+                if (item == null) throw new WrongRequestException();
 
                 cart.Remove(item);
 

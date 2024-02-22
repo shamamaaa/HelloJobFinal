@@ -20,6 +20,15 @@ public class HomeController : Controller
         _vacancyWishlist = vacancyWishlist;
     }
 
+    public IActionResult ErrorPage(string error)
+    {
+        if (error == null)
+        {
+            return RedirectToAction(nameof(Index));
+        }
+        return View(model: error);
+    }
+
     public async Task<IActionResult> Index()
     {
         HomeVm homeVm = new HomeVm

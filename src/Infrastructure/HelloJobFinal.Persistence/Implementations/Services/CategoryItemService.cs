@@ -60,12 +60,12 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
                 $"{nameof(CategoryItem.Cvs)}",
                 $"{nameof(CategoryItem.BaseCategory)}.{nameof(BaseCategory.CategoryItems)}" };
             CategoryItem item = await _repository.GetByIdAsync(id, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             _repository.Delete(item);
             await _repository.SaveChanceAsync();
@@ -101,13 +101,13 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<GetCategoryItemVm> GetByIdAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
                 $"{nameof(CategoryItem.Cvs)}",
                 $"{nameof(CategoryItem.BaseCategory)}"};
 
             CategoryItem item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             GetCategoryItemVm get = _mapper.Map<GetCategoryItemVm>(item);
 
@@ -116,8 +116,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<PaginationVm<ItemCategoryItemVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
         {
-            if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
                 $"{nameof(CategoryItem.Cvs)}",
@@ -167,8 +167,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<PaginationVm<ItemCategoryItemVm>> GetFilteredAsync(string? search, int take, int page, int order)
         {
-            if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes = { $"{nameof(CategoryItem.Vacancies)}",
                 $"{nameof(CategoryItem.Cvs)}",
@@ -218,9 +218,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task ReverseSoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             CategoryItem item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             item.IsDeleted = false;
             await _repository.SaveChanceAsync();
@@ -228,9 +228,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task SoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             CategoryItem item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             item.IsDeleted = true;
             await _repository.SaveChanceAsync();
@@ -238,9 +238,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<UpdateCategoryItemVm> UpdateAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             CategoryItem item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             UpdateCategoryItemVm update = _mapper.Map<UpdateCategoryItemVm>(item);
             await UpdatePopulateDropdowns(update);
@@ -256,7 +256,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             }
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
             CategoryItem item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             if (await _repository.CheckUniqueAsync(x => x.Name.ToLower().Trim() == update.Name.ToLower().Trim() && x.Id != id))
             {

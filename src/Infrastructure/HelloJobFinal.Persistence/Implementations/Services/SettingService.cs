@@ -21,8 +21,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
         public async Task<PaginationVm<ItemSettingVm>> GetFilteredAsync(string? search, int take, int page, int order)
         {
-            if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             double count = await _repository.CountAsync();
 
@@ -68,9 +68,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<UpdateSettingVm> UpdateAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             Setting item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             UpdateSettingVm update = new UpdateSettingVm { Key = item.Key, Value = item.Value };
 
@@ -79,9 +79,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<bool> UpdatePostAsync(int id, UpdateSettingVm update, ModelStateDictionary model)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             Setting item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             if (await _repository.CheckUniqueAsync(x => x.Key.ToLower().Trim() == update.Key.ToLower().Trim() && x.Id != id))
             {

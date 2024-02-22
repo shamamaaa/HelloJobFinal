@@ -141,9 +141,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             Vacancy item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             _repository.Delete(item);
             await _repository.SaveChanceAsync();
@@ -185,7 +185,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<GetVacancyVm> GetByIdAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes ={
                 $"{nameof(Vacancy.Experience)}",
                 $"{nameof(Vacancy.Company)}",
@@ -199,7 +199,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 $"{nameof(Vacancy.CategoryItem)}.{nameof(CategoryItem.BaseCategory)}" };
 
             Vacancy item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             GetVacancyVm get = _mapper.Map<GetVacancyVm>(item);
             get.VacancyIds = item.WishListVacancies.Select(x => x.VacancyId).ToList();
@@ -379,7 +379,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
             Vacancy item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             item.IsDeleted = false;
             _repository.Update(item);
             await _repository.SaveChanceAsync();
@@ -389,7 +389,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
             Vacancy item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             item.IsDeleted = true;
             _repository.Update(item);
             await _repository.SaveChanceAsync();
@@ -399,7 +399,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
             Vacancy item = await _repository.GetByIdAsync(id,true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             UpdateVacancyVm update = _mapper.Map<UpdateVacancyVm>(item);
 
@@ -413,7 +413,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             Vacancy item = await _repository.GetByIdAsync(id, true, $"{nameof(Vacancy.WorkInfos)}", $"{nameof(Vacancy.Requirements)}");
             update.WorkInfos = _mapper.Map<List<IncludeWorkInfo>>(item.WorkInfos);
             update.Requirements = _mapper.Map<List<IncludeRequirement>>(item.Requirements);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             if (!model.IsValid)
             {
                 await UpdatePopulateDropdowns(update);
@@ -490,7 +490,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (id <= 0) throw new WrongRequestException("The request sent does not exist");
             Vacancy item = await _repository.GetByIdAsync(id, false, $"{nameof(Vacancy.AppUser)}");
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             if (await _repository.CheckUniqueVacancyRequestAsync(x => x.VacancyId == id && x.AppUserId == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)))
             {
                 tempData["Message"] += $"<h6 class=\"text-danger\" style=\"margin-left: 100px; color: red;\"> Bu elana artıq müraciət edilib.</h6>";
@@ -511,9 +511,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (requestId <= 0) throw new WrongRequestException("The request sent does not exist");
             VacancyRequest item = await _repository.GetByIdVacancyRequest(requestId);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             AppUser employee = await _userManager.FindByIdAsync(item.AppUserId);
-            if (employee == null) throw new NotFoundException("Your request was not found");
+            if (employee == null) throw new NotFoundException();
             item.Status = Status.Accepted.ToString();
             _repository.UpdateVacancyRequest(item);
             await _repository.SaveChanceAsync();
@@ -523,7 +523,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         {
             if (requestId <= 0) throw new WrongRequestException("The request sent does not exist");
             VacancyRequest item = await _repository.GetByIdVacancyRequest(requestId);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
             AppUser employee = await _userManager.FindByIdAsync(item.AppUserId);
             _repository.DeleteVacancyRequest(item);
             await _repository.SaveChanceAsync();

@@ -1,4 +1,5 @@
 ﻿using HelloJobFinal.Application.ServiceRegistrations;
+using HelloJobFinal.Infrastructure.Implementations;
 using HelloJobFinal.Infrastructure.ServiceRegistrations;
 using HelloJobFinal.Persistence.DAL;
 using HelloJobFinal.Persistence.ServiceRegistrations;
@@ -39,6 +40,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseEndpoints(endpoints =>
 {

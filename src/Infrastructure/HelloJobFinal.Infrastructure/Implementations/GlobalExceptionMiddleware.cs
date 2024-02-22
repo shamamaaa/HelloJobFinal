@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace HelloJobFinal.Infrastructure.Implementations
 {
@@ -17,9 +20,11 @@ namespace HelloJobFinal.Infrastructure.Implementations
             {
                 await _next.Invoke(context);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                context.Response.Redirect($"/Home/ErrorPage?error={e.Message}");
+                string encodedErrorMessage = Uri.EscapeDataString(ex.Message);
+                string errorPath = $"/Home/ErrorPage?error={encodedErrorMessage}";
+                context.Response.Redirect(errorPath);
             }
         }
     }

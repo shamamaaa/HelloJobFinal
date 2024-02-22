@@ -3,6 +3,7 @@ using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,7 +59,7 @@ namespace HelloJobFinal.Mvc.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangePassword(string id, string token, ForgotPasswordVm fogotPassword)
+        public async Task<IActionResult> ChangePassword(string id, string token, ChangePasswordVm fogotPassword)
         {
             bool result = await _service.ChangePassword(id, token, fogotPassword, ModelState);
             if (!result)
@@ -120,8 +121,37 @@ namespace HelloJobFinal.Mvc.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> AddCvRequestAsync(int id, ITempDataDictionary tempData)
+        {
+            return View(await _cvService.AddCvRequestAsync(id, tempData));
+        }
 
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> AcceptCvRequestAsync(int requestId)
+        {
+            await _cvService.AcceptCvRequestAsync(requestId);
+            return RedirectToAction("MyOrder", "User");
+        }
 
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> DeleteCvRequestAsync(int requestId)
+        {
+            await _cvService.DeleteCvRequestAsync(requestId);
+            return RedirectToAction("MyOrder", "User");
+        }
+
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> MyCvOrder()
+        {
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        }
+
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> MyCvRequest()
+        {
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        }
         //Vacancy pages
 
         [Authorize(Roles = "Company")]
@@ -174,6 +204,37 @@ namespace HelloJobFinal.Mvc.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> AddVacancyRequestAsync(int id, ITempDataDictionary tempData)
+        {
+            return View(await _vacancyService.AddVacancyRequestAsync(id,tempData));
+        }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> AcceptVacancyRequestAsync(int requestId)
+        {
+            await _vacancyService.AcceptVacancyRequestAsync(requestId);
+            return RedirectToAction("MyOrder", "User");
+        }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> DeleteVacancyRequestAsync(int requestId)
+        {
+            await _vacancyService.DeleteVacancyRequestAsync(requestId);
+            return RedirectToAction("MyOrder", "User");
+        }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> MyVacancyOrder()
+        {
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> MyVacancyRequest()
+        {
+            return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        }
         //Company
 
         [Authorize(Roles = "Company")]

@@ -112,14 +112,26 @@
                         }
 
 
-
-                        <div class="wishlist">
-                            <a asp-controller="wishlist" asp-action="index" class="wishlistitem">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                </svg>
-                            </a>
-                        </div>
+                        @if (User.IsInRole("Company"))
+                        {
+                            <div class="wishlist">
+                                <a asp-controller="CvWishList" asp-action="CvWishList" class="wishlistitem">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        }
+                        else if (User.IsInRole("Employee"))
+                        {
+                            <div class="wishlist">
+                                <a asp-controller="VacancyWishList" asp-action="VacancyWishList" class="wishlistitem">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        }
                         <div class="darkmode">
                             <button class="night night_mode"></button>
                             <button class="day night_mode"></button>
@@ -163,7 +175,15 @@
                         <a asp-controller="home" asp-action="index">Bütün vakansiyalar</a>
                     </li>
                     <li>
-                        <a asp-controller="liked" asp-action="index">Seçilmişlər</a>
+
+                        @if (User.IsInRole("Company"))
+                        {
+                            <a asp-action="CvWishList" asp-controller="CvWishList">Seçilmişlər</a>
+                        }
+                        else if (User.IsInRole("Employee"))
+                        {
+                            <a asp-action="VacancyWishList" asp-controller="VacancyWishList">Seçilmişlər</a>
+                        }
                     </li>
                     <li>
                         <a asp-controller="company" asp-action="index">Şirkətlər</a>
@@ -220,8 +240,6 @@
                 @{
                     await Html.RenderPartialAsync("_RegisterPartialView", new RegisterVM());
                 }
-
-
             </div>
             <div class="forgot_password  d-none">
                 <div class="pass_head">
@@ -235,7 +253,9 @@
                         <h3>Şifrəni unutmuşam</h3>
                     </div>
                 </div>
-
+                @{
+                    await Html.RenderPartialAsync("_ForgotPasswordPartialView", new FindAccountVm());
+                }
             </div>
         </div>
     </header>
@@ -248,13 +268,24 @@
                     <div class="titles col-lg-12 col-md-12">
                         <ul>
                             <li>
-                                <a asp-action="index" asp-controller="vacancy">İş elanları</a>
+                                <a asp-action="index" asp-controller="home">İş elanları</a>
                             </li>
                             <li>
                                 <a asp-action="index" asp-controller="cv">CV-lər</a>
                             </li>
                             <li>
-                                <a asp-action="index" asp-controller="wishlist">Seçilmişlər</a>
+
+                                @if (User.IsInRole("Company"))
+                                {
+                                    <a asp-action="CvWishList" asp-controller="CvWishList">Seçilmişlər</a>
+                                }
+                                else if (User.IsInRole("Employee"))
+                                {
+                                    <a asp-action="VacancyWishList" asp-controller="VacancyWishList">Seçilmişlər</a>
+                                }
+                            </li>
+                            <li>
+                                <a asp-action="index" asp-controller="company">Şirkətlər</a>
                             </li>
                         </ul>
                     </div>

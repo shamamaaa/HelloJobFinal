@@ -10,7 +10,8 @@ namespace HelloJobFinal.Application.Abstractions.Services
         Task LogOutAsync();
         Task<bool> ConfirmEmail(string token, string email);
         Task<bool> ForgotPassword(FindAccountVm account, ModelStateDictionary model, IUrlHelper url);
-        Task<bool> ChangePassword(string userNameOrEmail, string token, ForgotPasswordVm fogotPassword, ModelStateDictionary model);
+        Task<bool> ChangePassword(string userNameOrEmail, string token, ChangePasswordVm fogotPassword, ModelStateDictionary model);
+        Task<bool> ResetPassword(string id, string token, ResetPasswordVm resetPassword, ModelStateDictionary model);
     }
 }
 

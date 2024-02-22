@@ -40,10 +40,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
             City item = await _repository.GetByIdAsync(id, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             _repository.Delete(item);
             await _repository.SaveChanceAsync();
@@ -75,11 +75,11 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<GetCityVm> GetByIdAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
             City item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             GetCityVm get = _mapper.Map<GetCityVm>(item);
 
@@ -88,8 +88,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<PaginationVm<ItemCityVm>> GetDeleteFilteredAsync(string? search, int take, int page, int order)
         {
-            if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
             double count = await _repository.CountAsync();
@@ -137,8 +137,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<PaginationVm<ItemCityVm>> GetFilteredAsync(string? search, int take, int page, int order)
         {
-            if (page <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
-            if (order <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
             double count = await _repository.CountAsync();
@@ -186,9 +186,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task ReverseSoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             City item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             item.IsDeleted = false;
             await _repository.SaveChanceAsync();
@@ -196,9 +196,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task SoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             City item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             item.IsDeleted = true;
             await _repository.SaveChanceAsync();
@@ -206,9 +206,9 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<UpdateCityVm> UpdateAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             City item = await _repository.GetByIdAsync(id);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             UpdateCityVm update = _mapper.Map<UpdateCityVm>(item);
 
@@ -223,11 +223,11 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError("Name", "City already exists.");
                 return false;
             }
-            if (id <= 0) throw new WrongRequestException("You sent wrong request, please include valid input.");
+            if (id <= 0) throw new WrongRequestException();
             string[] includes = { $"{nameof(City.Cvs)}", $"{nameof(City.Vacancies)}" };
 
             City item = await _repository.GetByIdAsync(id, includes: includes);
-            if (item == null) throw new NotFoundException("Your request was not found");
+            if (item == null) throw new NotFoundException();
 
             var config = new MapperConfiguration(cfg =>
             {

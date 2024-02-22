@@ -21,22 +21,25 @@
                                 <div class="item_right">
                                     <span class="salary">@Model.Salary</span>
                                     <span class="date">@Model.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")</span>
-                                    <div class="mx-2">
-                                        @if (Model.VacancyIds.Contains(Model.Id))
-                                        {
-                                            <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
-                                                <i class="fa-solid fa-heart liked"></i>
+                                    @if (User.IsInRole(nameof(UserRole.Employee)))
+                                    {
+                                        <div class="mx-2">
+                                            @if (Model.VacancyIds.Contains(Model.Id))
+                                            {
+                                                <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                    <i class="fa-solid fa-heart liked"></i>
 
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
-                                                <i class="fa-regular fa-heart unliked"></i>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@Model.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                    <i class="fa-regular fa-heart unliked"></i>
 
-                                            </a>
-                                        }
-                                    </div>
+                                                </a>
+                                            }
+                                        </div>
+                                    }
                                 </div>
                                 </div>
                         </div>

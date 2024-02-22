@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-public record ForgotPasswordVm
+public record ChangePasswordVm
 {
     [Required(ErrorMessage = "Köhnə parol daxil edilməlidir.")]
     [RegularExpression(@"^[a-zA-Z0-9\s]*$", ErrorMessage = "Parol rəqəm və hərflərdən ibarət olmalıdır.")]

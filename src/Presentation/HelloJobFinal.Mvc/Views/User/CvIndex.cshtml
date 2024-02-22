@@ -43,7 +43,7 @@
                             @foreach (var item in Model.Cvs)
                             {
                                 <div class="user_block">
-                                    <a href="./userdetail.html" target="_blank">
+                                    <a asp-action="detail" asp-controller="cv" asp-route-id="@item.Id" target="_blank">
                                         <div class="header_user">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="user_img">

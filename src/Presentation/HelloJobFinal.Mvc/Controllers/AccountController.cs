@@ -57,31 +57,47 @@ namespace HelloJobFinal.Mvc.Controllers
             }
             return View();
         }
-        public IActionResult FogotPasswordSended()
+
+        public IActionResult ForgotPasswordSended()
         {
             return View();
         }
-        public IActionResult FogotPassword()
+        public IActionResult ForgotPassword()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> FogotPassword(FindAccountVm account)
+        public async Task<IActionResult> ForgotPassword(FindAccountVm account)
         {
             bool result = await _service.ForgotPassword(account, ModelState, Url);
             if (!result)
             {
                 return View(account);
             }
-            return RedirectToAction(nameof(FogotPasswordSended));
+            return RedirectToAction(nameof(ForgotPasswordSended));
         }
+        public IActionResult ResetPassword(string id, string token)
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(string id, string token, ResetPasswordVm resetPassword)
+        {
+            bool result = await _service.ResetPassword(id, token, resetPassword, ModelState);
+            if (!result)
+            {
+                return View(resetPassword);
+            }
+            return RedirectToAction(nameof(Login));
+        }
+
         public IActionResult ChangePassword(string id, string token)
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(string id, string token, ForgotPasswordVm fogotPassword)
+        public async Task<IActionResult> ChangePassword(string id, string token, ChangePasswordVm fogotPassword)
         {
             bool result = await _service.ChangePassword(id, token, fogotPassword, ModelState);
             if (!result)
