@@ -9,6 +9,8 @@ namespace HelloJobFinal.Application.ViewModels
 		public List<IncludeEducationVm> Educations { get; set; }
 		public List<IncludeExperienceVm> Experiences { get; set; }
 		public List<IncludWorkingHourVm> WorkingHours { get; set; }
-	} 
+        public List<int> CvIds { get; set; }
+
+    }
 }
 

@@ -16,15 +16,23 @@ namespace HelloJobFinal.Mvc.Controllers
             _service = service;
         }
 
-        public async Task<IActionResult> AddWishList(int id)
+        public async Task<IActionResult> AddWishList(int id, string? returnUrl)
         {
             await _service.AddWishList(id);
+            if (returnUrl != null)
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("Index", "Home", new { Area = "" });
         }
 
-        public async Task<IActionResult> DeleteItem(int id)
+        public async Task<IActionResult> DeleteItem(int id, string? returnUrl)
         {
             await _service.DeleteItem(id);
+            if (returnUrl != null)
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("Index", "Home", new { Area = "" });
         }
         public async Task<IActionResult> CvWishList()

@@ -207,16 +207,16 @@
                                     </div>
                                 </a>
                                     <div class="mx-2">
-                                        @if (item.CvIds.Any(x => x == item.Id))
+                                        @if (Model.Item.CvIds.Any(x => x == item.Id))
                                         {
-                                            <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                            <a asp-action="DeleteItem" asp-controller="CvWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                                 <i class="fa-solid fa-heart liked"></i>
 
                                             </a>
                                         }
                                         else
                                         {
-                                            <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                            <a asp-action="AddWishList" asp-controller="CvWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                                 <i class="fa-regular fa-heart unliked"></i>
 
 

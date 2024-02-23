@@ -201,6 +201,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 $"{nameof(Cv.Experience)}",
                 $"{nameof(Cv.Education)}",
                 $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WishListCvs)}",
                 $"{nameof(Cv.WorkingHour)}",
                 $"{nameof(Cv.CategoryItem)}" };
             double count = await _repository.CountAsync();
@@ -267,6 +268,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll(false, $"{nameof(Experience.Cvs)}").ToListAsync()),
                 WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll(false, $"{nameof(WorkingHour.Cvs)}").ToListAsync())
             };
+            foreach (var baseCtgr in items)
+            {
+                    filtered.CvIds = baseCtgr.WishListCvs.Select(x => x.CvId).ToList();
+            }
             PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
             {
                 Take = take,
@@ -295,6 +300,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 $"{nameof(Cv.Experience)}",
                 $"{nameof(Cv.Education)}",
                 $"{nameof(Cv.City)}",
+                $"{nameof(Cv.WishListCvs)}",
                 $"{nameof(Cv.WorkingHour)}",
                 $"{nameof(Cv.CategoryItem)}" };
             double count = await _repository.CountAsync();
@@ -366,6 +372,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll(false, $"{nameof(Experience.Cvs)}").ToListAsync()),
                 WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll(false, $"{nameof(WorkingHour.Cvs)}").ToListAsync())
             };
+            foreach (var baseCtgr in items)
+            {
+                filtered.CvIds = baseCtgr.WishListCvs.Select(x => x.CvId).ToList();
+            }
             PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
             {
                 Take = take,

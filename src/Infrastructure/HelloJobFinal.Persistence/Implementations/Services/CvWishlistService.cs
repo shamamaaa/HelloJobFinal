@@ -42,6 +42,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                     {
                         Id = item.Cv.Id,
                         Position = item.Cv.Position,
+                        ImageUrl = item.Cv.ImageUrl,
                         Salary = item.Cv.MinSalary,
                         Name = item.Cv.Name,
                         Surname = item.Cv.Surname,
@@ -65,6 +66,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 Id = cv.Id,
                                 Position = cv.Position,
                                 Salary = cv.MinSalary,
+                                ImageUrl = cv.ImageUrl,
                                 Name = cv.Name,
                                 Surname = cv.Surname,
                                 IncludeExperienceVm = _mapper.Map<IncludeExperienceVm>(cv.Experience),
