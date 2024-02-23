@@ -52,19 +52,31 @@
             }
         </li>
         <li>
-            <a class="@(controller == "User" && action == "Wishlist" ? "active" : "")" asp-controller="User" asp-action="wishlist">
-                <span>
-                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg" alt="" />
-                </span>
-                Bəyəndiklərim
-            </a>
+            @if (User.IsInRole(nameof(UserRole.Employee)))
+            {
+                <a class="@(controller == "User" && action == "VacancyWishList" ? "active" : "")" asp-controller="User" asp-action="VacancyWishList">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg" alt="" />
+                    </span>
+                    Bəyəndiklərim
+                </a>
+            }
+            else
+            {
+                <a class="@(controller == "User" && action == "CvWishList" ? "active" : "")" asp-controller="User" asp-action="CvWishList">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/heart2.svg" alt="" />
+                    </span>
+                    Bəyəndiklərim
+                </a>
+            }
         </li>
         <li>
-            <a class="@(controller == "User" && action == "Security" ? "active" : "")" asp-controller="User" asp-action="security">
+            <a class="@(controller == "Account" && action == "ChangePassword" ? "active" : "")" asp-controller="Account" asp-action="ChangePassword">
                 <span>
                     <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/shield.svg" alt="" />
                 </span>
-                Təhlükəsizlik
+                Şifrəni dəyiş
             </a>
         </li>
         @if (User.IsInRole(UserRole.Company.ToString()))

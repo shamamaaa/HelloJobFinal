@@ -29,20 +29,7 @@ namespace HelloJobFinal.Mvc.Areas.Admin.Controllers
             return View(model: await _service.GetDeleteFilteredAsync(search, 10, page, order, categoryId, cityId, educationId, experienceId, workingHourId, null));
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateCvVm create)
-        {
-            bool result = await _service.CreateAsync(create, ModelState);
-            if (!result)
-            {
-                return View(create);
-            }
-            return RedirectToAction(nameof(Index));
-        }
+
         public async Task<IActionResult> Update(int id)
         {
             return View(await _service.UpdateAsync(id));

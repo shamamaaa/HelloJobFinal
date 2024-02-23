@@ -1,7 +1,8 @@
 ﻿@{
     Layout = "_UserLayout";
 }
-@model GetAppUserVM
+@model ICollection<CvWishlistItemVm>
+
 <div class="account">
     @{
         await Html.RenderPartialAsync("_UserSidebarPartialView");
@@ -32,7 +33,7 @@
 
                 <div class="vacans_cv">
 
-                    @foreach (var item in Model.WishListCvs)
+                    @foreach (var item in Model)
                     {
                         <div class="liked_cv">
                             <div class="user_block">
@@ -61,7 +62,7 @@
                                                      alt="" />
                                             </div>
                                             <div class="text">
-                                                <h4>@item.IncludeWorkingHour.Name</h4>
+                                                <h4>@item.IncludWorkingHourVm.Name</h4>
                                                 <p>İş rejimi</p>
                                             </div>
                                         </div>
@@ -71,7 +72,7 @@
                                                      alt="" />
                                             </div>
                                             <div class="text">
-                                                <h4>@item.MinSalary</h4>
+                                                <h4>@item.Salary</h4>
                                                 <p>Minimum əmək haqqı AZN</p>
                                             </div>
                                         </div>
@@ -81,7 +82,7 @@
                                                      alt="" />
                                             </div>
                                             <div class="text">
-                                                <h4>@item.IncludeExperience.Name</h4>
+                                                <h4>@item.IncludeExperienceVm.Name</h4>
                                                 <p>İş staji</p>
                                             </div>
                                         </div>
@@ -129,7 +130,7 @@
                 <div class="inner_tab">
 
                     <div class="vacans_cv mob">
-                        @foreach (var item in Model.WishListCvs)
+                        @foreach (var item in Model)
                         {
                             <div class="liked_cv">
                                 <div class="user_block">
@@ -158,7 +159,7 @@
                                                          alt="" />
                                                 </div>
                                                 <div class="text">
-                                                    <h4>@item.IncludeWorkingHour.Name</h4>
+                                                    <h4>@item.IncludWorkingHourVm.Name</h4>
                                                     <p>İş rejimi</p>
                                                 </div>
                                             </div>
@@ -168,7 +169,7 @@
                                                          alt="" />
                                                 </div>
                                                 <div class="text">
-                                                    <h4>@item.MinSalary</h4>
+                                                    <h4>@item.Salary</h4>
                                                     <p>Minimum əmək haqqı AZN</p>
                                                 </div>
                                             </div>
@@ -178,7 +179,7 @@
                                                          alt="" />
                                                 </div>
                                                 <div class="text">
-                                                    <h4>@item.IncludeExperience.Name</h4>
+                                                    <h4>@item.IncludeExperienceVm.Name</h4>
                                                     <p>İş staji</p>
                                                 </div>
                                             </div>

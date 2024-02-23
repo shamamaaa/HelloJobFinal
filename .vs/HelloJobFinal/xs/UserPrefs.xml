@@ -1,64 +1,20 @@
 ﻿<Properties StartupConfiguration="{08EB6B18-50AE-4732-BE2D-49AA16695857}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs">
-    <Files>
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/CvService.cs" Line="503" Column="50" />
-      <File FileName="src/Infrastructure/HelloJobFinal.Persistence/Implementations/Services/VacancyService.cs" Line="511" Column="10" />
-      <File FileName="src/Presentation/HelloJobFinal.Mvc/Controllers/UserController.cs" Line="181" Column="10" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="HelloJobFinal">
-            <Node name="src">
-              <Node name="Core">
-                <Node name="HelloJobFinal.Application">
-                  <Node name="Abstractions" expanded="True">
-                    <Node name="Services" expanded="True" />
-                  </Node>
-                  <Node name="ViewModels" expanded="True">
-                    <Node name="Account" expanded="True" />
-                    <Node name="Cv" expanded="True" />
-                    <Node name="Vacancy" expanded="True" />
-                  </Node>
-                </Node>
-                <Node name="HelloJobFinal.Domain" expanded="True">
-                  <Node name="Entities" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Infrastructure">
-                <Node name="HelloJobFinal.Persistence">
-                  <Node name="Implementations" expanded="True">
-                    <Node name="Services" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Presentation">
-                <Node name="HelloJobFinal.Mvc">
-                  <Node name="Controllers" expanded="True">
-                    <Node name="UserController.cs" selected="True" />
-                  </Node>
-                  <Node name="wwwroot" expanded="True">
-                    <Node name="assets" expanded="True">
-                      <Node name="images" expanded="True">
-                        <Node name="User" expanded="True">
-                          <Node name="CVs" expanded="True" />
-                        </Node>
-                      </Node>
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
+          <Node name="HelloJobFinal" expanded="True">
+            <Node name="src" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.src.Presentation.HelloJobFinal.Mvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

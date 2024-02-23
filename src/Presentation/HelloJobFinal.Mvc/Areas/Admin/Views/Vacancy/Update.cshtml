@@ -1,0 +1,64 @@
+﻿@model UpdateVacancyVm
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Vacancy</h4>
+            <form method="post" enctype="multipart/form-data" class="forms-sample">
+
+                <div class="form-group">
+                    <label asp-for="Position">Position</label>
+                    <input asp-for="Position" class="form-control" placeholder="Position">
+                    <span class="text-danger" asp-validation-for="Position"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Salary">Salary</label>
+                    <input asp-for="Salary" class="form-control" placeholder="Salary">
+                    <span class="text-danger" asp-validation-for="Salary"></span>
+                </div>
+                <div class="form-check form-check-flat form-check-primary">
+                    <label asp-for="HasDriverLicense" class="form-check-label">
+                        <input asp-for="HasDriverLicense" type="checkbox" class="form-check-input">
+                        Has driver license
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyId">Company</label>
+                    <select asp-for="CompanyId" asp-items="new SelectList(Model.Companies, nameof(IncludeCompanyVm.Id), nameof(IncludeCompanyVm.Name))" class="form-control">
+                        <option selected disabled>Choose Company</option>
+                    </select>
+                    <span asp-validation-for="CompanyId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryItemId">Category Item</label>
+                    <select asp-for="CategoryItemId" asp-items="new SelectList(Model.CategoryItems, nameof(IncludeCategoryItemVm.Id), nameof(IncludeCategoryItemVm.Name))" class="form-control">
+                        <option selected disabled>Choose Category Item</option>
+                    </select>
+                    <span asp-validation-for="CategoryItemId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CityId">City</label>
+                    <select asp-for="CityId" asp-items="new SelectList(Model.Cities, nameof(IncludeCityVm.Id), nameof(IncludeCityVm.Name))" class="form-control">
+                        <option selected disabled>Choose City</option>
+                    </select>
+                    <span asp-validation-for="CityId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EducationId">Education</label>
+                    <select asp-for="EducationId" asp-items="new SelectList(Model.Educations, nameof(IncludeEducationVm.Id), nameof(IncludeEducationVm.Name))" class="form-control">
+                        <option selected disabled>Choose Education</option>
+                    </select>
+                    <span asp-validation-for="EducationId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExperienceId">Experience</label>
+                    <select asp-for="ExperienceId" asp-items="new SelectList(Model.Experiences, nameof(IncludeExperienceVm.Id), nameof(IncludeExperienceVm.Name))" class="form-control">
+                        <option selected disabled>Choose Experience</option>
+                    </select>
+                    <span asp-validation-for="ExperienceId" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

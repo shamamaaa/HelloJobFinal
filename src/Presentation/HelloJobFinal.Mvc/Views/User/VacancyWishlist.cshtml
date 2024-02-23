@@ -1,4 +1,4 @@
-﻿@model GetAppUserVM
+﻿@model ICollection<VacancyWishlistItemVm>
 @{
     Layout = "_UserLayout";
 }
@@ -32,7 +32,7 @@
 
                 <div class="vacans_cv">
 
-                    @foreach (var item in Model.WishListVacancies)
+                    @foreach (var item in Model)
                     {
                         <div class="likedVacans">
                             <div class="container">
@@ -56,10 +56,9 @@
                                                         <span class="salary">@item.Salary Azn</span>
                                                         <span class="date">@item.CreatedAt</span>
                                                         <div class="mx-2">
-                                                                <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
-                                                                    <i class="fa-solid fa-heart liked"></i>
-
-                                                                </a>
+                                                            <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                                <i class="fa-solid fa-heart liked"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,7 +108,7 @@
                 <div class="inner_tab">
 
                     <div class="vacans_cv mob">
-                        @foreach (var item in Model.WishListVacancies)
+                        @foreach (var item in Model)
                         {
                             <div class="likedVacans">
                                 <div class="container">

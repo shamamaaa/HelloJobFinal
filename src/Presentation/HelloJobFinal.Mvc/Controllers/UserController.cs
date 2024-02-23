@@ -17,15 +17,20 @@ namespace HelloJobFinal.Mvc.Controllers
         private readonly ICvService _cvService;
         private readonly IVacancyService _vacancyService;
         private readonly ICompanyService _companyService;
+        private readonly IVacancyWishlistService _vacancyWishlist;
+        private readonly ICvWishlistService _cvWishlist;
+
 
 
         public UserController(IUserService service, ICvService cvService, IVacancyService vacancyService,
-            ICompanyService companyService)
+            ICompanyService companyService, IVacancyWishlistService vacancyWishlist, ICvWishlistService cvWishlist)
         {
             _service = service;
             _cvService = cvService;
             _vacancyService = vacancyService;
             _companyService = companyService;
+            _vacancyWishlist = vacancyWishlist;
+            _cvWishlist = cvWishlist;
         }
 
         public async Task<IActionResult> Index()
@@ -75,6 +80,12 @@ namespace HelloJobFinal.Mvc.Controllers
         {
 
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+        }
+
+        [Authorize(Roles = "Company")]
+        public async Task<IActionResult> CvWishList()
+        {
+            return View(await _cvWishlist.WishList());
         }
 
         [Authorize(Roles = "Employee")]
@@ -152,6 +163,7 @@ namespace HelloJobFinal.Mvc.Controllers
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
+
         //Vacancy pages
 
         [Authorize(Roles = "Company")]
@@ -160,6 +172,13 @@ namespace HelloJobFinal.Mvc.Controllers
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> VacancyWishList()
+        {
+            return View(await _vacancyWishlist.WishList());
+        }
+
+
         [Authorize(Roles = "Company")]
         public async Task<IActionResult> CreateVacancy()
         {
@@ -167,6 +186,7 @@ namespace HelloJobFinal.Mvc.Controllers
             await _vacancyService.CreatePopulateDropdowns(create);
             return View(create);
         }
+
 
 
         [HttpPost]
@@ -235,6 +255,8 @@ namespace HelloJobFinal.Mvc.Controllers
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
+
+
         //Company
 
         [Authorize(Roles = "Company")]

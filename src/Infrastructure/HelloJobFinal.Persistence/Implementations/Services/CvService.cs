@@ -194,8 +194,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
             int? categoryItemId, int? cityId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes ={
                 $"{nameof(Cv.Experience)}",
@@ -284,8 +284,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
             int? categoryItemId, int? cityId, int? educationId,int? experienceId, int? workingHourId, bool? hasDriverLicense)
         {
-            if (page <= 0) throw new WrongRequestException("The request sent does not exist");
-            if (order <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (page <= 0) throw new WrongRequestException();
+            if (order <= 0) throw new WrongRequestException();
 
             string[] includes ={
                 $"{nameof(Cv.Experience)}",
@@ -378,7 +378,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task ReverseSoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Cv item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException();
             item.IsDeleted = false;
@@ -388,7 +388,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task SoftDeleteAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Cv item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException();
             item.IsDeleted = true;
@@ -398,7 +398,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<UpdateCvVm> UpdateAsync(int id)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Cv item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException();
 
@@ -416,7 +416,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 await UpdatePopulateDropdowns(update);
                 return false;
             }
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Cv item = await _repository.GetByIdAsync(id);
             if (item == null) throw new NotFoundException();
             if (!await _cityRepository.CheckUniqueAsync(x => x.Id == update.CityId))
@@ -502,7 +502,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
 
         public async Task<bool> AddCvRequestAsync(int id, ITempDataDictionary tempData)
         {
-            if (id <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (id <= 0) throw new WrongRequestException();
             Cv item = await _repository.GetByIdAsync(id, false, $"{nameof(Cv.AppUser)}");
             if (item == null) throw new NotFoundException();
             if (await _repository.CheckUniqueCvRequestAsync(x => x.CvId == id && x.AppUserId == _http.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)))
@@ -523,7 +523,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
         public async Task AcceptCvRequestAsync(int requestId)
         {
-            if (requestId <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (requestId <= 0) throw new WrongRequestException();
             CvRequest item = await _repository.GetByIdCvRequest(requestId);
             if (item == null) throw new NotFoundException();
             AppUser company = await _userManager.FindByIdAsync(item.AppUserId);
@@ -535,7 +535,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         }
         public async Task DeleteCvRequestAsync(int requestId)
         {
-            if (requestId <= 0) throw new WrongRequestException("The request sent does not exist");
+            if (requestId <= 0) throw new WrongRequestException();
             CvRequest item = await _repository.GetByIdCvRequest(requestId);
             if (item == null) throw new NotFoundException();
             AppUser company = await _userManager.FindByIdAsync(item.AppUserId);
