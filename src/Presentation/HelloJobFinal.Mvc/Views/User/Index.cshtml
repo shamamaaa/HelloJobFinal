@@ -11,7 +11,7 @@
                 <a asp-controller="home" asp-action="index"
                    class="btn btn-site btn-transparent d-none d-md-block">Sayta keçid et</a>
                 <div class="account_head_user">
-                    <a href="./account.html" class="profile__header__user__name">
+                    <a class="profile__header__user__name">
                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
                              alt="" />
                         <span>@User.Identity.Name</span>
@@ -72,17 +72,30 @@
                             </a>
                         </div>
                     }
-
-
-                    <div class="col-lg-3 col-md-6">
-                        <a class="my-profile__item" asp-action="wishlist" asp-controller="user">
-                            <div class="my-profile__item__icon">
-                                <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/check-heart.svg"
-                                     alt="" />
-                            </div>
-                            <h2 class="my-profile__item__name">Bəyəndiklərim</h2>
-                        </a>
-                    </div>
+                    @if (User.IsInRole("Company"))
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <a class="my-profile__item" asp-action="CvWishList" asp-controller="user">
+                                <div class="my-profile__item__icon">
+                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/check-heart.svg"
+                                         alt="" />
+                                </div>
+                                <h2 class="my-profile__item__name">Bəyəndiklərim</h2>
+                            </a>
+                        </div>
+                    }
+                    else if (User.IsInRole("Employee"))
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <a class="my-profile__item" asp-action="VacancyWishList" asp-controller="user">
+                                <div class="my-profile__item__icon">
+                                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/check-heart.svg"
+                                         alt="" />
+                                </div>
+                                <h2 class="my-profile__item__name">Bəyəndiklərim</h2>
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

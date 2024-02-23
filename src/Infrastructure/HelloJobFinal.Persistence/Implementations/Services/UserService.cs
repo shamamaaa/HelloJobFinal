@@ -135,11 +135,12 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<GetAppUserVM> GetByIdAdminAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id)) throw new WrongRequestException();
-            AppUser user = await _userManager.Users.Include(x => x.Cvs).Include(x=>x.Vacancies)
+            AppUser user = await _userManager.Users
+                .Include(x=>x.Vacancies).ThenInclude(x => x.VacancyRequests)
                 .Include(x=>x.Vacancies).ThenInclude(x=>x.CategoryItem).ThenInclude(x=>x.BaseCategory)
                 .Include(x => x.WishListCvs).ThenInclude(x => x.Cv)
                 .Include(x => x.WishListVacancies).ThenInclude(x => x.Vacancy)
-                .Include(x => x.Companies).Include(x => x.Cvs)
+                .Include(x => x.Companies).Include(x => x.Cvs).ThenInclude(x => x.CvRequests)
                 .Include(x => x.CvRequests).ThenInclude(x => x.Cv)
                 .Include(x => x.VacancyRequests).ThenInclude(x => x.Vacancy)
                 .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
@@ -175,18 +176,21 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 .Include(x => x.WishListCvs).ThenInclude(x => x.Cv)
                 .Include(x => x.Vacancies).ThenInclude(x => x.CategoryItem).ThenInclude(x => x.BaseCategory)
                 .Include(x => x.WishListVacancies).ThenInclude(x => x.Vacancy)
-                .Include(x => x.Companies).Include(x => x.Cvs).ThenInclude(x=>x.WorkingHour)
+                .Include(x => x.Companies).ThenInclude(x=>x.Vacancies).ThenInclude(x=>x.VacancyRequests)
+                .Include(x => x.Cvs).ThenInclude(x=>x.WorkingHour)
                 .Include(x => x.Cvs).ThenInclude(x => x.Education)
                 .Include(x => x.Cvs).ThenInclude(x => x.Experience)
                 .Include(x => x.Cvs).ThenInclude(x => x.CategoryItem)
                 .Include(x => x.Cvs).ThenInclude(x => x.City)
+                .Include(x => x.Vacancies).ThenInclude(x => x.VacancyRequests)
+                .Include(x => x.Cvs).ThenInclude(x => x.CvRequests).ThenInclude(x => x.AppUser)
                 .Include(x => x.CvRequests).ThenInclude(x => x.Cv)
                 .Include(x => x.VacancyRequests).ThenInclude(x => x.Vacancy)
                 .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
             if (user == null) throw new NotFoundException();
 
             GetAppUserVM get = _mapper.Map<GetAppUserVM>(user);
-
+     
             return get;
         }
 

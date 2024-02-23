@@ -1,0 +1,111 @@
+﻿@model GetBaseCategoryVm
+
+<section id="vacans_cv">
+    <div class="likedVacans">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="liked_vacans">
+                        @foreach (var x in Model.CategoryItems)
+                        {
+                           @foreach (var item in x.Vacancies)
+                            {
+                                <div class="vacancies">
+                                    <div class="vacancies_href">
+                                        <a asp-action="detail" asp-controller="vacancy" asp-route-id="@item.Id">
+                                            <div class="item_left">
+                                                <div class="icon">
+                                                    <img src="~/assets/images/BusinessTitle/@item.IncludeCategoryItem.IncludeBaseCategory.ImageUrl"
+                                                         alt="@item.IncludeCategoryItem.IncludeBaseCategory.Name" />
+                                                </div>
+                                                <div class="title">
+                                                    <h3>@item.Position</h3>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="item_right">
+                                            <span class="salary">@item.Salary AZN</span>
+                                            <span class="date">@item.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")</span>
+                                            @if (User.IsInRole(nameof(UserRole.Employee)))
+                                            {
+                                                <div class="mx-2">
+                                                    @if (Model.VacancyIds.Any(x => x == item.Id))
+                                                    {
+                                                        <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                            <i class="fa-solid fa-heart liked"></i>
+
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a asp-action="AddWishList" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
+                                                            <i class="fa-regular fa-heart unliked"></i>
+                                                        </a>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                    }
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="sticky_element">
+                        <div class="reclams">
+                            <img src="https://www.hellojob.az/uploads/banners/2023/05/01/kapital-bank-banner-644f848092e7a-9bb97ce3487c22cc702dcd5e0ccb309f644f848092e8e-aryZtKUi6v_De5r.jpg" alt="">
+                        </div>
+                        <div class="companies">
+                            <div class="company">
+                                <a href="/companydetail.html">
+                                    <div class="images">
+                                        <img src="https://www.hellojob.az/uploads/company/min/2021/09/14/61409f490f31b-gn4S-uC-ECn51mv.jpg" alt="Kapital Bank" class="image">
+                                    </div>
+                                    <p>36 vakansiya</p>
+                                </a>
+
+                            </div>
+                            <div class="company">
+                                <a href="/companydetail.html">
+                                    <div class="images">
+                                        <img src="https://www.hellojob.az/uploads/company/min/2021/09/14/6140a01fbb1a9-R_o63qMnR_BeT_p.jpg" alt="PASHA Bank" class="image">
+                                    </div>
+                                    <p>25 vakansiya</p>
+                                </a>
+
+                            </div>
+                            <div class="company">
+                                <a href="/companydetail.html">
+                                    <div class="images">
+                                        <img src="https://www.hellojob.az/uploads/company/min/2021/09/05/6109511b552b4-8X-PcUZWa58l2-i.png" alt="Xalq Bank" class="image">
+                                    </div>
+                                    <p>20 vakansiya</p>
+                                </a>
+                            </div>
+                            <div class="company">
+                                <a href="/companydetail.html">
+                                    <div class="images">
+                                        <img src="https://www.hellojob.az/uploads/company/min/2021/09/29/61548ddd3c469-iF_04-QSR3PU3W-.jpg" alt="AccessBank" class="image">
+                                    </div>
+                                    <p>15 vakansiya</p>
+                                </a>
+                            </div>
+                            <div class="company">
+                                <a href="/companydetail.html">
+                                    <div class="images">
+                                        <img src="https://www.hellojob.az/uploads/company/min/2021/03/02/6038f2d221bd1-Mx_Gdq7mSi7MLA_.jpg" alt="Güvənli MMC" class="image">
+                                    </div>
+                                    <p>8 vakansiya</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

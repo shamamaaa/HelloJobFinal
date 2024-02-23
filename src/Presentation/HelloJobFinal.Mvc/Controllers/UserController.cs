@@ -132,33 +132,29 @@ namespace HelloJobFinal.Mvc.Controllers
             return RedirectToAction("Index", "User");
         }
 
-        [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> AddCvRequestAsync(int id, ITempDataDictionary tempData)
+        public async Task<IActionResult> AddCvRequest(int id)
         {
-            return View(await _cvService.AddCvRequestAsync(id, tempData));
+            await _cvService.AddCvRequestAsync(id, TempData);
+            return RedirectToAction("detail", "cv", new { Id = id });
         }
 
-        [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> AcceptCvRequestAsync(int requestId)
+        public async Task<IActionResult> AcceptCvRequest(int requestId)
         {
             await _cvService.AcceptCvRequestAsync(requestId);
             return RedirectToAction("MyOrder", "User");
         }
 
-        [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> DeleteCvRequestAsync(int requestId)
+        public async Task<IActionResult> DeleteCvRequest(int requestId)
         {
             await _cvService.DeleteCvRequestAsync(requestId);
             return RedirectToAction("MyOrder", "User");
         }
 
-        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> MyCvOrder()
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
-        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> MyCvRequest()
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
@@ -224,33 +220,29 @@ namespace HelloJobFinal.Mvc.Controllers
             return RedirectToAction("Index", "User");
         }
 
-        [Authorize(Roles = "Company")]
-        public async Task<IActionResult> AddVacancyRequestAsync(int id, ITempDataDictionary tempData)
+        public async Task<IActionResult> AddVacancyRequest(int id)
         {
-            return View(await _vacancyService.AddVacancyRequestAsync(id,tempData));
+            await _vacancyService.AddVacancyRequestAsync(id,TempData);
+            return RedirectToAction("detail", "vacancy", new { Id = id });
         }
 
-        [Authorize(Roles = "Company")]
-        public async Task<IActionResult> AcceptVacancyRequestAsync(int requestId)
+        public async Task<IActionResult> AcceptVacancyRequest(int requestId)
         {
             await _vacancyService.AcceptVacancyRequestAsync(requestId);
             return RedirectToAction("MyOrder", "User");
         }
 
-        [Authorize(Roles = "Company")]
-        public async Task<IActionResult> DeleteVacancyRequestAsync(int requestId)
+        public async Task<IActionResult> DeleteVacancyRequest(int requestId)
         {
             await _vacancyService.DeleteVacancyRequestAsync(requestId);
             return RedirectToAction("MyOrder", "User");
         }
 
-        [Authorize(Roles = "Company")]
         public async Task<IActionResult> MyVacancyOrder()
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
-        [Authorize(Roles = "Company")]
         public async Task<IActionResult> MyVacancyRequest()
         {
             return View(await _service.GetByIdAsync(User.FindFirstValue(ClaimTypes.NameIdentifier)));
@@ -295,7 +287,7 @@ namespace HelloJobFinal.Mvc.Controllers
             {
                 return View(update);
             }
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("CompanyIndex", "User");
         }
 
         [Authorize(Roles = "Company")]

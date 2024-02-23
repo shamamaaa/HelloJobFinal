@@ -38,6 +38,7 @@ namespace HelloJobFinal.Application.MappingProfiles
                 .ForMember(x => x.IncludeCompany, opt => opt.MapFrom(src => src.Company))
                 .ForMember(x => x.IncludeAppUser, opt => opt.MapFrom(src => src.AppUser))
                 .ForMember(x => x.IncludeEducation, opt => opt.MapFrom(src => src.Education));
+
         }
     }
 }

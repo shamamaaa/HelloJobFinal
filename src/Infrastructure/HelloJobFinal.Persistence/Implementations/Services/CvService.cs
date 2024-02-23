@@ -191,7 +191,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             return get;
         }
 
-        public async Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
+        public async Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order, string? status,
             int? categoryItemId, int? cityId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense)
         {
             if (page <= 0) throw new WrongRequestException();
@@ -216,7 +216,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
                         x => x.Name, false, true, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 2:
@@ -227,7 +228,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
                       x => x.CreatedAt, false, true, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 3:
@@ -238,7 +240,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
                         x => x.Name, true, true, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
                 case 4:
@@ -249,7 +252,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true),
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true),
                       x => x.CreatedAt, true, true, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
             }
@@ -257,11 +261,11 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             CvFilterVM filtered = new CvFilterVM
             {
                 Cvs = _mapper.Map<List<ItemCvVm>>(items),
-                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll().ToListAsync()),
-                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
-                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
-                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
-                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+                Categories = _mapper.Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.Cvs)}").ToListAsync()),
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll(false, $"{nameof(City.Cvs)}").ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll(false, $"{nameof(Education.Cvs)}").ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll(false, $"{nameof(Experience.Cvs)}").ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll(false, $"{nameof(WorkingHour.Cvs)}").ToListAsync())
             };
             PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
             {
@@ -281,7 +285,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             return pagination;
         }
 
-        public async Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
+        public async Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order, string? status,
             int? categoryItemId, int? cityId, int? educationId,int? experienceId, int? workingHourId, bool? hasDriverLicense)
         {
             if (page <= 0) throw new WrongRequestException();
@@ -306,7 +310,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
                                 && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                         x => x.Name, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
@@ -318,7 +323,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
                                 && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, false, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
@@ -330,7 +336,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
                                 && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                                 x => x.Name, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
@@ -342,7 +349,8 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                                 && (experienceId != null ? x.ExperienceId == experienceId : true)
                                 && (workingHourId != null ? x.WorkingHourId == workingHourId : true)
                                 && (hasDriverLicense != null ? x.HasDriverLicense == hasDriverLicense : true)
-                                && (!string.IsNullOrEmpty(search) ? x.Name.ToLower().Contains(search.ToLower()) : true)
+                                && (status != null ? x.Status == status : true)
+                                && (!string.IsNullOrEmpty(search) ? x.Position.ToLower().Contains(search.ToLower()) : true)
                                 && (x.FinishTime != null ? x.FinishTime <= DateTime.Now : true),
                       x => x.CreatedAt, true, false, (page - 1) * take, take, false, includes).ToListAsync();
                     break;
@@ -353,10 +361,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 Cvs = _mapper.Map<List<ItemCvVm>>(items),
                 Categories = _mapper
                 .Map<List<IncludeCategoryItemVm>>(await _categoryItemRepository.GetAll(false, $"{nameof(CategoryItem.Cvs)}").ToListAsync()),
-                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll().ToListAsync()),
-                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll().ToListAsync()),
-                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll().ToListAsync()),
-                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll().ToListAsync())
+                Cities = _mapper.Map<List<IncludeCityVm>>(await _cityRepository.GetAll(false, $"{nameof(City.Cvs)}").ToListAsync()),
+                Educations = _mapper.Map<List<IncludeEducationVm>>(await _educationRepository.GetAll(false, $"{nameof(Education.Cvs)}").ToListAsync()),
+                Experiences = _mapper.Map<List<IncludeExperienceVm>>(await _experienceRepository.GetAll(false, $"{nameof(Experience.Cvs)}").ToListAsync()),
+                WorkingHours = _mapper.Map<List<IncludWorkingHourVm>>(await _workingHourRepository.GetAll(false, $"{nameof(WorkingHour.Cvs)}").ToListAsync())
             };
             PaginationVm<CvFilterVM> pagination = new PaginationVm<CvFilterVM>
             {

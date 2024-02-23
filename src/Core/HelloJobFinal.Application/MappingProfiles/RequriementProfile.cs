@@ -9,7 +9,9 @@ namespace HelloJobFinal.Application.MappingProfiles
     {
         public RequriementProfile()
         {
-            CreateMap<IncludeRequirement, Requirement>().ReverseMap();
+            CreateMap<IncludeRequirement, Requirement>().ReverseMap()
+                .ForMember(x => x.Vacancy, opt => opt.MapFrom(src => src.Vacancy));
+
         }
     }
 }

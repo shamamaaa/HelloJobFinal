@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Text.RegularExpressions;
+using System.Xml.Linq;
+using AutoMapper;
 using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using HelloJobFinal.Domain.Entities;
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Configuration;
 
 namespace HelloJobFinal.Persistence.Implementations.Services
@@ -33,44 +36,108 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             _configuration = configuration;
         }
 
-        public async Task<bool> LogInAsync(LoginVM login, ModelStateDictionary model)
+        public async Task<bool> LogInAsync(LoginVM login, ITempDataDictionary tempData)
         {
-            if (!model.IsValid) return false;
+            tempData["Login"] = "";
+
+            if (!Regex.IsMatch(login.UserNameOrEmail, @"^(?:(?![@._])[a-zA-Z0-9@._-]{3,})$|^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Incorrect format for UserName or Email.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(login.Password, "^[a-zA-Z0-9\\s]*$"))
+            {
+                tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Password can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+
             AppUser user = await _userManager.FindByNameAsync(login.UserNameOrEmail);
             if (user == null)
             {
                 user = await _userManager.FindByEmailAsync(login.UserNameOrEmail);
                 if (user == null)
                 {
-                    model.AddModelError(string.Empty, "Username, Email or Password is wrong");
+                    tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Username, Email, or Password is wrong</p>";
                     return false;
                 }
             }
+
             if (user.IsActivate == true)
             {
-                model.AddModelError("Error", "Your account is not active");
+                tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Your account is not active</p>";
                 return false;
             }
+
             var result = await _signInManager.PasswordSignInAsync(user, login.Password, login.IsRemembered, true);
+
             if (result.IsLockedOut)
             {
-                model.AddModelError("Error", "Your Account is locked-out please wait");
+                tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Your account is locked-out, please wait</p>";
                 return false;
             }
+
             if (!result.Succeeded)
             {
-                model.AddModelError("Error", "Username, Email or Password is wrong");
+                tempData["Login"] += $"<p class=\"text-danger\" style=\"color: red;\">Username, Email, or Password is wrong</p>";
                 return false;
             }
+
             return true;
         }
         public async Task LogOutAsync()
         {
             await _signInManager.SignOutAsync();
         }
-        public async Task<bool> RegisterAsync(RegisterVM register, ModelStateDictionary model, IUrlHelper url)
+        public async Task<bool> RegisterAsync(RegisterVM register, ITempDataDictionary tempData, IUrlHelper url)
         {
-            if (!model.IsValid) return false;
+            tempData["Register"] = "";
+
+            if (!Regex.IsMatch(register.UserName, @"^[a-zA-Z0-9\s]*$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">User Name can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(register.Name, @"^[a-zA-Z0-9\s]*$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Name can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(register.Surname, @"^[a-zA-Z0-9\s]*$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Surname can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(register.Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Incorrect email format.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(register.Password, @"^[a-zA-Z0-9\s]*$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Password can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+
+            if (!Regex.IsMatch(register.ConfirmPassword, @"^[a-zA-Z0-9\s]*$"))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Confirm Password can only contain letters, numbers, and spaces.</p>";
+                return false;
+            }
+            if (!register.ConfirmPassword.Contains(register.Password))
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">Şifrə eyni olmalıdır.</p>";
+                return false;
+            }
+            if (!register.AllowTerms)
+            {
+                tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">You must accept the terms and conditions.</p>";
+                return false;
+            }
 
             AppUser user = _mapper.Map<AppUser>(register);
             user.Name = user.Name.Capitalize();
@@ -81,7 +148,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             {
                 foreach (var error in result.Errors)
                 {
-                    model.AddModelError("Error", error.Description);
+                    tempData["Register"] += $"<p class=\"text-danger\" style=\"color: red;\">{error.Description}</p>";
                 }
                 return false;
             }
@@ -159,16 +226,19 @@ namespace HelloJobFinal.Persistence.Implementations.Services
                 model.AddModelError(string.Empty, "Username, Email or Password is wrong");
                 return false;
             }
-            _http.HttpContext.Response.Cookies.Delete("FavoriteEstate");
+            _http.HttpContext.Response.Cookies.Delete("HellojobCvWishlist");
+            _http.HttpContext.Response.Cookies.Delete("HellojobVacancyWishlist");
 
             await _signInManager.SignOutAsync();
             await _signInManager.SignInAsync(user, false);
             return true;
         }
 
-        public async Task<bool> ChangePassword(string id, string token, ChangePasswordVm fogotPassword, ModelStateDictionary model)
+        public async Task<bool> ChangePassword(string id, ChangePasswordVm fogotPassword, ModelStateDictionary model)
         {
-            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(token)) throw new NotFoundException();
+            if (!model.IsValid) return false;
+
+            if (string.IsNullOrWhiteSpace(id)) throw new NotFoundException();
             AppUser user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
@@ -178,13 +248,10 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             var result = await _userManager.ChangePasswordAsync(user, fogotPassword.Password, fogotPassword.NewPassword);
             if (!result.Succeeded)
             {
-                string errors = "";
                 foreach (var error in result.Errors)
                 {
-                    errors += error.Description;
+                    model.AddModelError(string.Empty, error.Description);
                 }
-                model.AddModelError("Error", "Username, Email or Password is wrong");
-                return false;
             }
             _http.HttpContext.Response.Cookies.Delete("HellojobCvWishlist");
             _http.HttpContext.Response.Cookies.Delete("HellojobVacancyWishlist");

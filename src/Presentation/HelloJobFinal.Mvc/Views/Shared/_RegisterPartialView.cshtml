@@ -1,6 +1,8 @@
 ﻿@model RegisterVM
 
 <div class="register">
+    @Html.Raw(TempData["Register"])
+
     <form method="post" asp-action="register" asp-controller="account">
         <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
         <div class="inputs_lg form-group">

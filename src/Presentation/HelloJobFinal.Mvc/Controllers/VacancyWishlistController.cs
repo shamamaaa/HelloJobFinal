@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HelloJobFinal.Mvc.Controllers
 {
-    [Authorize(Roles = "Employee")]
     [AutoValidateAntiforgeryToken]
     public class VacancyWishlistController : Controller
     {

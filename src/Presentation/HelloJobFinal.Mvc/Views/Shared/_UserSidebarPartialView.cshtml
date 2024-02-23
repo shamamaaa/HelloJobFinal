@@ -15,22 +15,44 @@
                 Profilim
             </a>
         </li>
-        <li>
-            <a class="@(controller == "User" && action == "RequestIndex" ? "active" : "")" asp-controller="User" asp-action="requestindex">
-                <span>
-                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
-                </span>
-                Müraciətlər
-            </a>
-        </li>
-        <li>
-            <a class="@(controller == "User" && action == "orderIndex" ? "active" : "")" asp-controller="User" asp-action="orderindex">
-                <span>
-                    <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
-                </span>
-                Gözləmədə olan elanlar
-            </a>
-        </li>
+        @if (User.IsInRole(nameof(UserRole.Employee)))
+        {
+            <li>
+                <a class="@(controller == "User" && action == "MyCvOrder" ? "active" : "")" asp-controller="User" asp-action="MyCvOrder">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
+                    </span>
+                    Müraciətlər
+                </a>
+            </li>
+            <li>
+                <a class="@(controller == "User" && action == "MyVacancyRequest" ? "active" : "")" asp-controller="User" asp-action="MyVacancyRequest">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
+                    </span>
+                    Gözləmədə olan elanlar
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="@(controller == "User" && action == "MyVacancyOrder" ? "active" : "")" asp-controller="User" asp-action="MyVacancyOrder">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
+                    </span>
+                    Müraciətlər
+                </a>
+            </li>
+            <li>
+                <a class="@(controller == "User" && action == "MyCvRequest" ? "active" : "")" asp-controller="User" asp-action="MyCvRequest">
+                    <span>
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/megaphone.svg" alt="" />
+                    </span>
+                    Gözləmədə olan elanlar
+                </a>
+            </li>
+        }
         <li>
             @if (User.IsInRole(nameof(UserRole.Company)))
             {

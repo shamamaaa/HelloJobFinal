@@ -126,7 +126,7 @@
                     </ul>
                 </div>
                 <div class="inner_tab">
-                    <form asp-controller="user" asp-action="updatecompany" method="post" enctype="multipart/form-data">
+                    <form asp-controller="user" asp-action="UpdateCompany" method="post" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="row mb-5">
@@ -140,6 +140,7 @@
                                                asp-for="Photo"
                                                id="fileInput"
                                                accept="image/*" />
+                                        <input type="hidden" asp-for="ImageUrl" />
                                         <span class="upload_file_img">
                                             <img id="preview"
                                                  src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png"
@@ -151,10 +152,8 @@
                                         <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/upload2.svg"
                                              alt="" />
                                         <span>Şəkil əlavə et</span>
-                                        <p>SVG, PNG, JPG or GIF (max. 1000x1000px)</p>
+                                        <p>SVG, PNG, JPG (max. 1000x1000px)</p>
                                     </label>
-
-
                                 </div>
                                 <span asp-validation-for="Photo" class="text-danger"></span>
                                 <div class="row">

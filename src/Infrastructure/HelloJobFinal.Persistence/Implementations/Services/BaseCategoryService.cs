@@ -100,13 +100,20 @@ namespace HelloJobFinal.Persistence.Implementations.Services
         public async Task<GetBaseCategoryVm> GetByIdAsync(int id)
         {
             if (id <= 0) throw new WrongRequestException();
-            string[] includes = { $"{nameof(BaseCategory.CategoryItems)}" };
+            string[] includes = {$"{nameof(BaseCategory.CategoryItems)}.{nameof(CategoryItem.Vacancies)}.{nameof(Vacancy.WishListVacancies)}"};
 
             BaseCategory item = await _repository.GetByIdAsync(id, IsTracking: false, includes: includes);
             if (item == null) throw new NotFoundException();
 
             GetBaseCategoryVm get = _mapper.Map<GetBaseCategoryVm>(item);
+            foreach (var baseCtgr in item.CategoryItems)
+            {
+                foreach (var vcs in baseCtgr.Vacancies)
+                {
+                    get.VacancyIds = vcs.WishListVacancies.Select(x => x.VacancyId).ToList();
+                }
 
+            }
             return get;
         }
 

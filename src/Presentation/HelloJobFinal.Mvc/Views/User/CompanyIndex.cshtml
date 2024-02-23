@@ -39,7 +39,7 @@
                     {
                         <div class="company_card col-md-4 col-lg-3">
                             <div class="company_box">
-                                <a href="./companydetail.html" class="full">
+                                <a asp-action="detail" asp-controller="company" asp-route-id="@item.Id" class="full">
                                     <div>
                                         <div class="company_images" style="padding:0px !important; position:static !important;">
                                             <div class="image" style="
@@ -58,10 +58,10 @@
                                     </div>
                                 </a>
                                 <div class="crudbtn mt-2">
-                                    <a class="btn btn-success" style="text-decoration:none" asp-action="updatecompany" asp-controller="user">
+                                    <a class="btn btn-success" style="text-decoration:none" asp-action="updatecompany" asp-controller="user" asp-route-id="@item.Id">
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger" style="text-decoration:none" asp-action="softdeletecompany" asp-controller="user">
+                                    <a class="btn btn-danger" style="text-decoration:none" asp-action="softdeletecompany" asp-controller="user" asp-route-id="@item.Id">
                                         Delete
                                     </a>
 

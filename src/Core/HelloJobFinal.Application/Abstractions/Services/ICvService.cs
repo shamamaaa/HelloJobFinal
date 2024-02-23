@@ -10,9 +10,9 @@ namespace HelloJobFinal.Application.Abstractions.Services
 	{
         Task<ICollection<ItemCvVm>> GetAllWhereAsync(int take, int page = 1);
         Task<ICollection<ItemCvVm>> GetAllWhereByOrderAsync(int take, Expression<Func<Cv, object>>? orderExpression, int page = 1);
-        Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order,
+        Task<PaginationVm<CvFilterVM>> GetFilteredAsync(string? search, int take, int page, int order, string? status,
             int? categoryItemId, int? cityId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense);
-        Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order,
+        Task<PaginationVm<CvFilterVM>> GetDeleteFilteredAsync(string? search, int take, int page, int order, string? status,
             int? categoryItemId, int? cityId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense);
         Task<GetCvVm> GetByIdAsync(int id);
         Task<bool> CreateAsync(CreateCvVm create, ModelStateDictionary model);

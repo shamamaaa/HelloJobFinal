@@ -228,12 +228,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Gb2dvdFBhc3N3b3JkU2VuZGVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Account/SuccessfullyRegistred.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9TdWNjZXNzZnVsbHlSZWdpc3RyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Category/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Company/Detail.cshtml]
@@ -266,10 +274,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Rule/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUnVsZS9JbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Shared/_ForgotPasswordPartialView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Gb3Jnb3RQYXNzd29yZFBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/shamamaguliyeva/Desktop/HelloJobFinal/src/Presentation/HelloJobFinal.Mvc/Views/Shared/_Layout.cshtml]

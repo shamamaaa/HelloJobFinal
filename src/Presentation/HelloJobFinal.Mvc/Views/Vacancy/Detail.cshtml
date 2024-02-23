@@ -157,8 +157,9 @@
                             </ul>
                         </div>
                         <div class="request">
+                            @Html.Raw(TempData["Message"])
                             <div class="button">
-                                <a class="req_btn" asp-action="">Müraciət et</a>
+                                <a class="req_btn" asp-action="AddVacancyRequest" asp-controller="User" asp-route-id="@Model.Id">Müraciət et</a>
                             </div>
                         </div>
                         <div class="alert alert-info" role="alert">

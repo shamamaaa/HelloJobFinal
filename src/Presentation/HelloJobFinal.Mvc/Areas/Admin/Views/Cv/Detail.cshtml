@@ -1,11 +1,10 @@
-﻿@model GetCompanyVm
+﻿@model GetCvVm
 
 <div class="container">
     <h3 class="fw-bold m-3">@Model.Name</h3>
     <h3 class="fw-bold m-3">@Model.Email</h3>
-    <h4 class="fw-normal mx-5 my-3">Vacancy Count: @Model.Vacancies.Count</h4>
 </div>
 <div class="container">
-    <img src="~/assets/images/Company/@Model.ImageUrl" class="w-25">
+    <img src="~/assets/images/User/@Model.ImageUrl" class="w-25">
 </div>
-<a class="btn btn-light fw-bold fs-4" asp-action="Index" asp-controller="Company">Back</a>
+<a class="btn btn-light fw-bold fs-4" asp-action="Index" asp-controller="Cv">Back</a>

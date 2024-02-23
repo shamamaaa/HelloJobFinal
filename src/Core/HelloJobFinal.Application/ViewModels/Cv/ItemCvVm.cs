@@ -31,6 +31,8 @@ namespace HelloJobFinal.Application.ViewModels
         public string AppUserId { get; init; }
         public int CategoryId { get; init; }
         public string Status { get; init; }
+        public List<int> CvIds { get; set; }
+
     }
 
 }

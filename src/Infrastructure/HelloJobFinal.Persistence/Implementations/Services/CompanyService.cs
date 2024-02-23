@@ -250,7 +250,7 @@ namespace HelloJobFinal.Persistence.Implementations.Services
             if (!model.IsValid) return false;
             if (await _repository.CheckUniqueAsync(x => x.Name.ToLower().Trim() == update.Name.ToLower().Trim() && x.Id != id))
             {
-                model.AddModelError("Name", "Base category already exists.");
+                model.AddModelError("Name", "Company already exists.");
                 return false;
             }
             if (id <= 0) throw new WrongRequestException();

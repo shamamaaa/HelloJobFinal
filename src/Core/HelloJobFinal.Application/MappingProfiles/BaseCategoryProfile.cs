@@ -17,7 +17,6 @@ namespace HelloJobFinal.Application.MappingProfiles
             CreateMap<GetBaseCategoryVm, BaseCategory>().ReverseMap()
                 .ForMember(x => x.CategoryItems, opt => opt.MapFrom(src => src.CategoryItems.ToList()));
 
-
         }
     }
 }

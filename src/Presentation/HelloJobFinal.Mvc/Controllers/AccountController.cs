@@ -1,4 +1,5 @@
-﻿using HelloJobFinal.Application.Abstractions.Services;
+﻿using System.Security.Claims;
+using HelloJobFinal.Application.Abstractions.Services;
 using HelloJobFinal.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ namespace HelloJobFinal.Mvc.Controllers
 
         public async Task<IActionResult> Login(LoginVM login, string? returnUrl)
         {
-            bool result = await _service.LogInAsync(login, ModelState);
+            bool result = await _service.LogInAsync(login, TempData);
             if (!result)
             {
                 return RedirectToAction("Index", "Home", new { Area = "" });
@@ -31,7 +32,7 @@ namespace HelloJobFinal.Mvc.Controllers
 
         public async Task<IActionResult> Register(RegisterVM register)
         {
-            bool result = await _service.RegisterAsync(register, ModelState, Url);
+            bool result = await _service.RegisterAsync(register, TempData, Url);
             if (!result)
             {
                 return RedirectToAction("Index", "Home", new { Area = "" });
@@ -58,7 +59,7 @@ namespace HelloJobFinal.Mvc.Controllers
             return View();
         }
 
-        public IActionResult ForgotPasswordSended()
+        public IActionResult FogotPasswordSended()
         {
             return View();
         }
@@ -75,7 +76,7 @@ namespace HelloJobFinal.Mvc.Controllers
             {
                 return View(account);
             }
-            return RedirectToAction(nameof(ForgotPasswordSended));
+            return RedirectToAction(nameof(FogotPasswordSended));
         }
         public IActionResult ResetPassword(string id, string token)
         {
@@ -92,17 +93,17 @@ namespace HelloJobFinal.Mvc.Controllers
             return RedirectToAction(nameof(Login));
         }
 
-        public IActionResult ChangePassword(string id, string token)
+        public IActionResult ChangePassword(string id)
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(string id, string token, ChangePasswordVm fogotPassword)
+        public async Task<IActionResult> ChangePassword(string id, ChangePasswordVm changePassword)
         {
-            bool result = await _service.ChangePassword(id, token, fogotPassword, ModelState);
+            bool result = await _service.ChangePassword(User.FindFirstValue(ClaimTypes.NameIdentifier), changePassword, ModelState);
             if (!result)
             {
-                return View(fogotPassword);
+                return View(changePassword);
             }
             return RedirectToAction(nameof(Login));
         }

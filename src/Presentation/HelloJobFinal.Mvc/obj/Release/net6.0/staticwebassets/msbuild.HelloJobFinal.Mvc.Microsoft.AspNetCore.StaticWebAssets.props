@@ -3296,6 +3296,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\653h46i1B.webp))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\692c2bc0-e787-4c30-a7c8-a22dc8c9b724.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>HelloJobFinal.Mvc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HelloJobFinal.Mvc</BasePath>
+      <RelativePath>assets/images/Company/692c2bc0-e787-4c30-a7c8-a22dc8c9b724.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\692c2bc0-e787-4c30-a7c8-a22dc8c9b724.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\712XalqBank-ksj.png))">
       <SourceType>Package</SourceType>
       <SourceId>HelloJobFinal.Mvc</SourceId>
@@ -3328,12 +3344,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\860coffamena.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\92ad678a-6f37-48d0-9fb8-e3b6afe0a0ba.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>HelloJobFinal.Mvc</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/HelloJobFinal.Mvc</BasePath>
-      <RelativePath>assets/images/Company/ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg</RelativePath>
+      <RelativePath>assets/images/Company/92ad678a-6f37-48d0-9fb8-e3b6afe0a0ba.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -3342,7 +3358,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\ca7ca26b-da48-4f1d-8e87-7a5d7ff10945.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\92ad678a-6f37-48d0-9fb8-e3b6afe0a0ba.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\Company\f8a374c3-4f04-4975-a95d-1eda6793ee38.jpeg))">
       <SourceType>Package</SourceType>

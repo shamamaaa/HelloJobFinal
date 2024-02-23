@@ -26,7 +26,7 @@
         public int CompanyId { get; init; }
         public string Status { get; init; }
 
-        public List<int> VacancyIds { get; set; }
+        public List<int>? VacancyIds { get; set; }
         public List<IncludeWorkInfo>? AllWorkInfos { get; set; }
         public List<IncludeRequirement>? AllEmployeerInfos { get; set; }
     }

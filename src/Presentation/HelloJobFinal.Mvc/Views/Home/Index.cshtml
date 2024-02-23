@@ -1,7 +1,7 @@
 ﻿@model HomeVm
 @{
 }
-<section id="sliders">
+<section class="mt-5" id="sliders">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -47,7 +47,7 @@
 
                         <div class="item">
                             <div class="new-cat-card">
-                                <a href="">
+                                <a asp-action="detail" asp-controller="category" asp-route-id="@x.Id">
                                     <img src="~/assets/images/BusinessTitle/@x.ImageUrl" alt="@x.Name">
                                     <div class="new-cat-name"><p>@x.Name</p></div>
                                     <div class="new-cat-count"><p><span>@totalCount</span> iş elanı</p></div>

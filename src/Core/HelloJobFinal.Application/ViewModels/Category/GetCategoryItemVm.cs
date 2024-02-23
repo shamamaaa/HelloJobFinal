@@ -9,8 +9,8 @@ namespace HelloJobFinal.Application.ViewModels
         public int BaseCategoryId { get; init; }
         public IncludeBaseCategoryVm BaseCategory { get; init; }
 
-        public List<a.Cv>? Cvs { get; set; }
-        public List<a.Vacancy>? Vacancies { get; set; }
+        public List<IncludeCvVm>? Cvs { get; set; }
+        public List<IncludeVacancyVm>? Vacancies { get; set; }
     }
 
 }

@@ -8,7 +8,9 @@ namespace HelloJobFinal.Application.MappingProfiles
     {
         public WorkInfoProfile()
         {
-            CreateMap<IncludeWorkInfo, WorkInfo>().ReverseMap();
+            CreateMap<IncludeWorkInfo, WorkInfo>().ReverseMap()
+                .ForMember(x => x.Vacancy, opt => opt.MapFrom(src => src.Vacancy));
+
         }
     }
 }

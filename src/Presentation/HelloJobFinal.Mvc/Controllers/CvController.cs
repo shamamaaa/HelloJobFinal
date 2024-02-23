@@ -21,11 +21,11 @@ namespace HelloJobFinal.Mvc.Controllers
             return View(await _cvService.GetByIdAsync(id));
         }
         public async Task<IActionResult> Index(string? search,
-            int? categoryItemId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense,
+            int? categoryItemId, int? educationId, int? experienceId, int? workingHourId, bool? hasDriverLicense, string? status,
             int page = 1, int order = 1)
         {
             return View(await _cvService
-                .GetFilteredAsync(search, 10, page, order, categoryItemId,null,educationId, experienceId,workingHourId,hasDriverLicense));
+                .GetFilteredAsync(search, 10, page, order, status,categoryItemId,null,educationId, experienceId,workingHourId,hasDriverLicense));
         }
     }
 }

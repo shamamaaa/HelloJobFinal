@@ -41,26 +41,23 @@
                         {
                             <div class="account_head_tools">
                                 <div class="account_head_user">
-                                    <a href="./account.html" class="profile__header__user__name">
-                                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                                    <a asp-action="index" asp-controller="user" class="profile__header__user__name">
+                                        <img src="~/assets/images/262eye.svg"
                                              alt="" />
-                                        <span>@User.Identity.Name</span>
+                                        <span>Panel</span>
                                     </a>
-                                    <ul class="account_head_user_drop">
-                                        @if (User.IsInRole(nameof(UserRole.Company)) || User.IsInRole(nameof(UserRole.Employee)))
-                                        {
-                                            <li><a asp-controller="user" asp-action="index">Panel</a></li>
-
-                                        }
-                                        else
-                                        {
-                                            <li><a asp-controller="home" asp-action="index" asp-area="admin">Panel</a></li>
-                                        }
-                                        <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
-                                    </ul>
                                 </div>
                             </div>
-
+                            <div style="width: 10px;"></div> <!-- Boşluk -->
+                            <div class="account_head_tools">
+                                <div class="account_head_user">
+                                    <a asp-action="logout" asp-controller="account" class="profile__header__user__name">
+                                        <img src="~/assets/images/141user-clock.svg"
+                                             alt="" />
+                                        <span>Çıxış</span>
+                                    </a>
+                                </div>
+                            </div>
                             @if (User.IsInRole("Company"))
                             {
                                 <div class="stickeradding">
@@ -109,6 +106,8 @@
                                     Sayta daxil ol
                                 </a>
                             </div>
+                            <div style="width: 30px;"></div> <!-- Boşluk -->
+
                         }
 
 
@@ -174,17 +173,18 @@
                     <li>
                         <a asp-controller="home" asp-action="index">Bütün vakansiyalar</a>
                     </li>
-                    <li>
-
-                        @if (User.IsInRole("Company"))
-                        {
+                    @if (User.IsInRole("Company"))
+                    {
+                        <li>
                             <a asp-action="CvWishList" asp-controller="CvWishList">Seçilmişlər</a>
-                        }
-                        else if (User.IsInRole("Employee"))
-                        {
+                        </li>
+                    }
+                    else if (User.IsInRole("Employee"))
+                    {
+                        <li>
                             <a asp-action="VacancyWishList" asp-controller="VacancyWishList">Seçilmişlər</a>
-                        }
-                    </li>
+                        </li>
+                    }
                     <li>
                         <a asp-controller="company" asp-action="index">Şirkətlər</a>
                     </li>
@@ -253,9 +253,6 @@
                         <h3>Şifrəni unutmuşam</h3>
                     </div>
                 </div>
-                @{
-                    await Html.RenderPartialAsync("_ForgotPasswordPartialView", new FindAccountVm());
-                }
             </div>
         </div>
     </header>
@@ -273,17 +270,18 @@
                             <li>
                                 <a asp-action="index" asp-controller="cv">CV-lər</a>
                             </li>
-                            <li>
-
-                                @if (User.IsInRole("Company"))
-                                {
+                            @if (User.IsInRole("Company"))
+                            {
+                                <li>
                                     <a asp-action="CvWishList" asp-controller="CvWishList">Seçilmişlər</a>
-                                }
-                                else if (User.IsInRole("Employee"))
-                                {
+                                </li>
+                            }
+                            else if (User.IsInRole("Employee"))
+                            {
+                                <li>
                                     <a asp-action="VacancyWishList" asp-controller="VacancyWishList">Seçilmişlər</a>
-                                }
-                            </li>
+                                </li>
+                            }
                             <li>
                                 <a asp-action="index" asp-controller="company">Şirkətlər</a>
                             </li>

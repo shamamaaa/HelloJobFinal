@@ -9,6 +9,7 @@ namespace HelloJobFinal.Application.ViewModels
         public string Name { get; init; }
         public string ImageUrl { get; init; }
 
+        public List<int>? VacancyIds { get; set; }
         public List<IncludeCategoryItemVm>? CategoryItems { get; init; }
     }
 }

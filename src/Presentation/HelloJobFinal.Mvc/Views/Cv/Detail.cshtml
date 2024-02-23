@@ -159,6 +159,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="request">
+                            @Html.Raw(TempData["Message"])
+                            <div class="button">
+                                <a class="req_btn" asp-action="AddCvRequest" asp-controller="User" asp-route-id="@Model.Id">Müraciət et</a>
+                            </div>
+                        </div>
+                        <div class="alert alert-info" role="alert">
+                            Cv-yə Müraciət etmək üçün zəhmət olmasa <strong>"şirkət"</strong> kimi qeydiyyatdan keçin və ya  <strong>"şirkət"</strong>  kimi giriş edin
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,7 +191,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h4 class="secrets-title">
-                                                                @Model.CreatedAt.ToString("MMM dd, yyyy")
+                                                                @Model.CreatedAt.ToString("MMM dd")
                                                             </h4>
                                                             <p>Elan Tarixi</p>
                                                         </div>
@@ -200,7 +209,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h4 class="secrets-title">
-                                                                @Model.FinishTime.ToString("MMM dd, yyyy")
+                                                                @Model.FinishTime.ToString("MMM dd")
                                                             </h4>
                                                             <p>Bitme Tarixi</p>
                                                         </div>

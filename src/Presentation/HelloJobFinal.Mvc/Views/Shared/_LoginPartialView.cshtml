@@ -2,6 +2,7 @@
 
 <div asp-validation-summary="All"></div>
 <div class="login">
+    @Html.Raw(TempData["Login"])
     <form method="post" asp-action="Login" asp-controller="Account">
         <div class="inputs_lg form-group">
             <label asp-for="UserNameOrEmail"></label>
@@ -19,7 +20,7 @@
                 <input asp-for="IsRemembered">
                 <span>Yadda saxla</span>
             </div>
-            <a class="regs_bopup_open" style="cursor:pointer;">Şifrəni unutmuşam</a>
+            <a asp-action="forgotpassword" asp-controller="account" style="cursor:pointer;">Şifrəni unutmuşam</a>
         </div>
         <div class="buttons_sbmt">
             <div class="login_submit">

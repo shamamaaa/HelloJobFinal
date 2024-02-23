@@ -18,8 +18,14 @@ namespace HelloJobFinal.Application.ViewModels
 
         public List<IncludeCvVm>? WishListCvs { get; set; }
         public List<IncludeVacancyVm>? WishListVacancies { get; set; }
+
         public List<IncludeCvVm>? CvRequests { get; set; }
+        public List<IncludeVacancyVm>? MyVacancyRequests { get; set; }
+
+        public List<IncludeCvVm>? MyCvRequests { get; set; }
         public List<IncludeVacancyVm>? VacancyRequests { get; set; }
+
+        public List<IncludeVacancyRequestVm> VacancyUser { get; set; }
     }
 }
 

@@ -1,4 +1,4 @@
-﻿@model PaginationVm<ItemCvVm>
+﻿@model PaginationVm<CvFilterVM>
 
 @{
     int count = (Model.CurrentPage - 1) * Model.Take;
@@ -50,7 +50,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach (var x in Model.Items)
+                        @foreach (var x in Model.Item.Cvs)
                         {
                             count++;
                             <tr>

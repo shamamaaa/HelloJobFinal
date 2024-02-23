@@ -1,6 +1,129 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    int count = 0;
 }
 
+@{
+    Layout = "_UserLayout";
+}
+@model GetAppUserVM
+<div class="account">
+    @{
+        await Html.RenderPartialAsync("_UserSidebarPartialView");
+    }
+    <div class="account_content">
+        <div class="account_head">
+            <div class="account_head_tools">
+                <a asp-controller="home" asp-action="index"
+                   class="btn btn-site btn-transparent d-none d-md-block">Sayta keçid et</a>
+                <div class="account_head_user">
+                    <a class="profile__header__user__name">
+                        <img src="https://www.hellojob.az/content/assets/images/profile/svg-icons/user.svg"
+                             alt="" />
+                        <span>@User.Identity.Name</span>
+                    </a>
+                    <ul class="account_head_user_drop">
+                        <li><a asp-controller="user" asp-action="index">Panel</a></li>
+                        <li><a asp-controller="account" asp-action="logout">Çıxış</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="account_body">
+            <div class="orders">
+                <div class="title">
+                    <h1>Gözləmədə Olanlar</h1>
+                </div>
+                <div class="myorder">
+                    <div class="container border border-secondary-subtle" style="overflow:auto;">
+                        <p>Gözləmədə olan elanlar</p>
+                        <table class="table caption-top">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col">Ad</th>
+                                    <th scope="col">Soyad</th>
+                                    <th scope="col">E-poçt</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*@foreach (var item in Model.VacancyRequests)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td scope="row">@count</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Surname</td>
+                                        <td>@item.Email</td>
+                                        <td>@(item.Status.Contains(nameof(Status.InProgress)) ? "Gözləmədə" : item.Status)</td>
+                                    </tr>
+                                }*@
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile_account d-md-none d-lg-none">
+    <div class="head ">
+        <div class="hamburgers icons">
+            <i class="bi bi-list"></i>
+        </div>
+        <div class="logo">
+            <div class="image">
+                <img src="./assets/images/night_mode_logo.svg" alt="" />
+            </div>
+        </div>
+        <div class="person icons">
+            <i class="bi bi-person-fill person_icon"></i>
+        </div>
+    </div>
+    <div class="body">
+        @{
+            await Html.RenderPartialAsync("_MobileSidebarPartialView");
+        }
+        <div class="account_content">
+            <div class="account_body">
+                <div class="orders">
+                    <div class="title">
+                        <h1>Gözləmədə Olanlar</h1>
+                    </div>
+                    <div class="myorder">
+                        <div class="container border border-secondary-subtle" style="overflow:auto;">
+                            <p>Gözləmədə olan elanlar</p>
+                            <table class="table caption-top">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">№</th>
+                                        <th scope="col">Ad</th>
+                                        <th scope="col">Soyad</th>
+                                        <th scope="col">E-poçt</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*@foreach (var item in Model.VacancyRequests)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td scope="row">@count</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Surname</td>
+                                            <td>@item.Email</td>
+                                            <td>@(item.Status.Contains(nameof(Status.InProgress)) ? "Gözləmədə" : item.Status)</td>
+                                        </tr>
+                                    }*@
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

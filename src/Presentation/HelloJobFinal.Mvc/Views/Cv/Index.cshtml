@@ -5,11 +5,11 @@
             <div class="search_titles_bottom col-lg-12 col-md-12">
                 <div class="searchbar full">
                     <div class="searchbar_top" style="display: flex;">
-                        <form asp-action="Index" asp-controller="Cv"  asp-route-categoryItemId="@Model.CategoryItemId"
+                        <form name="search" asp-action="Index" asp-controller="Cv"  asp-route-categoryItemId="@Model.CategoryItemId"
                                asp-route-educationId="@Model.EducationId"  asp-route-experienceId="@Model.ExperienceId"
                               asp-route-workingHourId="@Model.WorkingHourId"  asp-route-hasDriverLicense="@Model.HasDriverLicense">
                             <div class="input">
-                                <input type="text" name="search" placeholder="Məsələn, Dizayner">
+                                <input type="text" name="search" value="@(Model.Search == null? "":Model.Search)" placeholder="Məsələn, Dizayner">
                             </div>
                             <button type="submit" class="search_btn"><span>Axtar</span></button>
                         </form>
@@ -33,7 +33,7 @@
                 <div class="filters">
                     <div id="filterForm">
 
-                        <form class="filters_item" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
+                        <form class="filters_item" name="categoryItemId" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
                               asp-route-educationId="@Model.EducationId" asp-route-experienceId="@Model.ExperienceId"
                               asp-route-workingHourId="@Model.WorkingHourId" asp-route-hasDriverLicense="@Model.HasDriverLicense" asp-route-order="@Model.Order">
                             <h3 class="title">İxtisas</h3>
@@ -42,7 +42,7 @@
                                 {
                                     <div class="inputs">
                                         <div class="checkbox">
-                                            <input type="radio" name="categoryItemId" value="@category.Id" class="form-check-input mt-0">
+                                            <input onchange="this.form.submit()" type="radio" name="categoryItemId" value="@category.Id" class="form-check-input mt-0">
                                             <label for="@category.Id">@category.Name</label>
                                         </div>
                                         <div class="count">
@@ -56,66 +56,78 @@
                             </div>
                         </form>
 
-                        <form class="work_mode" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
+                        <form class="work_mode" name="workingHourId" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
                               asp-route-educationId="@Model.EducationId" asp-route-experienceId="@Model.ExperienceId"
                               asp-route-categoryItemId="@Model.CategoryItemId" asp-route-hasDriverLicense="@Model.HasDriverLicense" asp-route-order="@Model.Order">
                             <h3 class="title">İş rejimi</h3>
                             <div class="pro">
                                 @foreach (var wh in Model.Item.WorkingHours)
                                 {
-                                    <div class="inputs">
+                                    <div class="inputs d-flex justify-content-between">
                                         <div class="checkbox">
-                                            <input type="radio" name="workingHourId" value="@wh.Id" class="form-check-input mt-0">
+                                            <input onchange="this.form.submit()" type="radio" name="workingHourId" value="@wh.Id" class="form-check-input mt-0">
                                             <label for="@wh.Id">@wh.Name</label>
                                         </div>
+                                        <div class="count justify-content-end">
+                                            <span class="prof_count">@wh.Cvs.Count</span>
+                                        </div>
                                     </div>
+
                                 }
 
                             </div>
                         </form>
 
-                        <form class="education" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
+                        <form class="education" name="educationId" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
                               asp-route-workingHourId="@Model.WorkingHourId" asp-route-experienceId="@Model.ExperienceId"
                               asp-route-categoryItemId="@Model.CategoryItemId" asp-route-hasDriverLicense="@Model.HasDriverLicense" asp-route-order="@Model.Order">
                             <h3 class="title">Təhsil</h3>
                             <div class="pro">
                                 @foreach (var education in Model.Item.Educations)
                                 {
-                                    <div class="inputs">
+                                    <div class="inputs d-flex justify-content-between">
                                         <div class="checkbox">
-                                            <input type="radio" name="educationId" value="@education.Id" class="form-check-input mt-0">
+                                            <input onchange="this.form.submit()" type="radio" name="educationId" value="@education.Id" class="form-check-input mt-0">
                                             <label for="@education.Id">@education.Name</label>
                                         </div>
+                                        <div class="count justify-content-end">
+                                            <span class="prof_count">@education.Cvs.Count</span>
+                                        </div>
                                     </div>
+
                                 }
                             </div>
                         </form>
 
-                        <form class="seniority" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
+                        <form class="seniority" name="experienceId" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
                               asp-route-workingHourId="@Model.WorkingHourId" asp-route-educationId="@Model.EducationId"
                               asp-route-categoryItemId="@Model.CategoryItemId" asp-route-hasDriverLicense="@Model.HasDriverLicense" asp-route-order="@Model.Order">
                             <h3 class="title">Təhsil</h3>
                             <div class="pro">
                                 @foreach (var experience in Model.Item.Experiences)
                                 {
-                                    <div class="inputs">
+                                    <div class="inputs d-flex justify-content-between">
                                         <div class="checkbox">
-                                            <input type="radio" name="experienceId" value="@experience.Id" class="form-check-input mt-0">
+                                            <input onchange="this.form.submit()" type="radio" name="experienceId" value="@experience.Id" class="form-check-input mt-0">
                                             <label for="@experience.Id">@experience.Name</label>
                                         </div>
+                                        <div class="count justify-content-end">
+                                            <span class="prof_count">@experience.Cvs.Count</span>
+                                        </div>
                                     </div>
+
                                 }
                             </div>
                         </form>
 
-                        <form class="drivers" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
+                        <form class="drivers" name="hasDriverLicense" asp-action="Index" asp-controller="Cv" asp-route-search="@Model.Search"
                               asp-route-workingHourId="@Model.WorkingHourId" asp-route-educationId="@Model.EducationId"
                               asp-route-categoryItemId="@Model.CategoryItemId" asp-route-experienceId="@Model.ExperienceId" asp-route-order="@Model.Order">
                             <h3 class="title">Sürücülük vəsiqəsi</h3>
                             <div class="pro">
                                 <div class="inputs">
                                     <div class="checkbox">
-                                        <input type="checkbox" name="hasDriverLicense" value="Var" id="driverLicenseCheckbox" class="form-check-input mt-0">
+                                        <input onchange="this.form.submit()" type="checkbox" name="hasDriverLicense" value="Var" id="driverLicenseCheckbox" class="form-check-input mt-0">
                                         <label for="driverLicenseCheckbox">Var</label>
                                     </div>
                                 </div>
@@ -131,11 +143,11 @@
 
                     <form class="sorting">
                         <label for="">Sırala</label>
-                        <select name="sort2" id="sort" class="form-control selected">
-                            <option value="new">Yenilər</option>
-                            <option value="old">Köhnələr</option>
-                            <option value="salary_desc">Maaşa görə(çox)</option>
-                            <option value="salary_asc">Maaşa görə(az)</option>
+                        <select name="status" onchange="this.form.submit()" id="sort" class="form-control selected">
+                            @foreach (var status in Enum.GetNames(typeof(Status)))
+                                {
+                            <option value="@status">@status</option>
+                                }
                         </select>
                     </form>
 
@@ -194,9 +206,8 @@
                                         </div>
                                     </div>
                                 </a>
-                                <div class="mx-2">
                                     <div class="mx-2">
-                                        @*@if (item..Any(x => x.Id == item.Id))
+                                        @if (item.CvIds.Any(x => x == item.Id))
                                         {
                                             <a asp-action="DeleteItem" asp-controller="VacancyWishlist" asp-route-id="@item.Id" asp-route-returnUrl="@Context.Request.Path.Value">
                                                 <i class="fa-solid fa-heart liked"></i>
@@ -210,12 +221,11 @@
 
 
                                             </a>
-                                        }*@
+                                        }
 
                                     </div>
 
                                 </div>
-                            </div>
                         }
 
 
